@@ -1,4 +1,4 @@
-# Nablarchスタイルガイド
+# スタイルガイド
 
 本リポジトリではJavaをはじめとする各言語のコーディング規約と、Checkstyle・SpotBugsといった静的解析ツールの導入ガイドを提供します。
 
@@ -20,7 +20,7 @@
 
 ## スタイルガイドをカスタマイズする
 
-本リポジトリではプロジェクトを進めるにあたってすぐに使えるよう過不足の無いガイドを提供しているつもりですが、プロジェクトによっては更に規約を追加したかったり、反対に不要な規約を削除したかったりするでしょう。
+本リポジトリではプロジェクトを進めるにあたってすぐに使えるよう過不足の無いガイドを提供しているつもりですが、プロジェクトによっては更に規約を追加したかったり、反対に不要な規約を削除したかったりするでしょう。また、一部のルールについては[Nablarch](https://fintan.jp/page/1868/)をフレームワークとして使う前提となっているため、他のフレームワークを使うために修正が必要になる場合もあるでしょう。
 
 そのような場合は、本リポジトリをコピーして自由にカスタマイズをしてください。
 
@@ -41,18 +41,18 @@ forkして新しく作成されたリポジトリに対してカスタマイズ�
 ここでは例としてプロジェクトがGitBucketを使用しているとします。
 
 まず、社内のGitBucket上で空のリポジトリを作成してください。
-ここでは`nablarch-style-guide`という名前で空のリポジトリを作成したとします。
+ここでは`coding-standards`という名前で空のリポジトリを作成したとします。
 
 次に、本リポジトリを`clone`してください。
 
 ```console
-git clone https://github.com/nablarch-development-standards/nablarch-style-guide.git
+git clone https://github.com/Fintan-contents/coding-standards.git
 ```
 
 `clone`して出来たローカルリポジトリへ、社内のGitBucketへ作成した空のリポジトリをリモートリポジトリとして追加します。
 
 ```console
-git remote add intra http://localhost:8080/git/example-group/nablarch-style-guide.git
+git remote add intra http://localhost:8080/git/example-group/coding-standards.git
 ```
 
 最後に、追加したリモートリポジトリへ`push`します。

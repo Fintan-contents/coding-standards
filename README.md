@@ -1,6 +1,7 @@
 # スタイルガイド
 
 本リポジトリではJavaをはじめとする各言語のコーディング規約と、Checkstyle・SpotBugsといった静的解析ツールの導入ガイドを提供します。
+いずれも[Nablarch](https://fintan.jp/page/1868/)をフレームワークとして使う前提で作成されていますが、シェルスクリプトスタイルガイドを除き大部分が他のフレームワークにも流用可能です。
 
 - [Javaスタイルガイド](./java/README.md)
 - [JavaScriptスタイルガイド](./js/README.md)

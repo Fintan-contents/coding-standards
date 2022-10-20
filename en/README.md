@@ -1,7 +1,7 @@
 # Style Guide
 
 This repository provides coding conventions for Java and other languages, and an introduction guide to static analysis tools such as Checkstyle and SpotBugs.
-They are all designed to use [Nablarch](https://fintan.jp/page/1868/) as a framework, but with the exception of Shell Script Style Guide, most of them can be adapted to other frameworks.
+They are all designed to use [Nablarch](https://fintan.jp/en/page/1954/) as a framework, but with the exception of Shell Script Style Guide, most of them can be adapted to other frameworks.
 
 - [Java Style Guide](./java/README.md)
 - [JavaScript Style Guide](./js/README.md)
@@ -11,17 +11,17 @@ They are all designed to use [Nablarch](https://fintan.jp/page/1868/) as a frame
 
 ## License
 
-The documents in this repository are provided under the <a href="https://fintan.jp/en/page/1890/"> Fintan Content License Terms And Conditions</a>.
+The documents in this repository are provided under the [Fintan Content License Terms And Conditions](https://fintan.jp/en/page/1890/).
 
 The following files and sample projects are provided under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). 
 
-- [Java code formatter](./java/assets/nablarch-code-formatter.xml)
+- [Java code formatter](./java/assets/standard-code-formatter.xml)
 - Sample projects stored under `java/staticanalysis/checkstyle/checkstyle-example/`. 
 - Sample projects stored under `java/staticanalysis/spotbugs/spotbugs-example/`.
 
 ## Customize the style guide
 
-While this repository will provide a complete guide to help you get started with your project, depending on the project, you may want to add more conventions or remove unnecessary conventions.Also, some of the rules are based on the assumption that [Nablarch](https://fintan.jp/page/1868/) is used as a framework, and may need to be modified to use other frameworks.
+While this repository will provide a complete guide to help you get started with your project, depending on the project, you may want to add more conventions or remove unnecessary conventions.Also, some of the rules are based on the assumption that [Nablarch](https://fintan.jp/en/page/1954/) is used as a framework, and may need to be modified to use other frameworks.
 
 In such cases, you are free to copy and customize this repository.
 

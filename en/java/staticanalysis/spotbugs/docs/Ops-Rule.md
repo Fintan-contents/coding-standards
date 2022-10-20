@@ -32,7 +32,7 @@ Even in such cases, the exclusion settings should be localized so that only spec
 
 ### Exclusion method using filter files
 
-SpotBugs uses an XML file called [Filter File](http://spotbugs.readthedocs.io/ja/latest/filter.html) to exclude certain classes from being checked. 
+SpotBugs uses an XML file called [Filter File](http://spotbugs.readthedocs.io/en/latest/filter.html) to exclude certain classes from being checked. 
 If SpotBugs is installed according to [How to run SpotBugs with Maven](./Maven-settings.md), the filter file is located in `spotbugs/spotbugs_exclude_for_production.xml`.
 
 Exclusion requests from developers are received and managed by an issue management system such as Redmine.
@@ -78,7 +78,7 @@ The `name` attribute value is a regular expression if it starts with a tilde (`~
 
 `Method` element is available in the setting example for excluding the unauthorized API check, and it is set to be excluded from the check for each method.
 
-For more details, see [Filter File Description on Official Website](http://spotbugs.readthedocs.io/ja/latest/filter.html).
+For more details, see [Filter File Description on Official Website](http://spotbugs.readthedocs.io/en/latest/filter.html).
 
 When setting up exclusions, you can track the history later with the following steps.
 

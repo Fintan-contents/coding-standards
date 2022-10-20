@@ -6,8 +6,8 @@ The contents of this document have been verified with Maven 3.5.2.
 
 ## Incorporate Checkstyle configuration file into the project
 
-Include [nablarch-checkstyle.xml](../checkstyle-example/checkstyle/standard-checkstyle.xml) in any folder under the project directory. 
-Assume that it is placed in `${basedir}/checkstyle/nablarch-checkstyle.xml`.
+Include [standard-checkstyle.xml](../checkstyle-example/checkstyle/standard-checkstyle.xml) in any folder under the project directory. 
+Assume that it is placed in `${basedir}/checkstyle/standard-checkstyle.xml`.
 
 Then place [header.txt](../checkstyle-example/checkstyle/header.txt) and [suppressions.xml](../checkstyle-example/checkstyle/suppressions.xml) in the directory where `standard-checkstyle.xml` is placed.
 `header.txt` is used to check whether a predetermined header, such as license information, is listed in the source file. 

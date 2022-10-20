@@ -42,7 +42,7 @@
         </dependencies>
         <configuration>
           <!-- Path to Checkstyle setting file -->
-          <configLocation>${basedir}/checkstyle/nablarch-checkstyle.xml</configLocation>
+          <configLocation>${basedir}/checkstyle/standard-checkstyle.xml</configLocation>
           <propertyExpansion>config_loc=${basedir}/checkstyle/</propertyExpansion>
         </configuration>
       </plugin>

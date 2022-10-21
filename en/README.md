@@ -11,7 +11,7 @@ They are all designed to use [Nablarch](https://fintan.jp/en/page/1954/) as a fr
 
 ## License
 
-The documents in this repository are provided under the [Fintan Content License Terms And Conditions](https://fintan.jp/en/page/1890/).
+The documents in this repository are provided under the [Fintan Content License Terms And Conditions](https://fintan.jp/en/page/1890/#FintanContentLicenseTermsAndConditions).
 
 The following files and sample projects are provided under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). 
 

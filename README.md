@@ -11,7 +11,7 @@
 
 ## ライセンス
 
-本リポジトリ内のドキュメントは[Fintan コンテンツ 使用許諾条項](https://fintan.jp/page/295/)の下に提供されています。
+本リポジトリ内のドキュメントは[Fintan コンテンツ 使用許諾条項](https://fintan.jp/page/295/#Fintanコンテンツ使用許諾条項)の下に提供されています。
 
 また次に示すファイルやサンプルプロジェクトは [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) の下に提供されています。
 

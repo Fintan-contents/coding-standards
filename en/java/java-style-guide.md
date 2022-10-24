@@ -81,7 +81,7 @@
 
 These conventions explain rules that should be followed by application programmers and guidelines for writing better code in projects that develop applications using Java.
 
-Basically, it is not limited to a specific framework and can be used universally, but for [9. Nablarch Library](#9nablarch-library), please refer to [Nablarch Application Framework](https://nablarch.github.io/docs/LATEST/doc/en/index.html). If you use other frameworks, please delete the item.
+Basically, it is not limited to a specific framework and can be used universally, but for [9. Nablarch Library](#9nablarch-library), please refer to [Nablarch Application Framework](https://fintan.jp/en/page/1954/). If you use other frameworks, please delete the item.
 
 Also, the text mentions [Unauthorized API Check Tool](./staticanalysis/unpublished-api/README.md).
 This tool is a framework-independent tool that detects the use of unauthorized APIs. When using this tool, it is necessary to prepare a configuration file to set up a whitelist of APIs that are allowed to be used.

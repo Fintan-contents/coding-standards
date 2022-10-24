@@ -6,7 +6,7 @@ However, the majority of the conventions are Nablarch-independent, and the Nabla
 
 - 2.1.1. Exceptions when using extended functions in Nablarch application framework
 - 2.2. Format of SQL statement
-    - Can be used outside of Nablarch except that it begins with SQL_ID=.
+    - Only one sentence of  "Write from SQL_ID to "=" in a single line." is assumed to be Nablarch. Excluding this sentence, it can be used for frameworks other than Nablarch.
 - 2.2.1. Structure of SQL file
 - 4.7. When value specified for the condition value or update value is fixed
     - The convention itself does not depend on Nablarch, but the SQL in the example uses Nablarch's own named bind parameters. It can be diverted by modifying the example.

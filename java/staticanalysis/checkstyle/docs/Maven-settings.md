@@ -6,10 +6,10 @@
 
 ## Checkstyleの設定ファイルをプロジェクトへ組み込む
 
-プロジェクトのディレクトリ以下の任意の場所へ[nablarch-checkstyle.xml](../checkstyle-example/checkstyle/nablarch-checkstyle.xml)を配置してください。
-ここでは`${basedir}/checkstyle/nablarch-checkstyle.xml`に配置したと仮定します。
+プロジェクトのディレクトリ以下の任意の場所へ[standard-checkstyle.xml](../checkstyle-example/checkstyle/standard-checkstyle.xml)を配置してください。
+ここでは`${basedir}/checkstyle/standard-checkstyle.xml`に配置したと仮定します。
 
-次に`nablarch-checkstyle.xml`を配置したディレクトリへ[header.txt](../checkstyle-example/checkstyle/header.txt)と[suppressions.xml](../checkstyle-example/checkstyle/suppressions.xml)も配置してください。
+次に`standard-checkstyle.xml`を配置したディレクトリへ[header.txt](../checkstyle-example/checkstyle/header.txt)と[suppressions.xml](../checkstyle-example/checkstyle/suppressions.xml)も配置してください。
 `header.txt`はライセンス情報など、決められたヘッダーがソースファイルに記載されているかチェックするためのものです。
 `header.txt`の内容はプロジェクトで決められたヘッダーに書き換えてください。
 
@@ -32,7 +32,7 @@
   </dependencies>
   <configuration>
     <!-- Checkstyle設定ファイルへのパス -->
-    <configLocation>${basedir}/checkstyle/nablarch-checkstyle.xml</configLocation>
+    <configLocation>${basedir}/checkstyle/standard-checkstyle.xml</configLocation>
     <propertyExpansion>config_loc=${basedir}/checkstyle/</propertyExpansion>
   </configuration>
 </plugin>
@@ -41,7 +41,7 @@
 設定ファイルが`pom.xml`へ記載されたパスに存在しない場合、後述する方法でチェックを実施しようとすると次のようなエラーが出ます。
 
 ```
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.0.0:check (default-cli) on project checkstyle-example: Failed during checkstyle execution: Unable to find configuration file at location: C:\example\checkstyle-example/checkstyle/nablarch-checkstyle.xml: Could not find resource 'C:\example\checkstyle-example/checkstyle/nablarch-checkstyle.xml'. -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.0.0:check (default-cli) on project checkstyle-example: Failed during checkstyle execution: Unable to find configuration file at location: C:\example\checkstyle-example/checkstyle/standard-checkstyle.xml: Could not find resource 'C:\example\checkstyle-example/checkstyle/standard-checkstyle.xml'. -> [Help 1]
 ```
 
 このようなエラーが出た場合は`pom.xml`に記載されたパスと実際のファイル配置を確認してください。
@@ -58,7 +58,7 @@ mvn checkstyle:check
 
 ```
 [INFO] --- maven-checkstyle-plugin:3.0.0:check (default-cli) @ checkstyle-example ---
-[INFO] There is 1 error reported by Checkstyle 6.18 with C:\example\checkstyle-example/checkstyle/nablarch-checkstyle.xml ruleset.
+[INFO] There is 1 error reported by Checkstyle 6.18 with C:\example\checkstyle-example/checkstyle/standard-checkstyle.xml ruleset.
 [ERROR] src\main\java\com\example\App.java:[9,5] (javadoc) JavadocMethod: Javadoc コメントがありません。
 ```
 

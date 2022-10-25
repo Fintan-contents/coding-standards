@@ -2,13 +2,13 @@
 
 プロジェクトですぐに使えるコードフォーマッターを提供します。
 
-- [コードフォーマッター](assets/nablarch-code-formatter.xml)
+- [コードフォーマッター](assets/standard-code-formatter.xml)
 
 コードフォーマッターはEclipseの形式です。
 
 IntelliJ IDEAを使用しているプロジェクトは次のページを参考にしてインポートしてください。
 
-- [IntelliJ IDEA 13ではEclipseのコードフォーマット設定のインポートが可能に | JetBrains ブログ](https://blog.jetbrains.com/jp/2014/01/31/383)
+- [インポートおよびエクスポートスキーム](https://pleiades.io/help/idea/configuring-code-style.html#import-export-schemes)
 
 ## ライセンス
 

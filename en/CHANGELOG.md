@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.2 (2022-10-31)
+
+- NablarchDependencies are clearly indicated, and the concept of diverting to other frameworks is described.
 
 ## 3.1 (2022-03-31)
 

@@ -81,7 +81,12 @@
 
 These conventions explain rules that should be followed by application programmers and guidelines for writing better code in projects that develop applications using Java.
 
-Though these conventions include some items that are based on [Nablarch Application Framework](https://nablarch.github.io/docs/LATEST/doc/index.html), most of the items can be used generically without being limited to a specific framework.
+Basically, it is not limited to a specific framework and can be used universally, but for [9. Nablarch Library](#9nablarch-library), please refer to [Nablarch Application Framework](https://fintan.jp/en/page/1954/). If you use other frameworks, please delete the item.
+
+Also, the text mentions [Unauthorized API Check Tool](./staticanalysis/unpublished-api/README.md).
+This tool is a framework-independent tool that detects the use of unauthorized APIs. When using this tool, it is necessary to prepare a configuration file to set up a whitelist of APIs that are allowed to be used.
+If you use Nablarch Application Framework, you need to prepare a [configuration file](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/) describing available APIs.
+If you are using other frameworks and wish to use Unauthorized API Check Tool, please create the necessary configuration files.
 
 ### <a name="no1-1">1.1.Prerequisites</a>
 
@@ -840,7 +845,7 @@ public class ItemList {
 
 In the above example, when `items` is changed, it is better to change the `totalPrice` should at the same time.
 
-```
+```java
 //OK
 public class ItemList {
 
@@ -868,7 +873,7 @@ public class ItemList {
 
 Without holding the total value as a state, it is also a good idea to calculate it every time in `getTotalPrice`.
 
-```
+```java
 //OK
 public class ItemList {
 
@@ -1592,7 +1597,7 @@ Hence, it is easy to understand what process is required for each element.
 |`map`|Converts elements|`stream.map(x -> x.getClass()) //Converts to Class`|
 |`collect`|Converts to`Stream` using `Collector`|`stream.collect(Collectors.joining(", ")) //Converts elements to comma separated strings`|
 
-For other methods, check [`java.util.stream.Stream`のJavadoc](https://docs.oracle.com/javase/jp/10/docs/api/java/util/stream/Stream.html).
+For other methods, check [the Javadoc of`java.util.stream.Stream`](https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html).
 
 A code example that uses Stream API and a code example that uses the enhanced for statement are shown below.
 In both cases, the average age is calculated from the list of employees by narrowing the list down to only those employees whose job type is programmer.

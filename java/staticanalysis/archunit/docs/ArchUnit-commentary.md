@@ -27,11 +27,9 @@ ArchRuleDefinition.classes().that().haveSimpleNameEndingWith("Action").should().
 
 このチェックを行ったときにクラス名の末尾が `Action` であるのにパッケージプライベートであるクラスが存在すると違反をおかしていることになります。
 
-ちなみに、上記の内容をJUnit4で実行可能なテストとした場合、以下のようになります。
+ちなみに、上記の内容をJUnit 5で実行可能なテストとした場合、以下のようになります。
 
 ```java
- 
-@RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "com.nablarch.example.proman")
 public class ActionRuleTest {
 
@@ -88,7 +86,8 @@ public class ExampleRuleTest {
 ArchRuleDefinition.fields().that().haveRawType(DaoContext.class)
                 .should().bePrivate()
                 .andShould().beFinal()
-                .andShould().notBeStatic();
+                .andShould().notBeStatic()
+                .allowEmptyShould(true);
 ```
 
 次の例では、クラス名の末尾がActionの場合、BatchActionを継承していることをチェックします。
@@ -140,6 +139,7 @@ actionパッケージのみ他のパッケージに依存できるものとし�
 
 ```java
 Architectures.layeredArchitecture()
+    .consideringAllDependencies()
     .layer("Action").definedBy("..action..")
     .layer("Service").definedBy("..service..")
     .layer("Form").definedBy("..form..")

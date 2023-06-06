@@ -73,7 +73,7 @@ If the test target is a class (including layers), then the argument to `and()` (
 public static final ArchRule actionClassMustInheritFromBatchAction. =
         ArchRuleDefinition.classes()
         .that().haveSimpleNameEndingWith("Action")
-        .and().doNotBelongToAnyOf(PromanExampleAction.class, PromanServiceAction.class)  // #12345,12346
+        .and().doNotBelongToAnyOf(PromanExampleAction.class, PromanServiceAction.class) // #12345,12346
         .should().beAssignableTo(BatchAction.class);
 ```
 

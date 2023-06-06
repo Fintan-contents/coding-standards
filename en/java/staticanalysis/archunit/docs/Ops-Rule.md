@@ -64,10 +64,6 @@ After specifying the test target, additional conditions can be specified by usin
 
 By specifying the class name in the `doNotBelongToAnyOf` method, you can exclude the target class and its internally defined classes from being tested.
 
-By specifying class name in the `doNotBelongToAnyOf` method, you can exclude the class in question and classes defined within the class in question from being tested.
-
-If the test target is a class (including layers), then the argument to `and()` (or `that()` if there is no `that()` to begin with) is `DescribedPredicate.not(JavaClass.Predicates.belongToAnyOf(Excluded Exclude classes 1, 2, and so on...)]` to set up the exclusion.
-
 ``` java
 @ArchTest
 public static final ArchRule actionClassMustInheritFromBatchAction. =

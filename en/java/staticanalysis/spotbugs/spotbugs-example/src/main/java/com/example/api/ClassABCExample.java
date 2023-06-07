@@ -1,7 +1,7 @@
 package com.example.api;
 
 /**
- * 使用不許可APIチェックのコード例です。
+ * Example of Unauthorized API check code.
  */
 public class ClassABCExample {
 

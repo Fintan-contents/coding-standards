@@ -1,7 +1,7 @@
 package com.example;
 
 /**
- * ES_COMPARING_STRINGS_WITH_EQ のコード例です。
+ * Example of ES_COMPARING_STRINGS_WITH_EQ code.
  */
 public class ComparingStringsWithEq {
 

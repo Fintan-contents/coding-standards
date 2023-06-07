@@ -3,7 +3,7 @@ package com.example.secure;
 import java.util.Random;
 
 /**
- * PREDICTABLE_RANDOM のコード例です。
+ * Example of PREDICTABLE_RANDOM code.
  */
 public class PredictableRandom {
 

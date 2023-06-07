@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * ParameterNameのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class ParameterNameExample {
 

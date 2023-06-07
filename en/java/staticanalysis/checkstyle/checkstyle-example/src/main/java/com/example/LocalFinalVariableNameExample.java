@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * Example of LocalFinalVariableName code.
- *
- * @author example
- * @since 1.0.0
  */
 public class LocalFinalVariableNameExample {
 

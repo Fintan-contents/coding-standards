@@ -7,9 +7,6 @@ import static java.lang.System.out;
 
 /**
  * AvoidStaticImportのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class AvoidStaticImportExample {
 

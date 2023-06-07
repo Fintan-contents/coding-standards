@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * NoWhitespaceBeforeのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class NoWhitespaceBeforeExample {
 
@@ -25,4 +22,3 @@ public class NoWhitespaceBeforeExample {
         List<String> list = Arrays.asList("foo", "bar", "buz");
     }
 }
-

@@ -9,8 +9,6 @@ package com.example;
  * 型パラメーターが大文字アルファベット1文字（OK）。
  *
  * @param <T> 型パラメーター
- * @author example
- * @since 1.0.0
  */
 public class ClassTypeParameterNameExample<T> {
 }
@@ -19,8 +17,6 @@ public class ClassTypeParameterNameExample<T> {
  * 2文字以上の名前（NG）。
  *
  * @param <FOO> 型パラメーター
- * @author example
- * @since 1.0.0
  */
 class NgClassTypeParameterNameExample1<FOO> {
 }
@@ -29,8 +25,6 @@ class NgClassTypeParameterNameExample1<FOO> {
  * 小文字アルファベットの名前（NG）。
  *
  * @param <t> 型パラメーター
- * @author example
- * @since 1.0.0
  */
 class NgClassTypeParameterNameExample2<t> {
 }

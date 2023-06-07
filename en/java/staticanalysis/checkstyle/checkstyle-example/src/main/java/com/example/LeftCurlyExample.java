@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * Example of LeftCurly code.
- *
- * @author example
- * @since 1.0.0
  */
 public class LeftCurlyExample {
 

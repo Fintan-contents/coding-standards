@@ -7,8 +7,6 @@ package com.example;
  * MethodTypeParameterNameのコード例です。
  *
  * @param <T> 型パラメーター
- * @author example
- * @since 1.0.0
  */
 public class MethodTypeParameterNameExample<T> {
 

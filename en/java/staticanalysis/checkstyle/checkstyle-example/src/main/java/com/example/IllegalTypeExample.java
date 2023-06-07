@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * Example of IllegalType code.
- * 
- * @author example
- * @since 1.0.0
  */
 public class IllegalTypeExample {
 
@@ -30,4 +27,3 @@ public class IllegalTypeExample {
         System.out.println(ng);
     }
 }
-

@@ -11,9 +11,6 @@ import java.util.Map;
 
 /**
  * GenericWhitespaceのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class GenericWhitespaceExample {
 
@@ -30,4 +27,3 @@ public class GenericWhitespaceExample {
         Map<String, Integer> goodToo = new HashMap<>();
     }
 }
-

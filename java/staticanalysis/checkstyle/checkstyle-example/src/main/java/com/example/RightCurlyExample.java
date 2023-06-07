@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * RightCurlyのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class RightCurlyExample {
 
@@ -34,4 +31,3 @@ public class RightCurlyExample {
         }
     }
 }
-

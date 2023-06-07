@@ -57,10 +57,6 @@
     <module name="IllegalThrows">
       <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable, java.lang.RuntimeException, java.lang.Error"/>
     </module>
-    <module name="IllegalType">
-      <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF"/>
-      <property name="illegalClassNames" value="java.util.Hashtable, java.util.HashSet, java.util.HashMap, java.util.ArrayList, java.util.LinkedList, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.TreeSet, java.util.TreeMap, java.util.Vector, java.util.IdentityHashMap, java.util.WeakHashMap, java.util.EnumMap, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.CopyOnWriteArrayList, java.util.concurrent.CopyOnWriteArraySet, java.util.EnumSet, java.util.PriorityQueue, java.util.concurrent.ConcurrentLinkedQueue, java.util.concurrent.LinkedBlockingQueue, java.util.concurrent.ArrayBlockingQueue, java.util.concurrent.PriorityBlockingQueue, java.util.concurrent.DelayQueue, java.util.concurrent.SynchronousQueue"/>
-    </module>
     <module name="Indentation">
       <property name="caseIndent" value="0"/>
     </module>

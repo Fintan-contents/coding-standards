@@ -877,7 +877,7 @@ Javadocコメントは、コードの読み手にとって重要な情報とな�
 ## LambdaParameterName
 
 ```xml
-<module name="LocalVariableName"/>
+<module name="LambdaParameterName"/>
 ```
 
 ラムダ式の引数の名前をチェックします。

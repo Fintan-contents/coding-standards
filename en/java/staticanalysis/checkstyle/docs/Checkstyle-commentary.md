@@ -876,7 +876,7 @@ In the above settings, variables in the `public` scope will be checked.
 ## LambdaParameterName
 
 ```xml
-<module name="LocalVariableName"/>
+<module name="LambdaParameterName"/>
 ```
 
 Check the name of the lambda expression argument.

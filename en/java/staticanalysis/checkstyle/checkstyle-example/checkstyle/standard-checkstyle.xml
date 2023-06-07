@@ -37,6 +37,9 @@
     <module name="ArrayTypeStyle"/>
     <module name="AvoidStarImport"/>
     <module name="AvoidStaticImport"/>
+    <module name="CatchParameterName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+    </module>
     <module name="ClassTypeParameterName"/>
     <module name="ConstantName">
       <property name="format" value="^[A-Z](_?[A-Z0-9]+)*$"/>
@@ -104,12 +107,7 @@
     <module name="TodoComment">
       <property name="format" value="TODO\s+"/>
     </module>
-    <module name="TypeName">
-      <property name="tokens" value="CLASS_DEF"/>
-    </module>
-    <module name="TypeName">
-      <property name="tokens" value="INTERFACE_DEF"/>
-    </module>
+    <module name="TypeName"/>
     <module name="UnusedImports"/>
     <module name="UpperEll"/>
     <module name="VisibilityModifier"/>

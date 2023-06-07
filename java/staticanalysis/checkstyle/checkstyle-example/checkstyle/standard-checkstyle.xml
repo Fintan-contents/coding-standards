@@ -99,6 +99,8 @@
       <property name="format" value="^[a-z]+(\.[a-z_][a-z0-9_]*)*$"/>
     </module>
     <module name="ParameterName"/>
+    <module name="RecordComponentName"/>
+    <module name="RecordTypeParameterName"/>
     <module name="RedundantImport"/>
     <module name="RightCurly"/>
     <module name="SimplifyBooleanExpression"/>

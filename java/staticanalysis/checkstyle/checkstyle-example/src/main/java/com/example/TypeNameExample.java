@@ -21,3 +21,22 @@ class ngClassName {
  */
 interface ngInterfaceName {
 }
+
+/**
+ * 先頭が小文字のアルファベットの列挙名（NG）。
+ */
+enum ngEnumName {
+}
+
+/**
+ * 先頭が小文字のアルファベットのアノテーション名（NG）。
+ */
+@interface ngAnnotationName {
+}
+
+/**
+ * 先頭が小文字のアルファベットのレコード名（NG）。
+ *
+ * @param x レコードコンポーネント
+ */
+record ngRecordComponentName(String x) { }

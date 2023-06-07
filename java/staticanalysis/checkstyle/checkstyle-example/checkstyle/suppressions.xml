@@ -6,5 +6,5 @@
 <suppressions>
   <!-- JavaDocのチェックを抑止する設定例 -->
   <suppress checks="(JavadocMethod|WriteTagCheck)"
-            files="com[\\/]example[\\/]suppression[\\/]SuppressionExample.java" />
+            files="com[\\/]example[\\/]suppression[\\/]SuppressionFilterExample.java" />
 </suppressions>

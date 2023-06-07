@@ -69,7 +69,7 @@ ArchUnitではクラスパス・モジュールパスに含まれるクラスか
 public static final ArchRule ActionクラスはBatchActionを継承していること =
         ArchRuleDefinition.classes()
         .that().haveSimpleNameEndingWith("Action")
-        .and().doNotBelongToAnyOf(PromanExampleAction.class, PromanServiceAction.class)
+        .and().doNotBelongToAnyOf(PromanExampleAction.class, PromanServiceAction.class) // #12345,12346
         .should().beAssignableTo(BatchAction.class);
 ```
 
@@ -80,7 +80,7 @@ public static final ArchRule ActionクラスはBatchActionを継承している�
 public static final ArchRule DaoContextを引数にとるメソッドはパッケージプライベートであること =
         ArchRuleDefinition.methods()
         .that().haveRawParameterTypes(DaoContext.class)
-        .and().areNotDeclaredIn(PromanExamAction.class)
+        .and().areNotDeclaredIn(PromanExamAction.class) // #1234
         .should().bePackagePrivate();
 ```
 

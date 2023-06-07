@@ -83,7 +83,7 @@ If there is a check violation, the following points are output to the console:
 [INFO] BugInstance size is 1
 [INFO] Error size is 0
 [INFO] Total bugs: 1
-[ERROR] Medium: String オブジェクトを == や != を使用して比較しています。com.example.ComparingStringsWithEq.example() [com.example.ComparingStringsWithEq] 該当箇所 ComparingStringsWithEq.java:[line 11] ES_COMPARING_STRINGS_WITH_EQ
+[ERROR] Medium: Comparison of String objects using == or != in com.example.ComparingStringsWithEq.example() [com.example.ComparingStringsWithEq] At ComparingStringsWithEq.java:[line 11] ES_COMPARING_STRINGS_WITH_EQ
 ```
 
 If all checks are passed, they are output to the console as follows:

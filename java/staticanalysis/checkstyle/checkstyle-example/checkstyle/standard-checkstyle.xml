@@ -154,31 +154,6 @@
       <property name="tagSeverity" value="ignore"/>
     </module>
 
-    <module name="CovariantEquals">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="DeclarationOrder">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="FinalLocalVariable">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="FinalParameters">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="MagicNumber">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="MissingCtor">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="SuperClone">
-      <property name="severity" value="ignore"/>
-    </module>
-    <module name="SuperFinalize">
-      <property name="severity" value="ignore"/>
-    </module>
-
     <!-- コメントによるCheckstyle除外設定 -->
     <module name="SuppressWithNearbyCommentFilter">
       <!--
@@ -214,4 +189,3 @@
     <property name="optional" value="false"/>
   </module>
 </module>
-

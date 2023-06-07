@@ -16,10 +16,7 @@ public class TodoCommentExample {
     public void example() {
         // TODOコメントが残っています（NG）。
         // TODO 処理が複雑なので後でリファクタリングが必要!
-
-        // (以下、複雑な処理が延々と続く...)
     }
 
 
 }
-

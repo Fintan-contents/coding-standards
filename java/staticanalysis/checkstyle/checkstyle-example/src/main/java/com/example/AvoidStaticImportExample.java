@@ -17,11 +17,10 @@ public class AvoidStaticImportExample {
      * AvoidStaticImportのコード例です。
      */
     public void example() {
-        // static importを使用しています（OK）
+        // static importを使用しています（NG）
         out.println("Hello World!");
 
         // static importを使用していません（OK）
         System.out.println("Hello World!");
     }
 }
-

@@ -18,9 +18,8 @@ public class LocalFinalVariableNameExample {
         // Local variable modified as final is named in UPPER_SNAKE_CASE (incorrect).
         final String VERY_IMPORTANT_MESSAGE = "Hello";
 
-        // Local variable modified as final is named in lowerCamelCase (incorrect).
+        // Local variable modified as final is named in lowerCamelCase (OK).
         final String veryImportantMessage = "Goodbye";
     }
 
 }
-

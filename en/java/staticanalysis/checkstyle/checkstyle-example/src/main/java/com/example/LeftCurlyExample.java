@@ -25,7 +25,7 @@ public class LeftCurlyExample {
         }
 
         try
-        {
+        {               // Curly bracket is not at the end of the line (incorrect).
 
         } catch (IllegalArgumentException e)
         {               // Curly bracket is not at the end of the line (incorrect).
@@ -36,4 +36,3 @@ public class LeftCurlyExample {
         }
     }
 }
-

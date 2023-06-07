@@ -18,9 +18,8 @@ public class LocalFinalVariableNameExample {
         // final修飾されたローカル変数をUPPER_SNAKE_CASEで命名しています（NG）。
         final String VERY_IMPORTANT_MESSAGE = "こんにちは";
 
-        // final修飾されたローカル変数をlowerCamelCaseで命名しています（NG）。
+        // final修飾されたローカル変数をlowerCamelCaseで命名しています（OK）。
         final String veryImportantMessage = "さようなら";
     }
 
 }
-

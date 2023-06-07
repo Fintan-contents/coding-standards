@@ -23,10 +23,9 @@ public class StringLiteralEqualityExample {
         }
 
         // 文字列をequalsで比較しています（OK）。
-        if (s.equals("something")) {
+        if ("something".equals(s)) {
             
         }
 
     }
 }
-

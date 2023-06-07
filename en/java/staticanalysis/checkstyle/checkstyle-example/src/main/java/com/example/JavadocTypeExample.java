@@ -6,8 +6,8 @@ package com.example;
 /**
  * Example of JavadocType code.
  *
+ * @param <T> type parameter
  * @author example
- * Example of @param <T> type parameter
  * @since 1.0.0
  */
 public class JavadocTypeExample<T> {

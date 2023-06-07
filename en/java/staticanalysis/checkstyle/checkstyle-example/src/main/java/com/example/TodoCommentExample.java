@@ -14,12 +14,9 @@ public class TodoCommentExample {
      * Example of TodoComment code.
      */
     public void example() {
-        // A TODO comment is left (incorrect).
+        // A TO DO comment is left (incorrect).
         // TODO process is too complicated - refactor afterwards!
-
-        // (prolonged, complicated process continues below...)
     }
 
 
 }
-

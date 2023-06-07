@@ -23,10 +23,9 @@ public class StringLiteralEqualityExample {
         }
 
         // Character string is compared with equals (OK).
-        if (s.equals("something")) {
+        if ("something".equals(s)) {
             
         }
 
     }
 }
-

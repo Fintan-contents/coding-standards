@@ -1,3 +1,6 @@
+/*
+ * Header example
+ */
 package com.example;
 
 /**

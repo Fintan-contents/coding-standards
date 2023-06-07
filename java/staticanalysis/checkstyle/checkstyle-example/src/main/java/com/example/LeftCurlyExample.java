@@ -25,7 +25,7 @@ public class LeftCurlyExample {
         }
 
         try
-        {
+        {               // 中括弧が行末にありません（NG）。
 
         } catch (IllegalArgumentException e)
         {               // 中括弧が行末にありません（NG）。
@@ -36,4 +36,3 @@ public class LeftCurlyExample {
         }
     }
 }
-

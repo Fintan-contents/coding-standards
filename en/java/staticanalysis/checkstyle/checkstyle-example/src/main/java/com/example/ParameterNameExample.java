@@ -18,7 +18,8 @@ public class ParameterNameExample {
      * @param bad_name An underscore is used (incorrect)
      * @param goodName Name follows the rules (OK)
      */
-    public void example(String BadName, String bad_name, String goodName) {
+    public void example(String BadName,
+                        String bad_name,
+                        String goodName) {
     }
 }
-

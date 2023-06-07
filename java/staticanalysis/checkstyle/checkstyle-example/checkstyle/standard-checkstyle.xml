@@ -20,7 +20,7 @@
   </module>
   <module name="FileTabCharacter"/>
   <module name="Header">
-    <property name="headerFile" value="${config_loc}header.txt"/>
+    <property name="headerFile" value="${config_loc}/header.txt"/>
   </module>
   <module name="TreeWalker">
     <!-- コメントによるCheckstyle除外設定 -->

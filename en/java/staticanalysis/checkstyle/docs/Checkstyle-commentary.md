@@ -29,7 +29,6 @@ The table of contents is given below.
 - [HideUtilityClassConstructor](#hideutilityclassconstructor)
 - [IllegalCatch](#illegalcatch)
 - [IllegalThrows](#illegalthrows)
-- [IllegalType](#illegaltype)
 - [Indentation](#indentation)
 - [InnerAssignment](#innerassignment)
 - [InterfaceTypeParameterName](#interfacetypeparametername)
@@ -577,52 +576,6 @@ If these are declared in `throws`, then it will be Not OK.
 
 These are generic and lack the information to identify the cause of the exception or error.
 If an exception is `thrown` in the application, be sure to select a specific type and declare the specific type in `throws` (OK).
-
-## IllegalType
-
-```xml
-<module name="IllegalType">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF"/>
-  <property name="illegalClassNames" value="java.util.Hashtable, java.util.HashSet, java.util.HashMap, java.util.ArrayList, java.util.LinkedList, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.TreeSet, java.util.TreeMap, java.util.Vector, java.util.IdentityHashMap, java.util.WeakHashMap, java.util.EnumMap, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.CopyOnWriteArrayList, java.util.concurrent.CopyOnWriteArraySet, java.util.EnumSet, java.util.PriorityQueue, java.util.concurrent.ConcurrentLinkedQueue, java.util.concurrent.LinkedBlockingQueue, java.util.concurrent.ArrayBlockingQueue, java.util.concurrent.PriorityBlockingQueue, java.util.concurrent.DelayQueue, java.util.concurrent.SynchronousQueue"/>
-</module>
-```
-
-Check that the specified type has not been used.
-
-Do not use the classes listed below as variable types, return types, or parameter types.
-
-- `java.util.Hashtable`
-- `java.util.HashSet`
-- `java.util.HashMap`
-- `java.util.ArrayList`
-- `java.util.LinkedList`
-- `java.util.LinkedHashMap`
-- `java.util.LinkedHashSet`
-- `java.util.TreeSet`
-- `java.util.TreeMap`
-- `java.util.Vector`
-- `java.util.IdentityHashMap`
-- `java.util.WeakHashMap`
-- `java.util.EnumMap`
-- `java.util.concurrent.ConcurrentHashMap`
-- `java.util.concurrent.CopyOnWriteArrayList`
-- `java.util.concurrent.CopyOnWriteArraySet`
-- `java.util.EnumSet`
-- `java.util.PriorityQueue`
-- `java.util.concurrent.ConcurrentLinkedQueue`
-- `java.util.concurrent.LinkedBlockingQueue`
-- `java.util.concurrent.ArrayBlockingQueue`
-- `java.util.concurrent.PriorityBlockingQueue`
-- `java.util.concurrent.DelayQueue`
-- `java.util.concurrent.SynchronousQueue`
-
-If these are used as variable types, return value types, and parameter types, the result will be Not OK.
-Use the interfaces of these classes instead (OK).
-
-All of the types listed here are specific classes.
-This rule is applied for designing around interfaces rather than specific classes.
-
 
 ## Indentation
 

@@ -29,7 +29,6 @@
 - [HideUtilityClassConstructor](#hideutilityclassconstructor)
 - [IllegalCatch](#illegalcatch)
 - [IllegalThrows](#illegalthrows)
-- [IllegalType](#illegaltype)
 - [Indentation](#indentation)
 - [InnerAssignment](#innerassignment)
 - [InterfaceTypeParameterName](#interfacetypeparametername)
@@ -575,52 +574,6 @@ public class HideUtilityClassConstructorExample {
 
 これらは汎用的なものであり、例外・エラーの原因特定のための情報が不足しています。
 アプリケーションで例外を`throw`する場合は、より具体的な型を選択するようにして、`throws`でも具体的な型を宣言してください(OK)。
-
-## IllegalType
-
-```xml
-<module name="IllegalType">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF"/>
-  <property name="illegalClassNames" value="java.util.Hashtable, java.util.HashSet, java.util.HashMap, java.util.ArrayList, java.util.LinkedList, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.TreeSet, java.util.TreeMap, java.util.Vector, java.util.IdentityHashMap, java.util.WeakHashMap, java.util.EnumMap, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.CopyOnWriteArrayList, java.util.concurrent.CopyOnWriteArraySet, java.util.EnumSet, java.util.PriorityQueue, java.util.concurrent.ConcurrentLinkedQueue, java.util.concurrent.LinkedBlockingQueue, java.util.concurrent.ArrayBlockingQueue, java.util.concurrent.PriorityBlockingQueue, java.util.concurrent.DelayQueue, java.util.concurrent.SynchronousQueue"/>
-</module>
-```
-
-指定された型を使用していないことをチェックします。
-
-次に列挙しているクラスを変数の型、戻り値の型、パラメータの型として使用しないでください。
-
-- `java.util.Hashtable`
-- `java.util.HashSet`
-- `java.util.HashMap`
-- `java.util.ArrayList`
-- `java.util.LinkedList`
-- `java.util.LinkedHashMap`
-- `java.util.LinkedHashSet`
-- `java.util.TreeSet`
-- `java.util.TreeMap`
-- `java.util.Vector`
-- `java.util.IdentityHashMap`
-- `java.util.WeakHashMap`
-- `java.util.EnumMap`
-- `java.util.concurrent.ConcurrentHashMap`
-- `java.util.concurrent.CopyOnWriteArrayList`
-- `java.util.concurrent.CopyOnWriteArraySet`
-- `java.util.EnumSet`
-- `java.util.PriorityQueue`
-- `java.util.concurrent.ConcurrentLinkedQueue`
-- `java.util.concurrent.LinkedBlockingQueue`
-- `java.util.concurrent.ArrayBlockingQueue`
-- `java.util.concurrent.PriorityBlockingQueue`
-- `java.util.concurrent.DelayQueue`
-- `java.util.concurrent.SynchronousQueue`
-
-これらを変数の型、戻り値の型、パラメータの型として場合、NGとなります。
-代わりにこれらのクラスのインタフェースを使用するようにしてください(OK)。
-
-ここに挙げられている型はいずれも具象クラスです。
-具象クラスではなくインターフェースを中心にした設計をするためにこのルールが適用されます。
-
 
 ## Indentation
 

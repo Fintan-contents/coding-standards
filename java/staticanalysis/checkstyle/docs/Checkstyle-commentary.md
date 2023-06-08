@@ -56,6 +56,8 @@
 - [PackageDeclaration](#packagedeclaration)
 - [PackageName](#packagename)
 - [ParameterName](#parametername)
+- [RecordComponentName](#recordcomponentname)
+- [RecordTypeParameterName](#recordtypeparametername)
 - [RedundantImport](#redundantimport)
 - [RightCurly](#rightcurly)
 - [SimplifyBooleanExpression](#simplifybooleanexpression)
@@ -1327,6 +1329,38 @@ if (foo)
  */
 public void example(String BadName, String bad_name, String goodName) {
 ```
+
+## RecordComponentName
+
+```xml
+<module name="RecordComponentName"/>
+```
+
+レコードコンポーネントの名前をチェックします。
+
+レコードコンポーネントの名前は以下のルールを満たすようにしてください(OK)。
+
+- 先頭が小文字のアルファベットで、それ以降は小文字のアルファベット・大文字のアルファベット・アラビア数字で構成されていること
+
+この条件を満たさない場合NGとなります。
+
+コーディングスタイル統一のため、ルールに準拠してください。
+
+## RecordTypeParameterName
+
+```xml
+<module name="RecordTypeParameterName"/>
+```
+
+レコードクラスにバインドされた型パラメーターの名前をチェックします。
+
+型パラメーターの名前は以下の条件を満たすようにしてください(OK)。
+
+- 大文字のアルファベット1文字で構成されていること
+
+この条件を満たさない場合NGとなります。
+
+コーディングスタイル統一のため、ルールに準拠してください。
 
 ## RedundantImport
 

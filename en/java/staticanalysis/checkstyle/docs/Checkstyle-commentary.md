@@ -56,6 +56,8 @@ The table of contents is given below.
 - [PackageDeclaration](#packagedeclaration)
 - [PackageName](#packagename)
 - [ParameterName](#parametername)
+- [RecordComponentName](#recordcomponentname)
+- [RecordTypeParameterName](#recordtypeparametername)
 - [RedundantImport](#redundantimport)
 - [RightCurly](#rightcurly)
 - [SimplifyBooleanExpression](#simplifybooleanexpression)
@@ -1326,6 +1328,38 @@ Please follow the rules to unify your coding style.
  */
 public void example(String BadName, String bad_name, String goodName) {
 ```
+
+## RecordComponentName
+
+```xml
+<module name="RecordComponentName"/>
+```
+
+Check the name of the record component.
+
+Ensure that the name of the record component satisfies the following rule (OK):
+
+- Start with a lowercase letter, followed by lowercase and uppercase letters, and Arabic numerals
+
+If this condition is not met, it will be Not OK.
+
+Please follow the rules to unify your coding style.
+
+## RecordTypeParameterName
+
+```xml
+<module name="RecordTypeParameterName"/>
+```
+
+Check the name of the type parameter bound to the record class.
+
+Ensure that the name of the type parameter satisfies the following conditions (OK):
+
+- Consist of one uppercase alphabet
+
+If this condition is not met, it will be Not OK.
+
+Please follow the rules to unify your coding style.
 
 ## RedundantImport
 

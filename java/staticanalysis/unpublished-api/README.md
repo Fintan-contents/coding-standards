@@ -8,6 +8,18 @@
 
 使用できるAPIを限定することにより、安全でない実装を抑制できます。
 
+Javaコーディング規約に準拠した設定ファイルは、[published-config](./published-config)に格納しています。
+（Nablarchが提供するブランクプロジェクトには、これらの設定ファイルが同梱されています）
+
+| 設定ファイル名                                  | 概要                                                                        |
+|------------------------------------------|---------------------------------------------------------------------------|
+| `JavaOpenApi.config`                     | Nablarchが規定するJava標準ライブラリ使用可能API                                           |
+| `JavaEEOpenApi.config`                   | Nablarchが規定するJava EE標準ライブラリ使用可能API                                        |
+| `NablarchApiForProgrammer.config`        | プログラマ向け Nablarch Application Framework 使用可能API （業務機能の実装に必要なAPI）           |
+| `NablarchTestingApiForProgrammer.config` | プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）              |
+| `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
+| `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
+
 ## 仕様
 
 使用許可APIの指定は、ホワイトリスト形式で設定ファイルに記述する仕様となっているため、Nablarch導入プロジェクトのコーディング規約に従いカスタマイズを行うことが可能です。
@@ -27,17 +39,6 @@
 - パッケージ
 - クラスまたはインタフェース
 - コンストラクタまたはメソッド
-
-デフォルトでは、Nablarchが提供する標準のJavaコーディング規約に準拠した以下の設定ファイルを提供します。
-
-| 設定ファイル名                                  | 概要                                                                        |
-|------------------------------------------|---------------------------------------------------------------------------|
-| `JavaOpenApi.config`                     | Nablarchが規定するJava標準ライブラリ使用可能API                                           |
-| `JavaEEOpenApi.config`                   | Nablarchが規定するJava EE標準ライブラリ使用可能API                                        |
-| `NablarchApiForProgrammer.config`        | プログラマ向け Nablarch Application Framework 使用可能API （業務機能の実装に必要なAPI）           |
-| `NablarchTestingApiForProgrammer.config` | プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）              |
-| `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
-| `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
 
 本ツールはSpotBugsのプラグインとして提供しています。
 つまり、次のように通常のSpotBugs使用と同じ方法で使用できます。
@@ -85,7 +86,7 @@ hoge.methodA(); // 使用可能
 hoge.methodB(); // 使用不可
 ```
 
-## 設定ファイル
+## 設定方法EE
 
 ここでは、本ツールの設定ファイルの配置方法、記述方法を解説します。
 

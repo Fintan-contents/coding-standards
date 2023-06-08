@@ -11,8 +11,8 @@ public class IllegalThrowsExample {
     /**
      * IllegalThrowsのコード例です。
      * 
-     * @throws Throwable 許可されていない例外（java.lang.Throwable）です（NG）
+     * @throws Exception 許可されていない例外（java.lang.Exception）です（NG）
      */
-    public void example() throws Throwable {
+    public void example() throws Exception {
     }
 }

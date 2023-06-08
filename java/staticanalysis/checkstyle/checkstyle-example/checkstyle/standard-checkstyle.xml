@@ -58,7 +58,7 @@
       <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable, java.lang.RuntimeException, java.lang.Error"/>
     </module>
     <module name="IllegalThrows">
-      <property name="illegalClassNames" value="java.lang.Throwable, java.lang.RuntimeException, java.lang.Error"/>
+      <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable, java.lang.RuntimeException, java.lang.Error"/>
     </module>
     <module name="Indentation">
       <property name="caseIndent" value="0"/>

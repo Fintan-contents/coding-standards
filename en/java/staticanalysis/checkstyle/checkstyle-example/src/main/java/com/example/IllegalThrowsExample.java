@@ -11,8 +11,8 @@ public class IllegalThrowsExample {
     /**
      * Example of IllegalThrows code.
      *
-     * @throws Throwable Unpermitted exception (java.lang.Throwable) (incorrect)
+     * @throws Exception Unpermitted exception (java.lang.Exception) (incorrect)
      */
-    public void example() throws Throwable {
+    public void example() throws Exception {
     }
 }

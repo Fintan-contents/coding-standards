@@ -5,6 +5,6 @@
 
 <suppressions>
   <!-- Example of setting to stop checking in JavaDoc -->
-  <suppress checks="(JavadocMethod|WriteTagCheck)"
+  <suppress checks="JavadocMethod"
             files="com[\\/]example[\\/]suppression[\\/]SuppressionFilterExample.java" />
 </suppressions>

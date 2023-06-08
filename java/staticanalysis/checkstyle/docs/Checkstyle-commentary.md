@@ -67,7 +67,6 @@
 - [VisibilityModifier](#visibilitymodifier)
 - [WhitespaceAfter](#whitespaceafter)
 - [WhitespaceAround](#whitespacearound)
-- [WriteTag](#writetag)
 
 <!-- END doctoc -->
 
@@ -1596,43 +1595,3 @@ public class UnusedImportsExample {
 この条件を満たさない場合NGとなります。
 
 コーディングスタイル統一のため、ルールに準拠してください。
-
-## WriteTag
-
-```xml
-    <module name="WriteTag">
-      <property name="tag" value="@author"/>
-      <property name="tagFormat" value="\S"/>
-      <property name="tagSeverity" value="ignore"/>
-    </module>
-```
-
-型（クラス・インターフェース・列挙型・アノテーション）のJavadocコメント内に`@author`タグが存在するかチェックします。
-
-`WriteTag`要素ごとコピーして`tag`プロパティを書き換えれば異なるタグにも対応できます。
-プロジェクトで必要に応じて設定をしてください。
-
-```java
-/**
- * authorタグがあり、値が設定されています（OK）。
- * 
- * @author example
- */
-public class WriteTagExample {
-}
-
-/**
- * authorタグがありません（NG）。
- * 
- */
-interface Ng1WriteTagExample {
-}
-
-/**
- * authorタグはありますが、値がありません（NG）。
- * 
- * @author
- */
-interface Ng2WriteTagExample {
-}
-```

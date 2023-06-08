@@ -67,7 +67,6 @@ The table of contents is given below.
 - [VisibilityModifier](#visibilitymodifier)
 - [WhitespaceAfter](#whitespaceafter)
 - [WhitespaceAround](#whitespacearound)
-- [WriteTag](#writetag)
 
 <!-- END doctoc -->
 
@@ -1597,43 +1596,3 @@ Place a space before and after operators such as `+` and `*`, and assignment ope
 If this condition is not met, it will be Not OK.
 
 Please follow the rules to unify your coding style.
-
-## WriteTag
-
-```xml
-    <module name="WriteTag">
-      <property name="tag" value="@author"/>
-      <property name="tagFormat" value="\S"/>
-      <property name="tagSeverity" value="ignore"/>
-    </module>
-```
-
-Check that the `@author` tag exists in the Javadoc comment for the type (class, interface, enum and annotation).
-
-Different tags can be supported by copying each `WriteTag` element and rewriting the `tag` property.
-Set as needed in the project.
-
-```java
-/**
- * There is an author tag and the value is set (OK).
- * 
- * @author example
- */
-public class WriteTagExample {
-}
-
-/**
- * There is no author tag (Not OK).
- * 
- */
-interface Ng1WriteTagExample {
-}
-
-/**
- * There is an author tag but no value (Not OK).
- * 
- * @author
- */
-interface Ng2WriteTagExample {
-}
-```

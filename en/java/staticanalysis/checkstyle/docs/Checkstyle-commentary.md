@@ -1524,19 +1524,12 @@ The purpose is not to ban TODO comments. The original purpose of this check is t
 ## TypeName
 
 ```xml
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="CLASS_DEF"/>
-</module>
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="INTERFACE_DEF"/>
-</module>
+<module name="TypeName"/>
 ```
 
-Check the name of the class interface.
+Check the name of class, interface, enum, annotation, record.
 
-Ensure that the name of class/interface satisfies the following rule (OK):
+Verify that the name meets the following rules (OK):
 
 - Start with a uppercase letter, followed by lowercase and uppercase letters, and Arabic numerals
 

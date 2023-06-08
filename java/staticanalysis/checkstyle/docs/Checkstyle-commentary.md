@@ -1524,19 +1524,12 @@ TODOコメントを禁止することが目的ではありません。TODOコメ
 ## TypeName
 
 ```xml
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="CLASS_DEF"/>
-</module>
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="INTERFACE_DEF"/>
-</module>
+<module name="TypeName"/>
 ```
 
-クラス・インターフェースの名前をチェックします。
+クラス・インターフェース・列挙型・アノテーション・レコードの名前をチェックします。
 
-クラス・インターフェースの名前は以下のルールを満たすようにしてください(OK)。
+名前は以下のルールを満たすようにしてください(OK)。
 
 - 先頭が大文字のアルファベットで、それ以降は小文字のアルファベット・大文字のアルファベット・アラビア数字で構成されていること
 

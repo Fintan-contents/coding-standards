@@ -15,6 +15,7 @@ The table of contents is given below.
 - [ArrayTypeStyle](#arraytypestyle)
 - [AvoidStarImport](#avoidstarimport)
 - [AvoidStaticImport](#avoidstaticimport)
+- [CatchParameterName](#catchparametername)
 - [ClassTypeParameterName](#classtypeparametername)
 - [ConstantName](#constantname)
 - [EmptyCatchBlock](#emptycatchblock)
@@ -177,6 +178,23 @@ It is possible to exclude the static import of specified classes from the check 
 
 - http://checkstyle.sourceforge.net/config_imports.html#AvoidStaticImport
 
+## CatchParameterName
+
+```xml
+<module name="CatchParameterName">
+  <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+</module>
+```
+
+Check the name of the catch parameter.
+
+Ensure that the name of the catch parameter satisfies the following rule (OK):
+
+- Start with a lowercase letter, followed by lowercase and uppercase letters, and Arabic numerals
+
+If this condition is not met, it will be Not OK.
+
+Please follow the rules to unify your coding style.
 
 ## ClassTypeParameterName
 

@@ -15,6 +15,7 @@
 - [ArrayTypeStyle](#arraytypestyle)
 - [AvoidStarImport](#avoidstarimport)
 - [AvoidStaticImport](#avoidstaticimport)
+- [CatchParameterName](#catchparametername)
 - [ClassTypeParameterName](#classtypeparametername)
 - [ConstantName](#constantname)
 - [EmptyCatchBlock](#emptycatchblock)
@@ -176,6 +177,23 @@ import static java.lang.System.out;
 
 - http://checkstyle.sourceforge.net/config_imports.html#AvoidStaticImport
 
+## CatchParameterName
+
+```xml
+<module name="CatchParameterName">
+  <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+</module>
+```
+
+catchパラメータ名をチェックします。
+
+catchパラメータの名前は以下のルールを満たすようにしてください(OK)。
+
+先頭が小文字のアルファベットで、それ以降は小文字のアルファベット・大文字のアルファベット・アラビア数字で構成されていること
+
+この条件を満たさない場合NGとなります。
+
+コーディングスタイル統一のため、ルールに準拠してください。
 
 ## ClassTypeParameterName
 

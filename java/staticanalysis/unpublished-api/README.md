@@ -30,13 +30,14 @@
 
 デフォルトでは、Nablarchが提供する標準のJavaコーディング規約に準拠した以下の設定ファイルを提供します。
 
-|設定ファイル名|概要|
-|---|---|
-|`JavaOpenApi.config`|Nablarchが規定するJava標準ライブラリ使用可能API|
-|`NablarchApiForProgrammer.config`|プログラマ向け Nablarch Application Framework 使用可能API （業務機能の実装に必要なAPI）|
-|`NablarchTestingApiForProgrammer.config`|プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）|
-|`NablarchApiForArchitect.config`|アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI）|
-|`NablarchTestingApiForArchitect.config`|アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）|
+| 設定ファイル名                                  | 概要                                                                        |
+|------------------------------------------|---------------------------------------------------------------------------|
+| `JavaOpenApi.config`                     | Nablarchが規定するJava標準ライブラリ使用可能API                                           |
+| `JavaEEOpenApi.config`                   | Nablarchが規定するJava EE標準ライブラリ使用可能API                                        |
+| `NablarchApiForProgrammer.config`        | プログラマ向け Nablarch Application Framework 使用可能API （業務機能の実装に必要なAPI）           |
+| `NablarchTestingApiForProgrammer.config` | プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）              |
+| `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
+| `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
 
 本ツールはSpotBugsのプラグインとして提供しています。
 つまり、次のように通常のSpotBugs使用と同じ方法で使用できます。
@@ -259,4 +260,3 @@ Eclipseホームディレクトリにある、`eclipse.ini`ファイルを修正
 ## Mavenを使用して実行
 
 [MavenでのSpotBugsの実行方法](../spotbugs/docs/Maven-settings.md)を参照してください。
-

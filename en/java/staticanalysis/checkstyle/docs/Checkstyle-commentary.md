@@ -64,6 +64,7 @@ The table of contents is given below.
 - [TodoComment](#todocomment)
 - [TypeName](#typename)
 - [UnusedImports](#unusedimports)
+- [UnusedLocalVariable](#unusedlocalvariable)
 - [UpperEll](#upperell)
 - [VisibilityModifier](#visibilitymodifier)
 - [WhitespaceAfter](#whitespaceafter)
@@ -1533,6 +1534,20 @@ public class UnusedImportsExample {
 
     private static Pattern alphabet = Pattern.compile("^[a-zA-Z]+$");
 ```
+
+## UnusedLocalVariable
+
+```xml
+    <module name="UnusedLocalVariable"/>
+```
+
+Check for unused local variables.
+
+Delete the unused local variables (OK).
+If unused local variables are present, then it will be Not OK.
+
+Unused local variables have no effect on operation,
+such statements should be deleted as extra burden on the reader of the code .
 
 ## UpperEll
 

@@ -64,6 +64,7 @@
 - [TodoComment](#todocomment)
 - [TypeName](#typename)
 - [UnusedImports](#unusedimports)
+- [UnusedLocalVariable](#unusedlocalvariable)
 - [UpperEll](#upperell)
 - [VisibilityModifier](#visibilitymodifier)
 - [WhitespaceAfter](#whitespaceafter)
@@ -1532,6 +1533,19 @@ public class UnusedImportsExample {
 
     private static Pattern alphabet = Pattern.compile("^[a-zA-Z]+$");
 ```
+
+## UnusedLocalVariable
+
+```xml
+    <module name="UnusedLocalVariable"/>
+```
+
+使用されていないローカル変数をチェックします。
+
+未使用のローカル変数は削除してください(OK)。
+使用されていないローカル変数が存在する場合、NGとなります。
+
+使用されていないローカル変数は動作には影響しませんが、コードの読み手に余計な負荷を掛けてしまうため、取り除くべきです。
 
 ## UpperEll
 

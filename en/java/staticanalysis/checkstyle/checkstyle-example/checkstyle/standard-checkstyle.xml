@@ -111,6 +111,7 @@
     </module>
     <module name="TypeName"/>
     <module name="UnusedImports"/>
+    <module name="UnusedLocalVariable"/>
     <module name="UpperEll"/>
     <module name="VisibilityModifier"/>
     <module name="WhitespaceAfter"/>

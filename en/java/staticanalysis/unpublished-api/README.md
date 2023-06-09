@@ -8,6 +8,18 @@ This is a tool to check whether any APIs, other than authorized API that are spe
 
 By limiting the APIs that can be used, implementations with security issues can be suppressed.
 
+Configuration files that conform to Java coding conventions are stored in [published-config](./published-config) .
+(Blank projects provided by Nablarch ship with these configuration files.)
+
+| Configuration file name                  | Summary                                                                                                                            |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `JavaOpenApi.config`                     | APIs that can be used by the Java standard library specified by Nablarch                                                           |
+| `JavaEEOpenApi.config`                   | APIs that can be used by the Java EE standard library specified by Nablarch                                                        |
+| `NablarchApiForProgrammer.config`        | Nablarch Application Framework APIs for programmers (APIs required for implementing business functions)                            |
+| `NablarchTestingApiForProgrammer.config` | Nablarch Testing Framework APIs for programmers (API required for testing business functions)                                      |
+| `NablarchApiForArchitect.config`         | Nablarch Application Framework APIs available for architects (APIs that are required to be used for NAF function extensions, etc.) |
+| `NablarchTestingApiForArchitect.config`  | Nablarch Testing Framework APIs available for architects (APIs that are required to be used for NTF function extensions, etc.)     |
+
 ## Specifications
 
 As the specification of the authorized API is described with whitelist format in the configuration file, it can be customized according to the coding conventions of the Nablarch implementation project.
@@ -27,16 +39,6 @@ Authorized API can be specified in the configuration file as given below.
 - Package
 - Class or interface
 - Constructor or method
-
-By default, the following configuration files are provided that conform to the standard Java coding conventions provided by Nablarch.
-
-|Configuration file name|Summary|
-|---|---|
-|`JavaOpenApi.config`|APIs that can be used by the Java standard library specified by Nablarch|
-|`NablarchApiForProgrammer.config`|Nablarch Application Framework APIs for programmers (APIs required for implementing business functions)|
-|`NablarchTestingApiForProgrammer.config`|Nablarch Testing Framework APIs for programmers (API required for testing business functions)|
-|`NablarchApiForArchitect.config`|Nablarch Application Framework APIs available for architects (APIs that are required to be used for NAF function extensions, etc.)|
-|`NablarchTestingApiForArchitect.config`|Nablarch Testing Framework APIs available for architects (APIs that are required to be used for NTF function extensions, etc.)|
 
 This tool is provided as a SpotBugs plugin. 
 In other words, its usage is the same as regular SpotBugs as explained below.
@@ -84,7 +86,7 @@ hoge.methodA(); // Available
 hoge.methodB(); // Not available
 ```
 
-## Configuration file
+## How to set up
 
 This section describes how to deploy and describe the configuration file of this tool.
 
@@ -257,4 +259,3 @@ Therefore, please check according to the classification with CI.
 ## Run using Maven
 
 Refer [How to run SpotBugs with Maven](../spotbugs/docs/Maven-settings.md).
-

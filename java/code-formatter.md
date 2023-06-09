@@ -21,7 +21,7 @@ IntelliJ IDEAやEclipse等のIDEでは、コードフォーマッターの機能
 
 - [コードの整形 | IntelliJ IDEA ドキュメント](https://pleiades.io/help/idea/reformat-and-rearrange-code.html)
 
-### コードスタイル設定のインポートおよびエクスポート
+### 設定のインポートおよびエクスポート
 
 コードスタイルの設定をエクスポートすることで、プロジェクトで設定内容を共有することができます。
 エクスポートおよびインポートの方法については、次のページを参考にしてください。
@@ -55,7 +55,7 @@ Eclipseの設定から、`Java > Code Style > Formatter`を開いてください
 - [Java Save Actions Preferences | Eclipse Platform](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Feditor%2Fref-preferences-save-actions.htm&cp%3D1_4_4_0_5_4)
 
 
-### コードスタイル設定のインポートおよびエクスポート
+### 設定のインポートおよびエクスポート
 
 コードスタイルの設定をエクスポートすることで、プロジェクトで設定内容を共有することができます。
 

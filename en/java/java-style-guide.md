@@ -411,6 +411,8 @@ public void updateItem(final String code, final String name, final LocalDateTime
 ### <a name="no4-4">4.4.Provide row comments as required to help understand the code</a>
 
 Ideally it should be possible to understand the contents of a process only by reading the code, however, if any special implementation is intentionally performed due to complex logic or performance, write comments for explanation.
+Also, if the code is easier to understand if you explain the background as to why you are implementing it in this way, write comments for explanation.
+
 Write comments as single line comments starting with `//`.
 
 ---

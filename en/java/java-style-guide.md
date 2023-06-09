@@ -96,7 +96,7 @@ For the code covered under these conventions, it is assumed that the following t
 
 Anything that can be handled mechanically is implemented in advance, and these conventions serve as a guide for writing better code, or as code review guidelines.
 
-SonarQube is another well-known static analysis tool, however, as compared to SonarQube which is installed on a server, Checkstyle and SpotBugs are easy to introduce, where checking is made simpler just by running Maven; hence these conventions assume that Checkstyle and SpotBugs are used.
+SonarQube is another well-known static analysis tool, however, as compared to SonarQube which is installed on a server, Checkstyle and SpotBugs are easy to introduce, which complete the check just by running Maven; hence these conventions assume that Checkstyle and SpotBugs are used.
 
 Static analysis may be performed by means other than Checkstyle and SpotBugs depending on the project.
 If required, the preconditions of these conventions can be read by replacing Checkstyle and Spotbug with SonarQube or any other static tool.

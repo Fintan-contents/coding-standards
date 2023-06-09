@@ -1167,6 +1167,16 @@ Casting is a mechanism in which the value handled as one type is forced to be tr
 
 With generics being introduced from Java 5, there should be no problems even without the use of casting.
 
+If class cast is required, consider whether the pattern matching for instanceof introduced in Java 16 can be used.
+By specifying a binding variable when determining type with instanceof operator, you can assign result of cast to the binding variable.
+
+```java
+if (obj instanceof String str) {
+    // If result of instanceof operator is true, result of cast is assigned to the variable str
+    int size = str.length();
+}
+```
+
 ### <a name="no6-10">6.10.Be careful of unboxing when calculating variables and primitive values of wrapper class</a>
 
 Converting a wrapper class such as `java.lang.Integer` to a primitive value such as `int` is called unboxing.

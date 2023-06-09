@@ -1167,6 +1167,16 @@ public void updateItem(final ItemCode code, final String name, final int version
 
 Java 5からジェネリクスが導入されて、キャストを使用しなくてもほとんど困る事はなくなっているはずです。
 
+キャストが必要になる場合は、Java 16から導入されたinstanceof演算子のパターンマッチングが使用できないか検討してください。
+instanceof演算子で型を判定する際にバインディング変数を指定することで、キャストした結果をバインディング変数に代入することができます。
+
+```java
+if (obj instanceof String str) {
+    // instanceof演算子の結果がtrueの場合、キャストした結果が変数strに代入される
+    int size = str.length();
+}
+```
+
 ### <a name="no6-10">6.10.ラッパークラスの変数とプリミティブ値を演算する際は、アンボクシングに注意してください</a>
 
 `java.lang.Integer`のようなラッパークラスを`int`のようなプリミティブ値へ変換することをアンボクシングと言います。

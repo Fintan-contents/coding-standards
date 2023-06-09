@@ -1758,7 +1758,7 @@ final Item[] itemArray = items.toArray(Item[]::new);
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
 
-### <a name="no7-13">7.13.配列をコレクションに変換する場合はArrays.asList、またはList.ofを使用してください</a>
+### <a name="no7-13">7.13.配列をコレクションに変換する場合はArrays.asListメソッド、またはコレクションのofメソッドを使用してください</a>
 
 配列のユーティリティである`java.util.Arrays`クラスにはリストに変換する`asList`メソッドが用意されています。
 各要素をループしてリストを作ったりせず、`java.util.Arrays`クラスの`asList`メソッドを使用してください。
@@ -1778,27 +1778,12 @@ final Item[] itemArray = ...
 final List<Item> items = Arrays.asList(itemArray);
 ```
 
-なお、Java 9からは`java.util.List`に`of`メソッドが追加されたので、こちらを使用しても構いません。
+配列を変更不可のコレクションに変換する場合は、コレクションの`of`メソッドを使用してください。
 
 ```
 //OK
 final Item[] itemArray = ...
 final List<Item> items = List.of(itemArray);
-```
-
-Java 9からは`java.util.Set`にも`of`メソッドが追加されました。
-これまで配列から`java.util.Set`に変換しようとすると、一旦`java.util.List`に変換してから`java.util.Set`を生成したり、Java 8からはStream APIを使用して変換していました。
-Java 9からは簡潔なコードで変換できるようになりました。
-
-```java
-//Java 7までの変換方法
-final Set<Item> items =  new HashSet<>(Arrays.asList(itemArray));
-
-//Java 8からはStream APIで変換できる
-final Set<Item> items =  Arrays.stream(itemArray).collect(Collectors.toSet());
-
-//Java 9からはより簡潔に変換できる
-final Set<Item> items = Set.of(itemArray);
 ```
 
 ### <a name="no7-14">7.14.メソッドをオーバーライドしたり、抽象メソッドを実装する場合はメソッドに@Overrideを付けてください</a>

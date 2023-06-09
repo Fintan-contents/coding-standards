@@ -1758,7 +1758,7 @@ final Item[] itemArray = items.toArray(Item[]::new);
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
 
-### <a name="no7-13">7.13.Use `Arrays.asList` or `List.of` when converting an array to collection</a>
+### <a name="no7-13">7.13.Use `Arrays.asList` method or `of` method of collection when converting an array to collection</a>
 
 The array utility `java.util.Arrays` class has the `asList` method that converts it to a list.
 Use the `asList` method of the `java.util.Arrays` class instead of looping each element to create a list.
@@ -1778,27 +1778,12 @@ final Item[] itemArray = ...
 final List<Item> items = Arrays.asList(itemArray);
 ```
 
-Since the `of` method has been added to `java.util.List` from Java 9, it can also be used here.
+To convert an array to an immutable collection, use the `of` method of collection.
 
 ```
 //OK
 final Item[] itemArray = ...
 final List<Item> items = List.of(itemArray);
-```
-
-From Java 9, the `of` method has been added to `java.util.Set` as well.
-When trying to convert from an array to `java.util.Set` thus far, it was converted to `java.util.List` once and then `java.util.Set` was generated. From Java 8, conversion is performed using the Stream API.
-From Java 9, conversion can be performed with a simple code.
-
-```java
-//Conversion method up to Java 7
-final Set<Item> items =  new HashSet<>(Arrays.asList(itemArray));
-
-//Can be converted with stream API from Java 8
-final Set<Item> items =  Arrays.stream(itemArray).collect(Collectors.toSet());
-
-//Can be converted more concisely from Java 9
-final Set<Item> items = Set.of(itemArray);
 ```
 
 ### <a name="no7-14">7.14.Add `@Override` to methods when overriding method and implementing abstract method</a>

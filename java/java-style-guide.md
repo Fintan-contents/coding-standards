@@ -84,9 +84,7 @@
 基本的に特定のフレームワークに限らず汎用的に使用できるようにしてありますが、[9. Nablarchライブラリ](#9nablarchライブラリ)については、[Nablarch Application Framework](https://fintan.jp/page/1868/)を前提とした項目となります。他のフレームワークを利用される場合は項目を削除してください。
 
 また、本文で[使用不許可APIチェックツール](./staticanalysis/unpublished-api/README.md)に触れています。
-こちらのツールは特定のフレームワークに依存せず、使用が許可されていないAPIの使用を検知するツールです。ご利用の際は使用を許可するAPIをホワイトリストとして設定するため、設定ファイルを用意する必要があります。
-Nablarch Application Frameworkを利用される場合は使用可能なAPIを記載した[設定ファイル](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/)を提供しています。
-その他のフレームワークを使用していて使用不許可APIチェックツールを利用される場合は、必要な設定ファイルを作成してください。
+こちらのツールは特定のフレームワークに依存せず、使用が許可されていないAPIの使用を検知するツールです。
 
 ### <a name="no1-1">1.1.前提</a>
 

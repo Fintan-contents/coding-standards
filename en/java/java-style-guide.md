@@ -84,9 +84,7 @@ These conventions explain rules that should be followed by application programme
 Basically, it is not limited to a specific framework and can be used universally, but for [9. Nablarch Library](#9nablarch-library), please refer to [Nablarch Application Framework](https://fintan.jp/en/page/1954/). If you use other frameworks, please delete the item.
 
 Also, the text mentions [Unauthorized API Check Tool](./staticanalysis/unpublished-api/README.md).
-This tool is a framework-independent tool that detects the use of unauthorized APIs. When using this tool, it is necessary to prepare a configuration file to set up a whitelist of APIs that are allowed to be used.
-If you use Nablarch Application Framework, you need to prepare a [configuration file](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/) describing available APIs.
-If you are using other frameworks and wish to use Unauthorized API Check Tool, please create the necessary configuration files.
+This tool is a framework-independent tool that detects the use of unauthorized APIs. 
 
 ### <a name="no1-1">1.1.Prerequisites</a>
 

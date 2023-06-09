@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * Example of NoWhitespaceAfter code.
- *
- * @author example
- * @since 1.0.0
  */
 public class NoWhitespaceAfterExample {
 
@@ -20,4 +17,3 @@ public class NoWhitespaceAfterExample {
         ++ i;
     }
 }
-

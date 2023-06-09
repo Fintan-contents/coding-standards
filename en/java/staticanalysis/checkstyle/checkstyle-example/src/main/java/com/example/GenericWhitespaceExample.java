@@ -10,9 +10,6 @@ import java.util.Map;
 
 /**
  * Example of GenericWhitespace code.
- *
- * @author example
- * @since 1.0.0
  */
 public class GenericWhitespaceExample {
 

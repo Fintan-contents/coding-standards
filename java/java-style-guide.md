@@ -792,7 +792,6 @@ Java標準ライブラリには過去のバージョンでは使われていま�
 
 |レガシーAPI|代替となる使っても良いAPI|
 |---|---|
-|`java.lang.StringBuffer`|`java.lang.StringBuilder`|
 |`java.util.Dictionary`|`java.util.Map`|
 |`java.util.Enumeration`|`java.util.Iterator`|
 |`java.util.Hashtable`|`java.util.HashMap`|

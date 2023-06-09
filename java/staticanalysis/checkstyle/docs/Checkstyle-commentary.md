@@ -15,6 +15,7 @@
 - [ArrayTypeStyle](#arraytypestyle)
 - [AvoidStarImport](#avoidstarimport)
 - [AvoidStaticImport](#avoidstaticimport)
+- [CatchParameterName](#catchparametername)
 - [ClassTypeParameterName](#classtypeparametername)
 - [ConstantName](#constantname)
 - [EmptyCatchBlock](#emptycatchblock)
@@ -29,7 +30,6 @@
 - [HideUtilityClassConstructor](#hideutilityclassconstructor)
 - [IllegalCatch](#illegalcatch)
 - [IllegalThrows](#illegalthrows)
-- [IllegalType](#illegaltype)
 - [Indentation](#indentation)
 - [InnerAssignment](#innerassignment)
 - [InterfaceTypeParameterName](#interfacetypeparametername)
@@ -56,6 +56,8 @@
 - [PackageDeclaration](#packagedeclaration)
 - [PackageName](#packagename)
 - [ParameterName](#parametername)
+- [RecordComponentName](#recordcomponentname)
+- [RecordTypeParameterName](#recordtypeparametername)
 - [RedundantImport](#redundantimport)
 - [RightCurly](#rightcurly)
 - [SimplifyBooleanExpression](#simplifybooleanexpression)
@@ -64,11 +66,11 @@
 - [TodoComment](#todocomment)
 - [TypeName](#typename)
 - [UnusedImports](#unusedimports)
+- [UnusedLocalVariable](#unusedlocalvariable)
 - [UpperEll](#upperell)
 - [VisibilityModifier](#visibilitymodifier)
 - [WhitespaceAfter](#whitespaceafter)
 - [WhitespaceAround](#whitespacearound)
-- [WriteTag](#writetag)
 
 <!-- END doctoc -->
 
@@ -154,8 +156,7 @@ static importが無いことをチェックします。
 static importは使用せず、`<クラス名>.<メンバー名>`というように記載してください(OK)。
 static import文が存在する場合、NGとなります。
 
-static importを濫用すると、外部のメソッド呼び出しをローカルのメソッド呼び出しと勘違いしてしまうなど、
-コードの読み手に誤解を与える恐れがあります。
+static importを濫用すると、外部のメソッド呼び出しをローカルのメソッド呼び出しと勘違いしてしまうなど、 コードの読み手に誤解を与える恐れがあります。
 
 ```java
 import static java.lang.System.out;
@@ -179,6 +180,23 @@ import static java.lang.System.out;
 
 - http://checkstyle.sourceforge.net/config_imports.html#AvoidStaticImport
 
+## CatchParameterName
+
+```xml
+<module name="CatchParameterName">
+  <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+</module>
+```
+
+catchパラメータ名をチェックします。
+
+catchパラメータの名前は以下のルールを満たすようにしてください(OK)。
+
+先頭が小文字のアルファベットで、それ以降は小文字のアルファベット・大文字のアルファベット・アラビア数字で構成されていること
+
+この条件を満たさない場合NGとなります。
+
+コーディングスタイル統一のため、ルールに準拠してください。
 
 ## ClassTypeParameterName
 
@@ -249,8 +267,7 @@ class NgClassTypeParameterNameExample2<t> {
 
 空の`catch`節は、コンパイルエラーを解消するためだけの理由で書かれている可能性があります。
 この場合、本来は適切に処理されるべき例外・エラーが揉み消されて、障害発生時の原因究明が困難になります。
-処理がなくてもよい`catch`節とエラー回避のため`catch`節とを区別できるように
-`catch`節に処理が必要ない適切な理由を記載するようにしてください。
+処理がなくてもよい`catch`節とエラー回避のため`catch`節とを区別できるように`catch`節に処理が必要ない適切な理由を記載するようにしてください。
 
 デフォルト設定では、以下のように`catch`節に何らかのコメントが記載されている場合はNGになりません。
 
@@ -578,52 +595,6 @@ public class HideUtilityClassConstructorExample {
 これらは汎用的なものであり、例外・エラーの原因特定のための情報が不足しています。
 アプリケーションで例外を`throw`する場合は、より具体的な型を選択するようにして、`throws`でも具体的な型を宣言してください(OK)。
 
-## IllegalType
-
-```xml
-<module name="IllegalType">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF"/>
-  <property name="illegalClassNames" value="java.util.Hashtable, java.util.HashSet, java.util.HashMap, java.util.ArrayList, java.util.LinkedList, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.TreeSet, java.util.TreeMap, java.util.Vector, java.util.IdentityHashMap, java.util.WeakHashMap, java.util.EnumMap, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.CopyOnWriteArrayList, java.util.concurrent.CopyOnWriteArraySet, java.util.EnumSet, java.util.PriorityQueue, java.util.concurrent.ConcurrentLinkedQueue, java.util.concurrent.LinkedBlockingQueue, java.util.concurrent.ArrayBlockingQueue, java.util.concurrent.PriorityBlockingQueue, java.util.concurrent.DelayQueue, java.util.concurrent.SynchronousQueue"/>
-</module>
-```
-
-指定された型を使用していないことをチェックします。
-
-次に列挙しているクラスを変数の型、戻り値の型、パラメータの型として使用しないでください。
-
-- `java.util.Hashtable`
-- `java.util.HashSet`
-- `java.util.HashMap`
-- `java.util.ArrayList`
-- `java.util.LinkedList`
-- `java.util.LinkedHashMap`
-- `java.util.LinkedHashSet`
-- `java.util.TreeSet`
-- `java.util.TreeMap`
-- `java.util.Vector`
-- `java.util.IdentityHashMap`
-- `java.util.WeakHashMap`
-- `java.util.EnumMap`
-- `java.util.concurrent.ConcurrentHashMap`
-- `java.util.concurrent.CopyOnWriteArrayList`
-- `java.util.concurrent.CopyOnWriteArraySet`
-- `java.util.EnumSet`
-- `java.util.PriorityQueue`
-- `java.util.concurrent.ConcurrentLinkedQueue`
-- `java.util.concurrent.LinkedBlockingQueue`
-- `java.util.concurrent.ArrayBlockingQueue`
-- `java.util.concurrent.PriorityBlockingQueue`
-- `java.util.concurrent.DelayQueue`
-- `java.util.concurrent.SynchronousQueue`
-
-これらを変数の型、戻り値の型、パラメータの型として場合、NGとなります。
-代わりにこれらのクラスのインタフェースを使用するようにしてください(OK)。
-
-ここに挙げられている型はいずれも具象クラスです。
-具象クラスではなくインターフェースを中心にした設計をするためにこのルールが適用されます。
-
-
 ## Indentation
 
 ```xml
@@ -879,7 +850,7 @@ Javadocコメントは、コードの読み手にとって重要な情報とな�
 ## LambdaParameterName
 
 ```xml
-<module name="LocalVariableName"/>
+<module name="LambdaParameterName"/>
 ```
 
 ラムダ式の引数の名前をチェックします。
@@ -1359,6 +1330,38 @@ if (foo)
 public void example(String BadName, String bad_name, String goodName) {
 ```
 
+## RecordComponentName
+
+```xml
+<module name="RecordComponentName"/>
+```
+
+レコードコンポーネントの名前をチェックします。
+
+レコードコンポーネントの名前は以下のルールを満たすようにしてください(OK)。
+
+- 先頭が小文字のアルファベットで、それ以降は小文字のアルファベット・大文字のアルファベット・アラビア数字で構成されていること
+
+この条件を満たさない場合NGとなります。
+
+コーディングスタイル統一のため、ルールに準拠してください。
+
+## RecordTypeParameterName
+
+```xml
+<module name="RecordTypeParameterName"/>
+```
+
+レコードクラスにバインドされた型パラメーターの名前をチェックします。
+
+型パラメーターの名前は以下の条件を満たすようにしてください(OK)。
+
+- 大文字のアルファベット1文字で構成されていること
+
+この条件を満たさない場合NGとなります。
+
+コーディングスタイル統一のため、ルールに準拠してください。
+
 ## RedundantImport
 
 ```xml
@@ -1478,8 +1481,7 @@ private static String goodName;
 そのような文字列比較が存在する場合、NGとなります。
 
 
-比較演算子による文字列比較を行った場合、文字列が等価かどうかではなく
-オブジェクトが同一かどうかで比較してしまうため、期待しない動作となる場合があります。
+比較演算子による文字列比較を行った場合、文字列が等価かどうかではなくオブジェクトが同一かどうかで比較してしまうため、期待しない動作となる場合があります。
 
 ```xml
     <module name="StringLiteralEquality">
@@ -1527,19 +1529,12 @@ TODOコメントを禁止することが目的ではありません。TODOコメ
 ## TypeName
 
 ```xml
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="CLASS_DEF"/>
-</module>
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="INTERFACE_DEF"/>
-</module>
+<module name="TypeName"/>
 ```
 
-クラス・インターフェースの名前をチェックします。
+クラス・インターフェース・列挙型・アノテーション・レコードの名前をチェックします。
 
-クラス・インターフェースの名前は以下のルールを満たすようにしてください(OK)。
+名前は以下のルールを満たすようにしてください(OK)。
 
 - 先頭が大文字のアルファベットで、それ以降は小文字のアルファベット・大文字のアルファベット・アラビア数字で構成されていること
 
@@ -1559,8 +1554,7 @@ TODOコメントを禁止することが目的ではありません。TODOコメ
 未使用の`import`文は削除してください(OK)。
 使用されていない`import`文が存在する場合、NGとなります。
 
-使用されていない`import`文は動作には影響しませんが、
-コードの読み手に当該クラスの依存関係を誤解させる恐れがあるため、取り除くべきです。
+使用されていない`import`文は動作には影響しませんが、コードの読み手に当該クラスの依存関係を誤解させる恐れがあるため、取り除くべきです。
 
 ```java
 // 使用されないimport文（NG）。
@@ -1573,6 +1567,19 @@ public class UnusedImportsExample {
 
     private static Pattern alphabet = Pattern.compile("^[a-zA-Z]+$");
 ```
+
+## UnusedLocalVariable
+
+```xml
+    <module name="UnusedLocalVariable"/>
+```
+
+使用されていないローカル変数をチェックします。
+
+未使用のローカル変数は削除してください(OK)。
+使用されていないローカル変数が存在する場合、NGとなります。
+
+使用されていないローカル変数は動作には影響しませんが、コードの読み手に余計な負荷を掛けてしまうため、取り除くべきです。
 
 ## UpperEll
 
@@ -1654,43 +1661,3 @@ public class UnusedImportsExample {
 この条件を満たさない場合NGとなります。
 
 コーディングスタイル統一のため、ルールに準拠してください。
-
-## WriteTag
-
-```xml
-    <module name="WriteTag">
-      <property name="tag" value="@author"/>
-      <property name="tagFormat" value="\S"/>
-      <property name="tagSeverity" value="ignore"/>
-    </module>
-```
-
-型（クラス・インターフェース・列挙型・アノテーション）のJavadocコメント内に`@author`タグが存在するかチェックします。
-
-`WriteTag`要素ごとコピーして`tag`プロパティを書き換えれば異なるタグにも対応できます。
-プロジェクトで必要に応じて設定をしてください。
-
-```java
-/**
- * authorタグがあり、値が設定されています（OK）。
- * 
- * @author example
- */
-public class WriteTagExample {
-}
-
-/**
- * authorタグがありません（NG）。
- * 
- */
-interface Ng1WriteTagExample {
-}
-
-/**
- * authorタグはありますが、値がありません（NG）。
- * 
- * @author
- */
-interface Ng2WriteTagExample {
-}
-```

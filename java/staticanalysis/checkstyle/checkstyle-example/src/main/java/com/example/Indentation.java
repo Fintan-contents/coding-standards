@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * Indentationのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class Indentation {
 
@@ -43,7 +40,7 @@ public class Indentation {
      * @throws IllegalArgumentException 引数が0の場合
      */
     public int validExample(int number)
-            throws IllegalArgumentException {   // throwsのインデントが基準を満たしていません。
+            throws IllegalArgumentException {   // throwsのインデントが基準を満たしています。
 
         int ret;    // メソッド内ステートメントのインデントが基準を満たしています
 

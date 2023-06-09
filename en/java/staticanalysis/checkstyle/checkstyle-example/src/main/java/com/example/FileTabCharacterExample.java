@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * Example of FileTabCharacter code.
- *
- * @author example
- * @since 1.0.0
  */
 public class FileTabCharacterExample {
 
@@ -19,4 +16,3 @@ public class FileTabCharacterExample {
     }
 
 }
-

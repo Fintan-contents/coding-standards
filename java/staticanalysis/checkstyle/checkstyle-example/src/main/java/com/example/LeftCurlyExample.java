@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * LeftCurlyのコード例です。
- *
- * @author example
- * @since 1.0.0
  */
 public class LeftCurlyExample {
 
@@ -25,7 +22,7 @@ public class LeftCurlyExample {
         }
 
         try
-        {
+        {               // 中括弧が行末にありません（NG）。
 
         } catch (IllegalArgumentException e)
         {               // 中括弧が行末にありません（NG）。
@@ -36,4 +33,3 @@ public class LeftCurlyExample {
         }
     }
 }
-

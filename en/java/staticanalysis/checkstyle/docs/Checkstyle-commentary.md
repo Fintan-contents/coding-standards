@@ -15,6 +15,7 @@ The table of contents is given below.
 - [ArrayTypeStyle](#arraytypestyle)
 - [AvoidStarImport](#avoidstarimport)
 - [AvoidStaticImport](#avoidstaticimport)
+- [CatchParameterName](#catchparametername)
 - [ClassTypeParameterName](#classtypeparametername)
 - [ConstantName](#constantname)
 - [EmptyCatchBlock](#emptycatchblock)
@@ -29,7 +30,6 @@ The table of contents is given below.
 - [HideUtilityClassConstructor](#hideutilityclassconstructor)
 - [IllegalCatch](#illegalcatch)
 - [IllegalThrows](#illegalthrows)
-- [IllegalType](#illegaltype)
 - [Indentation](#indentation)
 - [InnerAssignment](#innerassignment)
 - [InterfaceTypeParameterName](#interfacetypeparametername)
@@ -56,6 +56,8 @@ The table of contents is given below.
 - [PackageDeclaration](#packagedeclaration)
 - [PackageName](#packagename)
 - [ParameterName](#parametername)
+- [RecordComponentName](#recordcomponentname)
+- [RecordTypeParameterName](#recordtypeparametername)
 - [RedundantImport](#redundantimport)
 - [RightCurly](#rightcurly)
 - [SimplifyBooleanExpression](#simplifybooleanexpression)
@@ -64,11 +66,11 @@ The table of contents is given below.
 - [TodoComment](#todocomment)
 - [TypeName](#typename)
 - [UnusedImports](#unusedimports)
+- [UnusedLocalVariable](#unusedlocalvariable)
 - [UpperEll](#upperell)
 - [VisibilityModifier](#visibilitymodifier)
 - [WhitespaceAfter](#whitespaceafter)
 - [WhitespaceAround](#whitespacearound)
-- [WriteTag](#writetag)
 
 <!-- END doctoc -->
 
@@ -179,6 +181,23 @@ It is possible to exclude the static import of specified classes from the check 
 
 - http://checkstyle.sourceforge.net/config_imports.html#AvoidStaticImport
 
+## CatchParameterName
+
+```xml
+<module name="CatchParameterName">
+  <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+</module>
+```
+
+Check the name of the catch parameter.
+
+Ensure that the name of the catch parameter satisfies the following rule (OK):
+
+- Start with a lowercase letter, followed by lowercase and uppercase letters, and Arabic numerals
+
+If this condition is not met, it will be Not OK.
+
+Please follow the rules to unify your coding style.
 
 ## ClassTypeParameterName
 
@@ -578,52 +597,6 @@ If these are declared in `throws`, then it will be Not OK.
 These are generic and lack the information to identify the cause of the exception or error.
 If an exception is `thrown` in the application, be sure to select a specific type and declare the specific type in `throws` (OK).
 
-## IllegalType
-
-```xml
-<module name="IllegalType">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="METHOD_DEF,PARAMETER_DEF,VARIABLE_DEF"/>
-  <property name="illegalClassNames" value="java.util.Hashtable, java.util.HashSet, java.util.HashMap, java.util.ArrayList, java.util.LinkedList, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.TreeSet, java.util.TreeMap, java.util.Vector, java.util.IdentityHashMap, java.util.WeakHashMap, java.util.EnumMap, java.util.concurrent.ConcurrentHashMap, java.util.concurrent.CopyOnWriteArrayList, java.util.concurrent.CopyOnWriteArraySet, java.util.EnumSet, java.util.PriorityQueue, java.util.concurrent.ConcurrentLinkedQueue, java.util.concurrent.LinkedBlockingQueue, java.util.concurrent.ArrayBlockingQueue, java.util.concurrent.PriorityBlockingQueue, java.util.concurrent.DelayQueue, java.util.concurrent.SynchronousQueue"/>
-</module>
-```
-
-Check that the specified type has not been used.
-
-Do not use the classes listed below as variable types, return types, or parameter types.
-
-- `java.util.Hashtable`
-- `java.util.HashSet`
-- `java.util.HashMap`
-- `java.util.ArrayList`
-- `java.util.LinkedList`
-- `java.util.LinkedHashMap`
-- `java.util.LinkedHashSet`
-- `java.util.TreeSet`
-- `java.util.TreeMap`
-- `java.util.Vector`
-- `java.util.IdentityHashMap`
-- `java.util.WeakHashMap`
-- `java.util.EnumMap`
-- `java.util.concurrent.ConcurrentHashMap`
-- `java.util.concurrent.CopyOnWriteArrayList`
-- `java.util.concurrent.CopyOnWriteArraySet`
-- `java.util.EnumSet`
-- `java.util.PriorityQueue`
-- `java.util.concurrent.ConcurrentLinkedQueue`
-- `java.util.concurrent.LinkedBlockingQueue`
-- `java.util.concurrent.ArrayBlockingQueue`
-- `java.util.concurrent.PriorityBlockingQueue`
-- `java.util.concurrent.DelayQueue`
-- `java.util.concurrent.SynchronousQueue`
-
-If these are used as variable types, return value types, and parameter types, the result will be Not OK.
-Use the interfaces of these classes instead (OK).
-
-All of the types listed here are specific classes.
-This rule is applied for designing around interfaces rather than specific classes.
-
-
 ## Indentation
 
 ```xml
@@ -876,7 +849,7 @@ In the above settings, variables in the `public` scope will be checked.
 ## LambdaParameterName
 
 ```xml
-<module name="LocalVariableName"/>
+<module name="LambdaParameterName"/>
 ```
 
 Check the name of the lambda expression argument.
@@ -1356,6 +1329,38 @@ Please follow the rules to unify your coding style.
 public void example(String BadName, String bad_name, String goodName) {
 ```
 
+## RecordComponentName
+
+```xml
+<module name="RecordComponentName"/>
+```
+
+Check the name of the record component.
+
+Ensure that the name of the record component satisfies the following rule (OK):
+
+- Start with a lowercase letter, followed by lowercase and uppercase letters, and Arabic numerals
+
+If this condition is not met, it will be Not OK.
+
+Please follow the rules to unify your coding style.
+
+## RecordTypeParameterName
+
+```xml
+<module name="RecordTypeParameterName"/>
+```
+
+Check the name of the type parameter bound to the record class.
+
+Ensure that the name of the type parameter satisfies the following conditions (OK):
+
+- Consist of one uppercase alphabet
+
+If this condition is not met, it will be Not OK.
+
+Please follow the rules to unify your coding style.
+
 ## RedundantImport
 
 ```xml
@@ -1524,19 +1529,12 @@ The purpose is not to ban TODO comments. The original purpose of this check is t
 ## TypeName
 
 ```xml
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="CLASS_DEF"/>
-</module>
-<module name="TypeName">
-  <property name="severity" value="error"/>
-  <property name="tokens" value="INTERFACE_DEF"/>
-</module>
+<module name="TypeName"/>
 ```
 
-Check the name of the class interface.
+Check the name of class, interface, enum, annotation, record.
 
-Ensure that the name of class/interface satisfies the following rule (OK):
+Verify that the name meets the following rules (OK):
 
 - Start with a uppercase letter, followed by lowercase and uppercase letters, and Arabic numerals
 
@@ -1570,6 +1568,20 @@ public class UnusedImportsExample {
 
     private static Pattern alphabet = Pattern.compile("^[a-zA-Z]+$");
 ```
+
+## UnusedLocalVariable
+
+```xml
+    <module name="UnusedLocalVariable"/>
+```
+
+Check for unused local variables.
+
+Delete the unused local variables (OK).
+If unused local variables are present, then it will be Not OK.
+
+Unused local variables have no effect on operation,
+such statements should be deleted as extra burden on the reader of the code .
 
 ## UpperEll
 
@@ -1651,43 +1663,3 @@ Place a space before and after operators such as `+` and `*`, and assignment ope
 If this condition is not met, it will be Not OK.
 
 Please follow the rules to unify your coding style.
-
-## WriteTag
-
-```xml
-    <module name="WriteTag">
-      <property name="tag" value="@author"/>
-      <property name="tagFormat" value="\S"/>
-      <property name="tagSeverity" value="ignore"/>
-    </module>
-```
-
-Check that the `@author` tag exists in the Javadoc comment for the type (class, interface, enum and annotation).
-
-Different tags can be supported by copying each `WriteTag` element and rewriting the `tag` property.
-Set as needed in the project.
-
-```java
-/**
- * There is an author tag and the value is set (OK).
- * 
- * @author example
- */
-public class WriteTagExample {
-}
-
-/**
- * There is no author tag (Not OK).
- * 
- */
-interface Ng1WriteTagExample {
-}
-
-/**
- * There is an author tag but no value (Not OK).
- * 
- * @author
- */
-interface Ng2WriteTagExample {
-}
-```

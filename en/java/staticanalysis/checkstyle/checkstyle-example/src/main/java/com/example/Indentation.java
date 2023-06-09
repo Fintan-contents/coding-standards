@@ -5,15 +5,12 @@ package com.example;
 
 /**
  * Example of Indentation code.
- *
- * @author example
- * @since 1.0.0
  */
 public class Indentation {
 
     /**
      * Example of incorrect indentation.
-     * @param number: Number
+     * @param number Number
      * @return Converted number
      * @throws IllegalArgumentException When the argument is 0
      */
@@ -37,12 +34,12 @@ public class Indentation {
     /**
      * Example of correct indentation.
      *
-     * @param number: Number
+     * @param number Number
      * @return Converted number
      * @throws IllegalArgumentException When the argument is 0
      */
     public int validExample(int number)
-        throws IllegalArgumentException {   // throws indent does not meet the criteria.
+        throws IllegalArgumentException {   // throws indent meets the criteria.
 
         int ret;    // Indent for statement in method meets the criteria.
 

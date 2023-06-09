@@ -792,7 +792,6 @@ Do not use the legacy APIs given below.
 
 |Legacy API|API that can be used alternatively|
 |---|---|
-|`java.lang.StringBuffer`|`java.lang.StringBuilder`|
 |`java.util.Dictionary`|`java.util.Map`|
 |`java.util.Enumeration`|`java.util.Iterator`|
 |`java.util.Hashtable`|`java.util.HashMap`|

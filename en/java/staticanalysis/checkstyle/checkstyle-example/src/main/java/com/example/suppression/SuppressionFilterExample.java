@@ -5,9 +5,6 @@ package com.example.suppression;
 
 /**
  * Example of SuppressionFilter.
- *
- * @author example
- * @since 1.0.0
  */
 public class SuppressionFilterExample {
 

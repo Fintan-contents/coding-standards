@@ -1751,16 +1751,12 @@ for (final Item item : items) {
 ```java
 //OK
 final List<Item> items = ...
-final Item[] itemArray = items.toArray(new Item[0]);
+final Item[] itemArray = items.toArray(Item[]::new);
 
 //The toArray method is available even in the Stream API
 //Use this method to convert a Stream to an array
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
-
-In this code example, the array that is passed to the `toArray` method is initialized with a length of `0`.
-Although it is also possible to initialize the `size` method of the original collection by specifying the length, there is almost no difference in performance.
-Hence any initialization method can be selected, although in this code example for these conventions, it has been initialized with a length of `0` in consideration of readability.
 
 ### <a name="no7-13">7.13.Use `Arrays.asList` or `List.of` when converting an array to collection</a>
 

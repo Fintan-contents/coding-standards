@@ -1751,16 +1751,12 @@ for (final Item item : items) {
 ```java
 //OK
 final List<Item> items = ...
-final Item[] itemArray = items.toArray(new Item[0]);
+final Item[] itemArray = items.toArray(Item[]::new);
 
 //Stream APIにもtoArrayメソッドが用意されている
 //Streamを配列に変換したい場合はこのメソッドを使用する
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
-
-このコード例では`toArray`メソッドに渡す配列を長さ`0`で初期化しています。
-元となるコレクションの`size`メソッドを長さに指定して初期化することも可能ですが、パフォーマンスの差はほぼありません。
-そのため、どちらの初期化方法を選択しても良いですが、本規約のコード例では見やすさを考慮して長さ`0`で初期化しています。
 
 ### <a name="no7-13">7.13.配列をコレクションに変換する場合はArrays.asList、またはList.ofを使用してください</a>
 

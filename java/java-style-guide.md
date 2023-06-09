@@ -145,9 +145,7 @@ public void appendHello(final String yourName) {
 
 ### <a name="no1-3">1.3.Javaバージョン</a>
 
-本規約はJava 8をベースに作成しており、一部の項目ではJava 9やJava 10で使用できる新機能にも言及しています。
-
-本規約はJava 8以降をお使いのプロジェクトでご利用頂けます。
+本規約はJava 17をベースに作成しています。
 
 ### <a name="no1-4">1.4.表記ルール</a>
 

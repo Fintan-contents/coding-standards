@@ -145,9 +145,7 @@ While reading through these conventions, and also while writing the code, it is 
 
 ### <a name="no1-3">1.3.Java version</a>
 
-These conventions are created based on Java 8, and in some items, new functions that can be used in Java 9 and Java 10 have also been cited.
-
-These conventions can be used for projects that use Java 8 and above.
+These conventions are created based on Java 17.
 
 ### <a name="no1-4">1.4.Notation rules</a>
 

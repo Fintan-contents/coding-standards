@@ -1606,7 +1606,7 @@ Stream APIは`filter`や`map`、`collect`といったメソッドを使用して
 |`map`|要素を変換する|`stream.map(x -> x.getClass()) //Classに変換する`|
 |`collect`|`Collector`によって`Stream`を変換する|`stream.collect(Collectors.joining(", ")) //要素をカンマ区切りの文字列に変換する`|
 
-その他のメソッドは[`java.util.stream.Stream`のJavadoc](https://docs.oracle.com/javase/jp/10/docs/api/java/util/stream/Stream.html)で確認してください。
+その他のメソッドは[`java.util.stream.Stream`のJavadoc](https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/util/stream/Stream.html)で確認してください。
 
 Stream APIを使用したコード例と拡張for文を使用したコード例を次に示します。
 どちらも従業員のリストから職種がプログラマーの従業員だけに絞り込んで平均年齢を算出しています。

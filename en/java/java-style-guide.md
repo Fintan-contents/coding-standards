@@ -1606,7 +1606,7 @@ Hence, it is easy to understand what process is required for each element.
 |`map`|Converts elements|`stream.map(x -> x.getClass()) //Converts to Class`|
 |`collect`|Converts to`Stream` using `Collector`|`stream.collect(Collectors.joining(", ")) //Converts elements to comma separated strings`|
 
-For other methods, check [the Javadoc of`java.util.stream.Stream`](https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html).
+For other methods, check [the Javadoc of`java.util.stream.Stream`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html).
 
 A code example that uses Stream API and a code example that uses the enhanced for statement are shown below.
 In both cases, the average age is calculated from the list of employees by narrowing the list down to only those employees whose job type is programmer.

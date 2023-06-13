@@ -70,6 +70,8 @@
   - [7.12.Use the toArray method when converting collection to array](#no7-12)
   - [7.13.Use Arrays.asList or List.of when converting an array to collection](#no7-13)
   - [7.14.Add @Override to methods when overriding method and implementing abstract method](#no7-14)
+  - [7.15.Use text blocks to define multi-line strings](#no7-15)
+  - [7.16.Use a switch expression when switching value to be assigned to variable with a branch](#no7-16)
 - [8.Available API](#no8)
   - [8.1.Implement using the available standard API](#no8-1)
 - [9.Nablarch library](#no9)
@@ -1843,6 +1845,106 @@ public class SomeAction implements Runnable {
         ...
     }
 }
+```
+
+### <a name="no7-15">7.15.Use text blocks to define multi-line strings</a>
+
+When defining multi-line strings, consider using text blocks introduced in Java 15.
+
+A text blocks begins with `"""` (three double-quote) followed by a line break and ends with `"""`.
+Within text blocks, following features are available.
+
+- There is no need to write a newline character, and it can be expressed with a newline
+- No escape sequence when using `"`(double-quote)
+- Indentation whitespace is removed to match the line with the shallowest indentation
+
+If you do not use text blocks, it is common to define a string with embedded newline characters and concatenate the strings for each line.
+
+```java
+String json =
+        “{“ +
+        “  \”name\”: \”web¥”,” +
+        “  \”version\”: \”1.0.0\”” +
+        ”}”;
+```
+
+Using text blocks eliminates the need to write newline characters and escape sequences, making it easier to read.
+If the previous string were written in a text blocks, it would look like this.
+
+```java
+String json = “””
+        {
+          “name”: ”sample”,
+          “version”: “1.0.0”
+        }”””;
+```
+
+If you use a line feed at the end, be careful not to indent the `"""` at the end, as leading spaces will not be removed.
+For example, if you write a string equivalent to `"foo\nbar\n"` in a text blocks, it will look like this.
+
+```java
+String name = “””
+        foo
+        bar
+        ”””;
+```
+
+### <a name="no7-16">7.16.Use a switch expression when switching value to be assigned to variable with a branch</a>
+
+If you use `if` or `switch` statements to change the value to be assigned to variable depending on conditions, consider using the switch expression introduced in Java 14.
+
+You can write a switch expression using `yield` statement inside switch's case and default.
+A switch expression can return value specified in the `yield` statement.
+Also, from Java 14, the following description related to switch is possible.
+
+- By writing `->` (arrow syntax) instead of `:` in case and default, `yield` and `break` can be omitted (no fall-through)
+- Multiple values can be described in case label separated by commas.
+
+Using these makes it possible to write highly readable descriptions when switching the values to be assigned to variables depending on conditions.
+
+The following example uses a switch statement to select value to assign to `value` variable.
+
+```java
+DayOfWeek dayOfWeek = getDayOfWeek();
+int value;
+switch(dayOfWeek) {
+    case SUNDAY:
+    case MONDAY:
+    case TUESDAY:
+    case WEDNESDAY:
+        value = 1;
+        break;
+    case THURSDAY:
+    case FRIDAY:
+    case SATURDAY:
+        value = 2;
+        break;
+}
+```
+
+By using a switch expression, the equivalent can be written as follows.
+
+```java
+int value = switch(dayOfWeek) {
+    case SUNDAY, MONDAY, TUESDAY, WEDNESDAY -> 1;
+    case THURSDAY, FRIDAY, SATURDAY -> 2;
+};
+```
+
+If you want to write multiple statements within case or default, you can write them by enclosing them in blocks in the arrow syntax.
+Since the `yield` statement cannot be omitted by enclosing it in a block, write it as follows.
+
+```java
+int value = switch(dayOfWeek) {
+    case SUNDAY, MONDAY, TUESDAY, WEDNESDAY -> 1;
+    case THURSDAY, FRIDAY, SATURDAY -> {
+        if (isTarget(dayOfWeek)) {
+            yield 2;
+        } else {
+            yield 3;
+        }
+    }
+};
 ```
 
 ---

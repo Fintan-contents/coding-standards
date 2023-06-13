@@ -15,7 +15,6 @@ The documents in this repository are provided under the [Fintan Content License 
 
 The following files and sample projects are provided under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). 
 
-- [Java code formatter](./java/assets/standard-code-formatter.xml)
 - Sample projects stored under `java/staticanalysis/checkstyle/checkstyle-example/`. 
 - Sample projects stored under `java/staticanalysis/spotbugs/spotbugs-example/`.
 
@@ -72,4 +71,3 @@ The major version is incremented when a style guide for a new language is added 
 The minor version will be incremented when typographical errors are corrected or the expression is changed without changing the meaning.
 
 For change history, refer to [CHANGELOG.md](./CHANGELOG.md).
-

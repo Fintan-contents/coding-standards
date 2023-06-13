@@ -1845,6 +1845,106 @@ public class SomeAction implements Runnable {
 }
 ```
 
+### <a name="no7-15">7.15.複数行の文字列を定義する場合、テキストブロックを使用する</a>
+
+複数行の文字列を定義する場合、Java 15から導入されたテキストブロックを使用できないか検討してください。
+
+テキストブロックは、`"""`（二重引用符を3つ）の後に改行することで開始し、`"""`で終了します。
+テキストブロック内では、以下のような特徴があります。
+
+- 改行文字を記述する必要が無く、改行で表現できる
+- `"`（二重引用符）を使用する際、エスケープシーケンスが不要
+- インデントの空白は、インデントが一番浅い行に合わせて除去される
+
+テキストブロックを使用しない場合、改行文字を埋め込んだ文字列を定義し、行ごとの文字列を連結する記述が一般的です。
+
+```java
+String json =
+        “{“ +
+        “  \”name\”: \”web¥”,” +
+        “  \”version\”: \”1.0.0\”” +
+        ”}”;
+```
+
+テキストブロックを使用することで、改行文字やエスケープシーケンスの記述が不要になり、可読性に優れた記述が可能になります。
+先ほどの文字列をテキストブロックで記述した場合、次のようになります。
+
+```java
+String json = “””
+        {
+          “name”: ”sample”,
+          “version”: “1.0.0”
+        }”””;
+```
+
+末尾に改行を行う場合、最後に記述する`"""`のインデントが浅ければ先頭の空白が除去されなくなってしまうため、注意してください。
+例えば`"foo\nbar\n"`と同等の文字列をテキストブロックで記述した場合、次のようになります。
+
+```java
+String name = “””
+        foo
+        bar
+        ”””;
+```
+
+### <a name="no7-16">7.16.変数に代入する値を分岐で切り替えている場合、switch式を使用する</a>
+
+ifやswitch等を使用し、条件によって変数に代入する値を切り替えている場合、Java 14から導入されたswitch式を使用できないか検討してください。
+
+switchのcaseおよびdefault内で`yield`文を使用することで、switch式を記述することができます。 
+switch式では、`yield`文で指定した値を返すことができます。
+また、Java 14からはswitchに関連する以下の記述が可能になっています。
+
+- caseおよびdefaultで`:`の変わりに`->`（アロー構文）を記述することで、`yield`や`break`を省略できる（フォールスルーしない）
+- caseのラベルには、カンマ区切りで複数の値を記述できる
+
+これらを使用することで、条件によって変数に代入する値を切り替える場合に、可読性に優れた記述が可能になります。
+
+次の例では、switch文を使用して`value`変数に代入する値を切り替えています。
+
+```java
+DayOfWeek dayOfWeek = getDayOfWeek();
+int value;
+switch(dayOfWeek) {
+    case SUNDAY:
+    case MONDAY:
+    case TUESDAY:
+    case WEDNESDAY:
+        value = 1;
+        break;
+    case THURSDAY:
+    case FRIDAY:
+    case SATURDAY:
+        value = 2;
+        break;
+}
+```
+
+switch式を使用することで、同等の内容を次のように記述できます。
+
+```java
+int value = switch(dayOfWeek) {
+    case SUNDAY, MONDAY, TUESDAY, WEDNESDAY -> 1;
+    case THURSDAY, FRIDAY, SATURDAY -> 2;
+};
+```
+
+なお、caseやdefaultで複数の文を記述する場合、アロー構文ではブロックで囲むことで記述できます。
+ブロックで囲んだ場合は`yield`を省略できないため、次のように記述します。
+
+```java
+int value = switch(dayOfWeek) {
+    case SUNDAY, MONDAY, TUESDAY, WEDNESDAY -> 1;
+    case THURSDAY, FRIDAY, SATURDAY -> {
+        if (isTarget(dayOfWeek)) {
+            yield 2;
+        } else {
+            yield 3;
+        }
+    }
+};
+```
+
 ---
 
 ## <a name="no8">8.使用可能なAPI</a>

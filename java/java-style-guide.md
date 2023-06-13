@@ -1863,7 +1863,7 @@ public class SomeAction implements Runnable {
 ```java
 String json =
         “{“ +
-        “  \”name\”: \”web¥”,” +
+        “  \”name\”: \”sample¥”,” +
         “  \”version\”: \”1.0.0\”” +
         ”}”;
 ```

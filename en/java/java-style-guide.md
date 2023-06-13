@@ -1863,7 +1863,7 @@ If you do not use text blocks, it is common to define a string with embedded new
 ```java
 String json =
         “{“ +
-        “  \”name\”: \”web¥”,” +
+        “  \”name\”: \”sample¥”,” +
         “  \”version\”: \”1.0.0\”” +
         ”}”;
 ```

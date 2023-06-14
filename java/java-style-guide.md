@@ -70,6 +70,8 @@
   - [7.12.コレクションを配列に変換する場合はtoArrayメソッドを使用してください](#no7-12)
   - [7.13.配列をコレクションに変換する場合はArrays.asList、またはList.ofを使用してください](#no7-13)
   - [7.14.メソッドをオーバーライドしたり、抽象メソッドを実装する場合はメソッドに@Overrideを付けてください](#no7-14)
+  - [7.15.複数行の文字列を定義する場合、テキストブロックを使用してください](#no7-15)
+  - [7.16.変数に代入する値を分岐で切り替えている場合、switch式を使用してください](#no7-16)
 - [8.使用可能なAPI](#no8)
   - [8.1.使用可能な標準APIを使用して実装してください](#no8-1)
 - [9.Nablarchライブラリ](#no9)
@@ -84,9 +86,7 @@
 基本的に特定のフレームワークに限らず汎用的に使用できるようにしてありますが、[9. Nablarchライブラリ](#9nablarchライブラリ)については、[Nablarch Application Framework](https://fintan.jp/page/1868/)を前提とした項目となります。他のフレームワークを利用される場合は項目を削除してください。
 
 また、本文で[使用不許可APIチェックツール](./staticanalysis/unpublished-api/README.md)に触れています。
-こちらのツールは特定のフレームワークに依存せず、使用が許可されていないAPIの使用を検知するツールです。ご利用の際は使用を許可するAPIをホワイトリストとして設定するため、設定ファイルを用意する必要があります。
-Nablarch Application Frameworkを利用される場合は使用可能なAPIを記載した[設定ファイル](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/)を提供しています。
-その他のフレームワークを使用していて使用不許可APIチェックツールを利用される場合は、必要な設定ファイルを作成してください。
+こちらのツールは特定のフレームワークに依存せず、使用が許可されていないAPIの使用を検知するツールです。
 
 ### <a name="no1-1">1.1.前提</a>
 
@@ -98,7 +98,7 @@ Nablarch Application Frameworkを利用される場合は使用可能なAPIを�
 
 機械的に対処できることは予め実施し、本規約ではより良いコードを書くためのガイド、あるいはコードレビューの指針となるように作成しました。
 
-なお著名な静的解析ツールは他にもSonarQubeがありますが、サーバーへインストールする形式のSonarQubeよりもMavenの実行だけでチェックが簡潔するCheckstyleとSpotBugsの方が導入の敷居が低いため、本規約ではCheckstyleとSpotBugsを前提にしています。
+なお著名な静的解析ツールは他にもSonarQubeがありますが、サーバーへインストールする形式のSonarQubeよりもMavenの実行だけでチェックが完結するCheckstyleとSpotBugsの方が導入の敷居が低いため、本規約ではCheckstyleとSpotBugsを前提にしています。
 
 プロジェクトによってはCheckstyle・SpotBugs以外の手段で静的解析をする場合もあるでしょう。
 必要に応じて、規約の前提条件をCheckstyle・SpotBugsからSonarQubeやその他の静的解析ツールに読み換えて頂いて構いません。
@@ -147,9 +147,7 @@ public void appendHello(final String yourName) {
 
 ### <a name="no1-3">1.3.Javaバージョン</a>
 
-本規約はJava 8をベースに作成しており、一部の項目ではJava 9やJava 10で使用できる新機能にも言及しています。
-
-本規約はJava 8以降をお使いのプロジェクトでご利用頂けます。
+本規約はJava 17をベースに作成しています。
 
 ### <a name="no1-4">1.4.表記ルール</a>
 
@@ -415,6 +413,8 @@ public void updateItem(final String code, final String name, final LocalDateTime
 ### <a name="no4-4">4.4.コードの理解を助けるため、必要に応じて行コメントを記載してください</a>
 
 コードだけを読んで処理の内容を理解できるのが理想的ですが、複雑なロジックや、パフォーマンスのためにあえて特殊な実装をした場合は説明のコメントを記載してください。
+また、なぜこのような実装にしているのかといった経緯を説明した方が理解しやすいコードである場合にも、説明のコメントを記載してください。
+
 コメントは`//`から始まる一行コメントの形式で記載してください。
 
 ---
@@ -1167,6 +1167,16 @@ public void updateItem(final ItemCode code, final String name, final int version
 
 Java 5からジェネリクスが導入されて、キャストを使用しなくてもほとんど困る事はなくなっているはずです。
 
+キャストが必要になる場合は、Java 16から導入されたinstanceof演算子のパターンマッチングが使用できないか検討してください。
+instanceof演算子で型を判定する際にバインディング変数を指定することで、キャストした結果をバインディング変数に代入することができます。
+
+```java
+if (obj instanceof String str) {
+    // instanceof演算子の結果がtrueの場合、キャストした結果が変数strに代入される
+    int size = str.length();
+}
+```
+
 ### <a name="no6-10">6.10.ラッパークラスの変数とプリミティブ値を演算する際は、アンボクシングに注意してください</a>
 
 `java.lang.Integer`のようなラッパークラスを`int`のようなプリミティブ値へ変換することをアンボクシングと言います。
@@ -1596,7 +1606,7 @@ Stream APIは`filter`や`map`、`collect`といったメソッドを使用して
 |`map`|要素を変換する|`stream.map(x -> x.getClass()) //Classに変換する`|
 |`collect`|`Collector`によって`Stream`を変換する|`stream.collect(Collectors.joining(", ")) //要素をカンマ区切りの文字列に変換する`|
 
-その他のメソッドは[`java.util.stream.Stream`のJavadoc](https://docs.oracle.com/javase/jp/10/docs/api/java/util/stream/Stream.html)で確認してください。
+その他のメソッドは[`java.util.stream.Stream`のJavadoc](https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/util/stream/Stream.html)で確認してください。
 
 Stream APIを使用したコード例と拡張for文を使用したコード例を次に示します。
 どちらも従業員のリストから職種がプログラマーの従業員だけに絞り込んで平均年齢を算出しています。
@@ -1710,7 +1720,7 @@ final List<Item> temp = new ArrayList<>(values.length);
 for (Item item : values) {
     temp.add(copyItem(item));
 }
-final Item[] copied = temp.toArray(new Item[0]);
+final Item[] copied = temp.toArray(Item[]::new);
 ```
 
 例に示したケースではJava 8から導入されたStream APIを使用すると、より簡潔なコードになります。
@@ -1741,18 +1751,14 @@ for (final Item item : items) {
 ```java
 //OK
 final List<Item> items = ...
-final Item[] itemArray = items.toArray(new Item[0]);
+final Item[] itemArray = items.toArray(Item[]::new);
 
 //Stream APIにもtoArrayメソッドが用意されている
 //Streamを配列に変換したい場合はこのメソッドを使用する
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
 
-このコード例では`toArray`メソッドに渡す配列を長さ`0`で初期化しています。
-元となるコレクションの`size`メソッドを長さに指定して初期化することも可能ですが、パフォーマンスの差はほぼありません。
-そのため、どちらの初期化方法を選択しても良いですが、本規約のコード例では見やすさを考慮して長さ`0`で初期化しています。
-
-### <a name="no7-13">7.13.配列をコレクションに変換する場合はArrays.asList、またはList.ofを使用してください</a>
+### <a name="no7-13">7.13.配列をコレクションに変換する場合はArrays.asListメソッド、またはコレクションのofメソッドを使用してください</a>
 
 配列のユーティリティである`java.util.Arrays`クラスにはリストに変換する`asList`メソッドが用意されています。
 各要素をループしてリストを作ったりせず、`java.util.Arrays`クラスの`asList`メソッドを使用してください。
@@ -1772,27 +1778,12 @@ final Item[] itemArray = ...
 final List<Item> items = Arrays.asList(itemArray);
 ```
 
-なお、Java 9からは`java.util.List`に`of`メソッドが追加されたので、こちらを使用しても構いません。
+配列を変更不可のコレクションに変換する場合は、コレクションの`of`メソッドを使用してください。
 
 ```
 //OK
 final Item[] itemArray = ...
 final List<Item> items = List.of(itemArray);
-```
-
-Java 9からは`java.util.Set`にも`of`メソッドが追加されました。
-これまで配列から`java.util.Set`に変換しようとすると、一旦`java.util.List`に変換してから`java.util.Set`を生成したり、Java 8からはStream APIを使用して変換していました。
-Java 9からは簡潔なコードで変換できるようになりました。
-
-```java
-//Java 7までの変換方法
-final Set<Item> items =  new HashSet<>(Arrays.asList(itemArray));
-
-//Java 8からはStream APIで変換できる
-final Set<Item> items =  Arrays.stream(itemArray).collect(Collectors.toSet());
-
-//Java 9からはより簡潔に変換できる
-final Set<Item> items = Set.of(itemArray);
 ```
 
 ### <a name="no7-14">7.14.メソッドをオーバーライドしたり、抽象メソッドを実装する場合はメソッドに@Overrideを付けてください</a>
@@ -1854,6 +1845,117 @@ public class SomeAction implements Runnable {
 }
 ```
 
+### <a name="no7-15">7.15.複数行の文字列を定義する場合、テキストブロックを使用してください</a>
+
+複数行の文字列を定義する場合、Java 15から導入されたテキストブロックを使用できないか検討してください。
+
+テキストブロックは、`"""`（二重引用符を3つ）の後に改行することで開始し、`"""`で終了します。
+テキストブロック内では、以下のような特徴があります。
+
+- 改行文字を記述する必要が無く、改行で表現できる
+- `"`（二重引用符）を使用する際、エスケープシーケンスが不要
+- インデントの空白は、インデントが一番浅い行に合わせて除去される
+
+テキストブロックを使用しない場合、改行文字を埋め込んだ文字列を定義し、行ごとの文字列を連結する記述が一般的です。
+
+```java
+String html =
+        "<html>\n" +
+        "    <body>\n" +
+        "        <p>\"Hello, world\"</p>\n" +
+        "    </body>\n" +
+        "</html>\n";
+```
+
+テキストブロックを使用することで、改行文字やエスケープシーケンスの記述が不要になり、可読性に優れた記述が可能になります。
+先ほどの文字列をテキストブロックで記述した場合、次のようになります。
+
+```java
+String html = """
+        <html>
+            <body>
+                <p>"Hello, world"</p>
+            </body>
+        </html>""";
+```
+
+末尾で改行する場合は、終端の`"""`を記述する行のインデントに注意してください。
+例えば次のように記述した場合、インデントが一番浅い行は終端の`"""`を記述した行であるため空白が除去されず、`"        foo\n        bar\n"`と同等の文字列になります。
+
+```java
+String name = “””
+        foo
+        bar
+”””;
+```
+
+空白を除去しつつ末尾で改行したい場合は、次のように記述することで、`"foo\nbar\n"`と同等の文字列になります。
+
+```java
+String name = “””
+        foo
+        bar
+        ”””;
+```
+
+### <a name="no7-16">7.16.変数に代入する値を分岐で切り替えている場合、switch式を使用してください</a>
+
+`if`文や`switch`文を使用し、条件によって変数に代入する値を切り替えている場合、Java 14から導入されたswitch式を使用できないか検討してください。
+
+switchのcaseおよびdefault内で`yield`文を使用することで、switch式を記述することができます。 
+switch式では、`yield`文で指定した値を返すことができます。
+また、Java 14からはswitchに関連する以下の記述が可能になっています。
+
+- caseおよびdefaultで`:`の変わりに`->`（アロー構文）を記述することで、`yield`や`break`を省略できる（フォールスルーしない）
+- caseのラベルには、カンマ区切りで複数の値を記述できる
+
+これらを使用することで、条件によって変数に代入する値を切り替える場合に、可読性に優れた記述が可能になります。
+
+次の例では、switch文を使用して`value`変数に代入する値を切り替えています。
+
+```java
+DayOfWeek dayOfWeek = getDayOfWeek();
+int value;
+switch(dayOfWeek) {
+    case SUNDAY:
+    case MONDAY:
+    case TUESDAY:
+    case WEDNESDAY:
+        value = 1;
+        break;
+    case THURSDAY:
+    case FRIDAY:
+    case SATURDAY:
+        value = 2;
+        break;
+}
+```
+
+switch式を使用することで、同等の内容を次のように記述できます。
+
+```java
+int value = switch(dayOfWeek) {
+    case SUNDAY, MONDAY, TUESDAY, WEDNESDAY -> 1;
+    case THURSDAY, FRIDAY, SATURDAY -> 2;
+};
+```
+
+なお、caseやdefault内で複数の文を記述したい場合、アロー構文ではブロックで囲むことで記述できます。
+ブロックで囲んだ場合は`yield`文を省略できないため、次のように記述します。
+
+```java
+int value = switch(dayOfWeek) {
+    case SUNDAY, MONDAY, TUESDAY, WEDNESDAY -> 1;
+    case THURSDAY, FRIDAY, SATURDAY -> {
+        if (isTarget(dayOfWeek)) {
+            yield 2;
+        } else {
+            yield 3;
+        }
+    }
+};
+```
+
 ---
 
 ## <a name="no8">8.使用可能なAPI</a>
@@ -1862,7 +1964,7 @@ public class SomeAction implements Runnable {
 
 ### <a name="no8-1">8.1.使用可能な標準APIを使用して実装してください</a>
 
-Java標準ライブラリのうち使用可能なAPIについては、[Java標準ライブラリ使用可能API](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/JavaOpenApi.config)を参照してください。
+Java標準ライブラリのうち使用可能なAPIについては、[Java標準ライブラリ使用可能API](./staticanalysis/unpublished-api/published-config/production/JavaOpenApi.config)を参照してください。
 
 また、[使用不許可APIチェックツール](./staticanalysis/unpublished-api/README.md)を使用してチェックを行えますので活用してください。
 

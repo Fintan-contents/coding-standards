@@ -28,7 +28,7 @@ It is recommended to set it to run automatically when saving to ensure that it w
 ### Import and export settings
 
 You can share your settings across projects by exporting your code style settings.
-Please refer to the next page for how to export and import.
+For more information on export and import, please refer to the following pages.
 
 [Import and export schemes | IntelliJ IDEA Documentation](https://www.jetbrains.com/help/idea/configuring-code-style.html#import-export-schemes)
 

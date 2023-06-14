@@ -6,7 +6,7 @@ By dealing with it mechanically, there is no need to describe it in the coding c
 
 IDE such as IntelliJ IDEA and Eclipse provide code formatter functionality.
 Code formatter defaults to code styles that are generally considered to be readable.
-If customization is required, the customized settings can be exported and imported to share with project developers.
+If customization is required, customized settings can be exported, imported, and shared among project developers.
 
 Code style can be unified in the project by the developer setting code formatter and executing code formatter after changing code.
 
@@ -27,7 +27,7 @@ It is recommended to set it to run automatically when saving to ensure that it w
 
 ### Import and export settings
 
-You can share your settings across projects by exporting your code style settings.
+Code style settings can be exported and shared among project developers.
 For more information on export and import, please refer to the following pages.
 
 [Import and export schemes | IntelliJ IDEA Documentation](https://www.jetbrains.com/help/idea/configuring-code-style.html#import-export-schemes)
@@ -58,7 +58,7 @@ For other details, please refer to the following pages.
 
 ### Import and export settings
 
-You can share your settings across projects by exporting your code style settings.
+Code style settings can be exported and shared among project developers.
 
 From Eclipse preferences, open `Java > Code Style > Formatter`.
 You can export the selected profile by selecting the profile to be set and clicking the `Export All` button.

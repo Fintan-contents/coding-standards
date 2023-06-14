@@ -1722,7 +1722,7 @@ final List<Item> temp = new ArrayList<>(values.length);
 for (Item item : values) {
     temp.add(copyItem(item));
 }
-final Item[] copied = temp.toArray(new Item[0]);
+final Item[] copied = temp.toArray(Item[]::new);
 ```
 
 例に示したケースではJava 8から導入されたStream APIを使用すると、より簡潔なコードになります。

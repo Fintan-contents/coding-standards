@@ -1722,7 +1722,7 @@ final List<Item> temp = new ArrayList<>(values.length);
 for (Item item : values) {
     temp.add(copyItem(item));
 }
-final Item[] copied = temp.toArray(new Item[0]);
+final Item[] copied = temp.toArray(Item[]::new);
 ```
 
 As in the case shown in the example, using the Stream API introduced from Java 8 makes the code more simple.

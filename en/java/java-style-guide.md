@@ -1861,26 +1861,37 @@ Within text blocks, following features are available.
 If you do not use text blocks, it is common to define a string with embedded newline characters and concatenate the strings for each line.
 
 ```java
-String json =
-        “{“ +
-        “  \”name\”: \”sample¥”,” +
-        “  \”version\”: \”1.0.0\”” +
-        ”}”;
+String html =
+        "<html>\n" +
+        "    <body>\n" +
+        "        <p>\"Hello, world\"</p>\n" +
+        "    </body>\n" +
+        "</html>\n";
 ```
 
 Using text blocks eliminates the need to write newline characters and escape sequences, making it easier to read.
 If the previous string were written in a text blocks, it would look like this.
 
 ```java
-String json = “””
-        {
-          “name”: ”sample”,
-          “version”: “1.0.0”
-        }”””;
+String html = """
+        <html>
+            <body>
+                <p>"Hello, world"</p>
+            </body>
+        </html>""";
 ```
 
-If you use a line feed at the end, be careful not to indent the `"""` at the end, as leading spaces will not be removed.
-For example, if you write a string equivalent to `"foo\nbar\n"` in a text blocks, it will look like this.
+When breaking lines at the end, note the indentation of the line with the terminating `"""`.
+For example, if you write the following, the line with the shallowest indentation is the line with the terminating `"""`, so no whitespace is removed and the string is equivalent to `"        foo\n        bar\n"`.
+
+```java
+String name = “””
+        foo
+        bar
+”””;
+```
+
+If you want to remove whitespace while breaking the line at the end, write the following to make the string equivalent to `"foo\nbar\n"`.
 
 ```java
 String name = “””

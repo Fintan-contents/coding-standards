@@ -17,12 +17,12 @@ Search for "Warnings Next Generation Plugin" in "Available plugins", check "Warn
 Open the job's "Configure" and add "Invoke top-level Maven targets" to "Build Steps".
 Add `checkstyle:checkstyle` to your "Goals" to create a check result.
 
-![](./assets/jenkins-maven-build.png)
+![](./assets/jenkins-checkstyle-build.png)
 
 Add "Record compiler warnings and static analysis results" to "Post-build Actions" to collect check results.
 Select "CheckStyle" in "Tool" to collect CheckStyle check results.
 
-![](./assets/jenkins-maven-checkstyle.png)
+![](./assets/jenkins-checkstyle-postbuild.png)
 
 This completes the configuration for collecting check results.
 Check results will now be collected when build is implemented.
@@ -30,4 +30,4 @@ Check results will now be collected when build is implemented.
 When the check results are collected, you will see "CheckStyle Warnings" in the menu.
 Open "CheckStyle Warnings" to see the details of the latest results and the history of violation counts.
 
-![](./assets/jenkins-result-link.png)
+![](./assets/jenkins-checkstyle-warnings.png)

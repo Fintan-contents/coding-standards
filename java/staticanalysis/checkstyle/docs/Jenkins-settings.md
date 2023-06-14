@@ -17,12 +17,12 @@
 ジョブの「設定」を開いて、「Build Steps」に「Mavenの呼び出し」を追加します。
 チェック結果を作成するため、「ゴール」に `checkstyle:checkstyle` を追加してください。
 
-![](./assets/jenkins-maven-build.png)
+![](./assets/jenkins-checkstyle-build.png)
 
 チェック結果を収集するため、「ビルド後の後処理」に「Record compiler warnings and static analysis results」を追加します。
 CheckStyleのチェック結果を収集するため、「Tool」で「CheckStyle」を選択します。
 
-![](./assets/jenkins-maven-checkstyle.png)
+![](./assets/jenkins-checkstyle-postbuild.png)
 
 これでチェック結果を収集するための設定が出来ました。
 あとはビルドを実施するとチェック結果が収集されます。
@@ -30,4 +30,4 @@ CheckStyleのチェック結果を収集するため、「Tool」で「CheckStyl
 チェック結果が収集されると、メニューに「CheckStyle Warnings」が表示されます。
 「CheckStyle Warnings」を開くと、最新結果の詳細や、違反数の推移を参照できます。
 
-![](./assets/jenkins-result-link.png)
+![](./assets/jenkins-checkstyle-warnings.png)

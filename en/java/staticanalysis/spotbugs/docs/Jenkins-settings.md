@@ -19,12 +19,12 @@ Add `spotbugs:spotbugs` to your "Goals" to create a check result.
 
 When checking, it must be done after building, so if you build the project with `package`, the value configured in the "Goals" will be `package spotbugs:spotbugs`.
 
-![](./assets/jenkins-maven-build.png)
+![](./assets/jenkins-spotbugs-build.png)
 
 Add "Record compiler warnings and static analysis results" to "Post-build Actions" to collect check results.
 Select "SpotBugs" in "Tool" to collect SpotBugs check results.
 
-![](./assets/jenkins-maven-findbugs.png)
+![](./assets/jenkins-spotbugs-postbuild.png)
 
 This completes the configuration for collecting check results.
 Check results will now be collected when build is implemented.
@@ -32,4 +32,4 @@ Check results will now be collected when build is implemented.
 When the check results are collected, you will see "SpotBugs Warnings" in the menu.
 Open "SpotBugs Warnings" to see the details of the latest results and the history of violation counts.
 
-![](./assets/jenkins-result-link.png)
+![](./assets/jenkins-spotbugs-warnings.png)

@@ -19,12 +19,12 @@
 
 チェック時はビルド後に行う必要があるため、仮にプロジェクトのビルドを `package` で行う場合、「ゴール」に設定する値は `package spotbugs:spotbugs` になります。
 
-![](./assets/jenkins-maven-build.png)
+![](./assets/jenkins-spotbugs-build.png)
 
 チェック結果を収集するため、「ビルド後の後処理」に「Record compiler warnings and static analysis results」を追加します。
 SpotBugsのチェック結果を収集するため、「Tool」で「SpotBugs」を選択します。
 
-![](./assets/jenkins-maven-findbugs.png)
+![](./assets/jenkins-spotbugs-postbuild.png)
 
 これでチェック結果を収集するための設定が出来ました。
 あとはビルドを実施するとチェック結果が収集されます。
@@ -32,4 +32,4 @@ SpotBugsのチェック結果を収集するため、「Tool」で「SpotBugs」
 チェック結果が収集されると、メニューに「SpotBugs Warnings」が表示されます。
 「SpotBugs Warnings」を開くと、最新結果の詳細や、違反数の推移を参照できます。
 
-![](./assets/jenkins-result-link.png)
+![](./assets/jenkins-spotbugs-warnings.png)

@@ -1966,7 +1966,7 @@ int value = switch(dayOfWeek) {
 
 ### <a name="no8-1">8.1.使用可能な標準APIを使用して実装してください</a>
 
-Java標準ライブラリのうち使用可能なAPIについては、[Java標準ライブラリ使用可能API](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/JavaOpenApi.config)を参照してください。
+Java標準ライブラリのうち使用可能なAPIについては、[Java標準ライブラリ使用可能API](./staticanalysis/unpublished-api/published-config/production/JavaOpenApi.config)を参照してください。
 
 また、[使用不許可APIチェックツール](./staticanalysis/unpublished-api/README.md)を使用してチェックを行えますので活用してください。
 

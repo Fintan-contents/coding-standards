@@ -1966,7 +1966,7 @@ By carefully selecting enough APIs to develop business applications, quality can
 
 ### <a name="no8-1">8.1.Implement using the available standard API</a>
 
-For APIs available in the Java standard library, see [Available APIs in the Java standard library](./staticanalysis/spotbugs/spotbugs-example/spotbugs/published-config/production/JavaOpenApi.config).
+For APIs available in the Java standard library, see [Available APIs in the Java standard library](./staticanalysis/unpublished-api/published-config/production/JavaOpenApi.config).
 
 Also make use of [Unauthorized API check tool](./staticanalysis/unpublished-api/README.md) to check.
 

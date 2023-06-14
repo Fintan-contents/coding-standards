@@ -6,7 +6,7 @@ By dealing with it mechanically, there is no need to describe it in the coding c
 
 IDE such as IntelliJ IDEA and Eclipse provide code formatter functionality.
 Code formatter defaults to code styles that are generally considered to be readable.
-If customization is required, customized settings can be exported and imported to share them across projects.
+If customization is required, the customized settings can be exported and imported to share with project developers.
 
 Code style can be unified in the project by the developer setting code formatter and executing code formatter after changing code.
 

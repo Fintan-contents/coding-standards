@@ -743,8 +743,6 @@ Use `if` statement to perform conditional branching.
 When an exception is thrown, check whether it is possible to `catch` the exception, however, this check is expensive.
 Particularly, if `try-catch` is used for conditional branching within a loop, there may be a notable performance degradation.
 
-However, if the framework or library you are using recommends the use of `try-catch` statements for conditional branching, please follow that recommendation.
-
 ```java
 //Not Okay
 try {

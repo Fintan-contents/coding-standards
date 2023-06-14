@@ -17,7 +17,7 @@
 ジョブの「設定」を開いて、「Build Steps」に「Mavenの呼び出し」を追加します。
 チェック結果を作成するため、「ゴール」に `spotbugs:spotbugs` を追加してください。
 
-チェック時はビルド後に行う必要があるため、仮にプロジェクトのビルドを `package` で行う場合、「ゴール」に設定する値は `package spotbugs:spotbugs` になります。
+チェックはビルド後に行う必要があるため、仮にプロジェクトのビルドを `package` で行う場合、「ゴール」に設定する値は `package spotbugs:spotbugs` になります。
 
 ![](./assets/jenkins-spotbugs-build.png)
 

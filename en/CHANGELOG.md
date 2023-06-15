@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 3.3 (2023-09-29)
+
+- Java coding conventions
+  - Java version upgraded to 17.
+  - New rules have been added due to Java version upgrade.
+  - Some rules have been modified due to Java version upgrade.
+- Java code formatter
+  - Since unification of code style is important and not the content of the settings, we have chosen not to provide configuration file.
+  - Added instructions on how to configure IntelliJ IDEA and Eclipse.
+- Checkstyle guide
+  - CheckStyle version upgraded to 10.12.0.
+  - New rules have been added due to CheckStyle version upgrade.
+  - Reviewed configuration file and deleted some rules.
+  - Reviewed configuration file and modified the severity of each rule to error.
+  - Java of sample project version upgraded to 17.
+  - Source code of sample project has been modified due to modification of configuration file.
+  - Plugin used to collect execution results in Jenkins is no longer supported, so changed plugin to use.
+- SpotBugs guide
+  - SpotBugs version upgraded to 4.7.3.
+  - Java of sample project version upgraded to 17.
+  - Sample code for standard detectable bugs has been added to sample project.
+  - Plugin used to collect execution results in Jenkins is no longer supported, so changed plugin to use.
+- Unauthorized API check tool
+  - Java of sample project version upgraded to 17.
+  - Authorized API of the Java standard library has been modified due to Java version upgrade.
+  - Sample configuration file has been placed.
+- ArchUnit Guide
+  - ArchUnit version upgraded to 1.0.1.
+
 ## 3.2 (2022-10-31)
 
 - NablarchDependencies are clearly indicated, and the concept of diverting to other frameworks is described.

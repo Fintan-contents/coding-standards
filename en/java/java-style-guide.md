@@ -72,6 +72,7 @@
   - [7.14.Add @Override to methods when overriding method and implementing abstract method](#no7-14)
   - [7.15.Use text blocks to define multi-line strings](#no7-15)
   - [7.16.Use a switch expression when switching value to be assigned to variable with a branch](#no7-16)
+  - [7.17.If record is available for classes whose main purpose is data hold, such as DTO, use record](#no7-16)
 - [8.Available API](#no8)
   - [8.1.Implement using the available standard API](#no8-1)
 - [9.Nablarch library](#no9)
@@ -1959,6 +1960,65 @@ int value = switch(dayOfWeek) {
     }
 };
 ```
+
+### <a name="no7-16">7.16.If record is available for classes whose main purpose is data hold, such as DTO, use record</a>
+
+When defining a class whose main purpose is to hold data, such as DTO, consider using record that were officially introduced in Java 16.
+
+By using records, you can implement without writing boilerplate code such as fields, constructors, and accessor methods.
+Record have the following main characteristics.
+
+- Immutable and can be set when created
+- Elements held by records are called record components
+- Fields, constructors, and accessor methods corresponding to record components are automatically generated
+- Default constructor (constructor with no arguments) is not generated
+
+The following example is a typical class whose primary purpose is to hold data.
+
+```java
+// NG
+public class Person {
+
+    private final Integer id;
+    private final String name;
+
+    public Person(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+The following example implements a record equivalent to the above class by defining a record with `record`.
+
+```java
+// OK
+public record Person(Integer id, String name) {
+}
+```
+
+A defined record can be used in the same way as a normal class.
+
+```java
+// Create instance
+Person person = new Person(1, "foo");
+// Access value
+Integer id = person.id();
+String name = person.name();
+```
+
+However, record have many different rules than normal classes, and may not be used where libraries are used.
+Therefore, when using record, be sure to check that library you use supports record.
+
+Please refer to [this page](https://docs.oracle.com/en/java/javase/16/language/records.html) for details on record specifications.
 
 ---
 

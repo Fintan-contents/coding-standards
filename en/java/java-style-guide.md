@@ -1167,7 +1167,7 @@ Casting is a mechanism in which the value handled as one type is forced to be tr
 
 With generics being introduced from Java 5, there should be no problems even without the use of casting.
 
-If class cast is required, consider whether the pattern matching for instanceof introduced in Java 16 can be used.
+If class cast is required, consider whether the pattern matching for instanceof officially introduced in Java 16 can be used.
 By specifying a binding variable when determining type with instanceof operator, you can assign result of cast to the binding variable.
 
 ```java
@@ -1839,7 +1839,7 @@ public class SomeAction implements Runnable {
 
 ### <a name="no7-15">7.15.Use text blocks to define multi-line strings</a>
 
-When defining multi-line strings, consider using text blocks introduced in Java 15.
+When defining multi-line strings, consider using text blocks officially introduced in Java 15.
 
 A text blocks begins with `"""` (three double-quote) followed by a line break and ends with `"""`.
 Within text blocks, following features are available.
@@ -1892,7 +1892,7 @@ String name = “””
 
 ### <a name="no7-16">7.16.Use a switch expression when switching value to be assigned to variable with a branch</a>
 
-If you use `if` or `switch` statements to change the value to be assigned to variable depending on conditions, consider using the switch expression introduced in Java 14.
+If you use `if` or `switch` statements to change the value to be assigned to variable depending on conditions, consider using the switch expression officially introduced in Java 14.
 
 You can write a switch expression using `yield` statement inside switch's case and default.
 A switch expression can return value specified in the `yield` statement.

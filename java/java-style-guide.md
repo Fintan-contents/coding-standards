@@ -1891,6 +1891,17 @@ String name = “””
         ”””;
 ```
 
+テキストブロック内で変数の値を使用して標準出力へ出力したいといったような場合は、`String.formatted`メソッド等を使用して文字列を置換することで実現できます。
+
+```java
+String id = "xxx";
+String name = "yyy";
+System.out.println("""
+        id  : %s
+        name: %s
+        """.formatted(id, name));
+```
+
 ### <a name="no7-16">7.16.変数に代入する値を分岐で切り替えている場合、`switch`式を使用してください</a>
 
 `if`文や`switch`文を使用し、条件によって変数に代入する値を切り替えている場合、Java 14から正式導入された`switch`式を使用できないか検討してください。

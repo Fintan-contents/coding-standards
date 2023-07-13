@@ -1891,6 +1891,17 @@ String name = “””
         ”””;
 ```
 
+If you want to use value of variable to text block and output it to stdout, you can use the `String.formatted` method to replace string.
+
+```java
+String id = "xxx";
+String name = "yyy";
+System.out.println("""
+        id  : %s
+        name: %s
+        """.formatted(id, name));
+```
+
 ### <a name="no7-16">7.16.Use a `switch` expression when switching value to be assigned to variable with a branch</a>
 
 If you use `if` or `switch` statements to change the value to be assigned to variable depending on conditions, consider using the `switch` expression officially introduced in Java 14.

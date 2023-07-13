@@ -1845,7 +1845,7 @@ When defining multi-line strings, consider using text blocks officially introduc
 A text blocks begins with `"""` (three double-quote) followed by a line break and ends with `"""`.
 Within text blocks, following features are available.
 
-- There is no need to write a newline character, and it can be expressed with a newline
+- There is no need to write a newline character, and it can be expressed with a newline (LF is used for line separator)
 - No escape sequence when using `"`(double-quote)
 - Indentation whitespace is removed to match the line with the shallowest indentation
 

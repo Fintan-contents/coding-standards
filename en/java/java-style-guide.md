@@ -1168,7 +1168,7 @@ Casting is a mechanism in which the value handled as one type is forced to be tr
 
 With generics being introduced from Java 5, there should be no problems even without the use of casting.
 
-If class cast is required, consider whether the pattern matching for instanceof officially introduced in Java 16 can be used.
+If class cast is required, recommended to use pattern matching for instanceof officially introduced in Java 16 can be used.
 By specifying a binding variable when determining type with instanceof operator, you can assign result of cast to the binding variable.
 
 ```java

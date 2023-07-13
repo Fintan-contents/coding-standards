@@ -1168,7 +1168,7 @@ public void updateItem(final ItemCode code, final String name, final int version
 
 Java 5からジェネリクスが導入されて、キャストを使用しなくてもほとんど困る事はなくなっているはずです。
 
-キャストが必要になる場合は、Java 16から正式導入されたinstanceof演算子のパターンマッチングが使用できないか検討してください。
+キャストが必要になる場合は、Java 16から正式導入されたinstanceof演算子のパターンマッチングを使用することを推奨します。
 instanceof演算子で型を判定する際にバインディング変数を指定することで、キャストした結果をバインディング変数に代入することができます。
 
 ```java

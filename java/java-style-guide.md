@@ -1853,6 +1853,7 @@ public class SomeAction implements Runnable {
 テキストブロックを使用しない場合、改行文字を埋め込んだ文字列を定義し、行ごとの文字列を連結する記述が一般的です。
 
 ```java
+//NG
 String html =
         "<html>\n" +
         "    <body>\n" +
@@ -1865,6 +1866,7 @@ String html =
 先ほどの文字列をテキストブロックで記述した場合、次のようになります。
 
 ```java
+//OK
 String html = """
         <html>
             <body>
@@ -1877,6 +1879,7 @@ String html = """
 例えば次のように記述した場合、インデントが一番浅い行は終端の`"""`を記述した行であるため空白が除去されず、`"        foo\n        bar\n"`と同等の文字列になります。
 
 ```java
+//NG
 String name = “””
         foo
         bar
@@ -1886,6 +1889,7 @@ String name = “””
 空白を除去しつつ末尾で改行したい場合は、次のように記述することで、`"foo\nbar\n"`と同等の文字列になります。
 
 ```java
+//OK
 String name = “””
         foo
         bar

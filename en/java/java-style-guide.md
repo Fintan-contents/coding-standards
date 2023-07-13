@@ -1853,6 +1853,7 @@ Within text blocks, following features are available.
 If you do not use text blocks, it is common to define a string with embedded newline characters and concatenate the strings for each line.
 
 ```java
+//NG
 String html =
         "<html>\n" +
         "    <body>\n" +
@@ -1865,6 +1866,7 @@ Using text blocks eliminates the need to write newline characters and escape seq
 If the previous string were written in a text blocks, it would look like this.
 
 ```java
+//OK
 String html = """
         <html>
             <body>
@@ -1877,6 +1879,7 @@ When breaking lines at the end, note the indentation of the line with the termin
 For example, if you write the following, the line with the shallowest indentation is the line with the terminating `"""`, so no whitespace is removed and the string is equivalent to `"        foo\n        bar\n"`.
 
 ```java
+//NG
 String name = “””
         foo
         bar
@@ -1886,6 +1889,7 @@ String name = “””
 If you want to remove whitespace while breaking the line at the end, write the following to make the string equivalent to `"foo\nbar\n"`.
 
 ```java
+//OK
 String name = “””
         foo
         bar

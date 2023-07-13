@@ -68,7 +68,7 @@
   - [7.10.Avoid using legacy for statement and consider using Stream API or enhanced for statement](#no7-10)
   - [7.11.Use clone method to copy the whole array](#no7-11)
   - [7.12.Use the toArray method when converting collection to array](#no7-12)
-  - [7.13.Use Arrays.asList or List.of when converting an array to collection](#no7-13)
+  - [7.13.Use the of method of collection class when converting an array to collection](#no7-13)
   - [7.14.Add @Override to methods when overriding method and implementing abstract method](#no7-14)
   - [7.15.Use text blocks to define multi-line strings](#no7-15)
   - [7.16.Use a switch expression when switching value to be assigned to variable with a branch](#no7-16)
@@ -1758,10 +1758,10 @@ final Item[] itemArray = items.toArray(Item[]::new);
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
 
-### <a name="no7-13">7.13.Use `Arrays.asList` method or `of` method of collection when converting an array to collection</a>
+### <a name="no7-13">7.13.Use the `of` method of collection class when converting an array to collection</a>
 
-The array utility `java.util.Arrays` class has the `asList` method that converts it to a list.
-Use the `asList` method of the `java.util.Arrays` class instead of looping each element to create a list.
+A collection can be created from an array by using the `of` method of collection class.
+Use the `of` method of collection class instead of looping each element to create a list.
 
 ```java
 //Not Okay
@@ -1773,14 +1773,6 @@ for (final Item item : itemArray) {
 ```
 
 ```java
-//OK
-final Item[] itemArray = ...
-final List<Item> items = Arrays.asList(itemArray);
-```
-
-To convert an array to an immutable collection, use the `of` method of collection.
-
-```
 //OK
 final Item[] itemArray = ...
 final List<Item> items = List.of(itemArray);

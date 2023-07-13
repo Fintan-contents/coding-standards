@@ -68,7 +68,7 @@
   - [7.10.レガシーfor文はなるべく使用せず、Stream APIか拡張for文の使用を検討してください](#no7-10)
   - [7.11.配列全体をコピーする場合はcloneメソッドを使用してください](#no7-11)
   - [7.12.コレクションを配列に変換する場合はtoArrayメソッドを使用してください](#no7-12)
-  - [7.13.配列をコレクションに変換する場合はArrays.asList、またはList.ofを使用してください](#no7-13)
+  - [7.13.7.13.配列をコレクションに変換する場合はコレクションのofメソッドを使用してください](#no7-13)
   - [7.14.メソッドをオーバーライドしたり、抽象メソッドを実装する場合はメソッドに@Overrideを付けてください](#no7-14)
   - [7.15.複数行の文字列を定義する場合、テキストブロックを使用してください](#no7-15)
   - [7.16.変数に代入する値を分岐で切り替えている場合、switch式を使用してください](#no7-16)
@@ -1758,10 +1758,10 @@ final Item[] itemArray = items.toArray(Item[]::new);
 final Item[] itemArray = items.stream().toArray(Item[]::new);
 ```
 
-### <a name="no7-13">7.13.配列をコレクションに変換する場合はArrays.asListメソッド、またはコレクションのofメソッドを使用してください</a>
+### <a name="no7-13">7.13.配列をコレクションに変換する場合はコレクションのofメソッドを使用してください</a>
 
-配列のユーティリティである`java.util.Arrays`クラスにはリストに変換する`asList`メソッドが用意されています。
-各要素をループしてリストを作ったりせず、`java.util.Arrays`クラスの`asList`メソッドを使用してください。
+コレクションの`of`メソッドを使用することで、配列からコレクションを生成することができます。
+各要素をループしてリストを作ったりせず、コレクションの`of`メソッドを使用してください。
 
 ```java
 //NG
@@ -1773,14 +1773,6 @@ for (final Item item : itemArray) {
 ```
 
 ```java
-//OK
-final Item[] itemArray = ...
-final List<Item> items = Arrays.asList(itemArray);
-```
-
-配列を変更不可のコレクションに変換する場合は、コレクションの`of`メソッドを使用してください。
-
-```
 //OK
 final Item[] itemArray = ...
 final List<Item> items = List.of(itemArray);

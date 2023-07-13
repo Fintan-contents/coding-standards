@@ -1890,20 +1890,20 @@ String name = “””
         ”””;
 ```
 
-### <a name="no7-16">7.16.Use a switch expression when switching value to be assigned to variable with a branch</a>
+### <a name="no7-16">7.16.Use a `switch` expression when switching value to be assigned to variable with a branch</a>
 
-If you use `if` or `switch` statements to change the value to be assigned to variable depending on conditions, consider using the switch expression officially introduced in Java 14.
+If you use `if` or `switch` statements to change the value to be assigned to variable depending on conditions, consider using the `switch` expression officially introduced in Java 14.
 
-You can write a switch expression using `yield` statement inside switch's case and default.
-A switch expression can return value specified in the `yield` statement.
-Also, from Java 14, the following description related to switch is possible.
+You can write a `switch` expression using `yield` statement inside `case` and `default` of `switch`.
+A `switch` expression can return value specified in the `yield` statement.
+Also, from Java 14, the following description related to `switch` is possible.
 
-- By writing `->` (arrow syntax) instead of `:` in case and default, `yield` and `break` can be omitted (no fall-through)
-- Multiple values can be described in case label separated by commas.
+- By writing `->` (arrow syntax) instead of `:` in `case` and `default`, `yield` and `break` can be omitted (no fall-through)
+- Multiple values can be described in `case` label separated by commas.
 
 Using these makes it possible to write highly readable descriptions when switching the values to be assigned to variables depending on conditions.
 
-The following example uses a switch statement to select value to assign to `value` variable.
+The following example uses a `switch` statement to select value to assign to `value` variable.
 
 ```java
 DayOfWeek dayOfWeek = getDayOfWeek();
@@ -1923,7 +1923,7 @@ switch(dayOfWeek) {
 }
 ```
 
-By using a switch expression, the equivalent can be written as follows.
+By using a `switch` expression, the equivalent can be written as follows.
 
 ```java
 int value = switch(dayOfWeek) {
@@ -1932,7 +1932,7 @@ int value = switch(dayOfWeek) {
 };
 ```
 
-If you want to write multiple statements within case or default, you can write them by enclosing them in blocks in the arrow syntax.
+If you want to write multiple statements within `case` or `default`, you can write them by enclosing them in blocks in the arrow syntax.
 Since the `yield` statement cannot be omitted by enclosing it in a block, write it as follows.
 
 ```java

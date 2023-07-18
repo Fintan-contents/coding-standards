@@ -18,6 +18,7 @@ The table of contents is given below.
 - [CatchParameterName](#catchparametername)
 - [ClassTypeParameterName](#classtypeparametername)
 - [ConstantName](#constantname)
+- [CyclomaticComplexity](#cyclomaticcomplexity)
 - [EmptyCatchBlock](#emptycatchblock)
 - [EqualsAvoidNull](#equalsavoidnull)
 - [EqualsHashCode](#equalshashcode)
@@ -253,6 +254,54 @@ Ensure that the `static final` field names satisfies the following rule (OK):
 - Start with an uppercase letter, followed by underscores, uppercase letters and Arabic numerals
 
 If this condition is not met, it will be Not OK.
+
+## CyclomaticComplexity
+
+```xml
+<module name="CyclomaticComplexity">
+  <property name="max" value="10"/>
+</module>
+```
+
+Measure and check the cyclical complexity of method.
+
+From cyclic complexity, we can consider the state of the code as follows.
+
+| Value   | Description                     |
+| ------- | ------------------------------- |
+| 1 - 10  | Simple procedure, little risk   |
+| 11 - 20 | More complex, moderate risk     |
+| 21 - 50 | Complex, high risk              | 
+| 50 -    | Untestable code, very high risk |
+
+Cyclic complexity should not exceed the allowable value (OK).
+If cyclomatic complexity exceeds the allowed value, it will be Not OK.
+
+```java
+public int example(int a, int b, int c, String str) {
+    if (a == 1) {                       // +1 (1)
+        return 1;
+    } else if (a == b && a == c) {      // +2 (3)
+        if (b < 1) {                    // +1 (4)
+            return 2;
+        }
+    }
+    try {
+        int d = Integer.parseInt(str);
+        if (a == d) {                   // +1 (5)
+            return switch (d) {
+                case 2 -> 20;           // +1 (6)
+                case 3 -> 30;           // +1 (7)
+                case 4 -> 40;           // +1 (8)
+                default -> 99;          // +1 (9)
+            };
+        }
+    } catch (NumberFormatException e) { // +1 (10)
+        throw new IllegalArgumentException(e);
+    }
+    return a < 0 ? -1 : 1;              // +1 (11)
+}
+```
 
 ## EmptyCatchBlock
 

@@ -18,6 +18,7 @@
 - [CatchParameterName](#catchparametername)
 - [ClassTypeParameterName](#classtypeparametername)
 - [ConstantName](#constantname)
+- [CyclomaticComplexity](#cyclomaticcomplexity)
 - [EmptyCatchBlock](#emptycatchblock)
 - [EqualsAvoidNull](#equalsavoidnull)
 - [EqualsHashCode](#equalshashcode)
@@ -252,6 +253,54 @@ class NgClassTypeParameterNameExample2<t> {
 - 先頭が大文字のアルファベットで、それ以降はアンダースコア・大文字のアルファベット・アラビア数字で構成されていること
 
 この条件を満たさない場合NGとなります。
+
+## CyclomaticComplexity
+
+```xml
+<module name="CyclomaticComplexity">
+  <property name="max" value="10"/>
+</module>
+```
+
+メソッドの循環的複雑度を計測してチェックします。
+
+循環的複雑度からコードの状態を以下のよう考えることができます。
+
+| 値      | 説明                                     |
+| ------- | ---------------------------------------- |
+| 1 - 10  | シンプルな構造, リスクが少ない           |
+| 11 - 20 | やや複雑, リスクが中程度                 |
+| 21 - 50 | 複雑, リスクが高い                       |
+| 50 -    | テスト不可能なコード, 非常にリスクが高い |
+
+循環的複雑度が許容値を超えないようにしてください(OK)。
+循環的複雑度が許容値を超えた場合NGとなります。
+
+```java
+public int example(int a, int b, int c, String str) {
+    if (a == 1) {                       // +1 (1)
+        return 1;
+    } else if (a == b && a == c) {      // +2 (3)
+        if (b < 1) {                    // +1 (4)
+            return 2;
+        }
+    }
+    try {
+        int d = Integer.parseInt(str);
+        if (a == d) {                   // +1 (5)
+            return switch (d) {
+                case 2 -> 20;           // +1 (6)
+                case 3 -> 30;           // +1 (7)
+                case 4 -> 40;           // +1 (8)
+                default -> 99;          // +1 (9)
+            };
+        }
+    } catch (NumberFormatException e) { // +1 (10)
+        throw new IllegalArgumentException(e);
+    }
+    return a < 0 ? -1 : 1;              // +1 (11)
+}
+```
 
 ## EmptyCatchBlock
 

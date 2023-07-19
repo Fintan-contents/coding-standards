@@ -44,6 +44,9 @@
     <module name="ConstantName">
       <property name="format" value="^[A-Z](_?[A-Z0-9]+)*$"/>
     </module>
+    <module name="CyclomaticComplexity" >
+        <property name="max" value="10" />
+    </module>
     <module name="EmptyCatchBlock"/>
     <module name="EqualsAvoidNull"/>
     <module name="EqualsHashCode"/>

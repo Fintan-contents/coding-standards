@@ -24,14 +24,11 @@
 - [EqualsHashCode](#equalshashcode)
 - [FallThrough](#fallthrough)
 - [FileLength](#filelength)
-- [FileTabCharacter](#filetabcharacter)
-- [GenericWhitespace](#genericwhitespace)
 - [Header](#header)
 - [HiddenField](#hiddenfield)
 - [HideUtilityClassConstructor](#hideutilityclassconstructor)
 - [IllegalCatch](#illegalcatch)
 - [IllegalThrows](#illegalthrows)
-- [Indentation](#indentation)
 - [InnerAssignment](#innerassignment)
 - [InterfaceTypeParameterName](#interfacetypeparametername)
 - [MissingJavadocType](#missingjavadoctype)
@@ -40,8 +37,6 @@
 - [JavadocType](#javadoctype)
 - [JavadocVariable](#javadocvariable)
 - [LambdaParameterName](#lambdaparametername)
-- [LeftCurly](#leftcurly)
-- [LineLength](#linelength)
 - [LocalFinalVariableName](#localfinalvariablename)
 - [LocalVariableName](#localvariablename)
 - [MemberName](#membername)
@@ -52,15 +47,12 @@
 - [ModifiedControlVariable](#modifiedcontrolvariable)
 - [NeedBraces](#needbraces)
 - [NoFinalizer](#nofinalizer)
-- [NoWhitespaceAfter](#nowhitespaceafter)
-- [NoWhitespaceBefore](#nowhitespacebefore)
 - [PackageDeclaration](#packagedeclaration)
 - [PackageName](#packagename)
 - [ParameterName](#parametername)
 - [RecordComponentName](#recordcomponentname)
 - [RecordTypeParameterName](#recordtypeparametername)
 - [RedundantImport](#redundantimport)
-- [RightCurly](#rightcurly)
 - [SimplifyBooleanExpression](#simplifybooleanexpression)
 - [StaticVariableName](#staticvariablename)
 - [StringLiteralEquality](#stringliteralequality)
@@ -70,8 +62,6 @@
 - [UnusedLocalVariable](#unusedlocalvariable)
 - [UpperEll](#upperell)
 - [VisibilityModifier](#visibilitymodifier)
-- [WhitespaceAfter](#whitespaceafter)
-- [WhitespaceAround](#whitespacearound)
 
 <!-- END doctoc -->
 
@@ -463,54 +453,6 @@ if (value1.equals(value2)) {
 
 コーディングのときは、クラスをコンパクトに保つよう心がけてください。
 
-## FileTabCharacter
-
-```xml
- <module name="FileTabCharacter"/>
-```
-
-ソースコード中のタブ文字をチェックします。
-
-タブ文字を使用せず、空白を使用するようにしてください(OK)。
-タブ文字が存在する場合、NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-```java
-    // タブを使用したインデント（NG）
-	System.out.println("この行はタブでインデントされています");
-
-    // 空白を使用したインデント（OK）
-    System.out.println("この行は空白でインデントされています");
-
-```
-
-タブではなく空白を使用した場合、エディタのタブ幅を明示的に設定しなくてもよいというメリットがあります。
-
-
-## GenericWhitespace
-
-```xml
-<module name="GenericWhitespace"/>
-```
-
-ジェネリクスの括弧の周りの空白をチェックします。
-
-ジェネリクスの括弧`<`の後ろと、`>`の前に空白を配置しないようにしてください(OK)。
-不要な空白が存在する場合、NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-```java
-        // ジェネリクスの<>に不要な空白があります（NG）。
-        List< String > bad = new ArrayList<>();
-        Map< String, Integer > badToo = new HashMap<>();
-
-        // ジェネリクスの<>に不要な空白がありません（OK）。
-        List<String> good = new ArrayList<>();
-        Map<String, Integer> goodToo = new HashMap<>();
-```
-
 
 ## Header
 
@@ -643,71 +585,6 @@ public class HideUtilityClassConstructorExample {
 
 これらは汎用的なものであり、例外・エラーの原因特定のための情報が不足しています。
 アプリケーションで例外を`throw`する場合は、より具体的な型を選択するようにして、`throws`でも具体的な型を宣言してください(OK)。
-
-## Indentation
-
-```xml
-<module name="Indentation">
-  <property name="caseIndent" value="0"/>
-</module>
-```
-
-インデントがルールに合致しているかをチェックします。
-
-インデントはルールに合致するように記述してください(OK)。
-ルールに合致しないインデントが存在する場合、NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-```java
-    /**
-     * IndentationのNG例です。
-     *
-     * @param number 数字
-     * @return 変換後の数値
-     * @throws IllegalArgumentException 引数が0の場合
-     */
-    public int invalidExample(int number)
-    throws IllegalArgumentException {   // throwsのインデントがルールに合致しないのでNG
-
-    int ret;    // メソッド内ステートメントのインデントがルールに合致しないのでNG
-
-        switch (number) {
-            // 以下、switchとcaseとのインデントがルールに合致しないのでNG
-            case 0:
-                throw new IllegalArgumentException("argument 'number' must not be zero.");
-
-            default:
-                ret = number + 1;
-                break;
-        }
-        return ret;
-    }
-
-    /**
-     * IndentationのOK例です。
-     *
-     * @param number 数字
-     * @return 変換後の数値
-     * @throws IllegalArgumentException 引数が0の場合
-     */
-    public int validExample(int number)
-            throws IllegalArgumentException {   // throwsのインデントがルールに合致しているOK
-
-        int ret;    // メソッド内ステートメントのインデントがルールに合致しているのでOK
-
-        switch (number) {
-        // 以下、switchとcaseとのインデントがルールに合致するでNG
-        case 0:
-            throw new IllegalArgumentException("argument 'number' must not be zero.");
-
-        default:
-            ret = number + 1;
-            break;
-        }
-        return ret;
-    }
-```
 
 ## InnerAssignment
 
@@ -922,62 +799,7 @@ Function<String, String> ng2 = bad_name -> "NG";
 // ルールに従った命名です（OK）。
 Function<String, String> ok = goodName -> "OK";
 ```
-## LeftCurly
 
-```xml
-    <module name="LeftCurly"/>
-```
-
-
-コードブロックの始め中括弧（`{`） の配置をチェックします。
-
-コードブロックの中括弧（`{`）は行末へ配置するようにしてください(OK)。
-行末に置かれていない中括弧が存在する場合、NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-
-```java
-        boolean condition = true;
-        if (condition)  // 中括弧が行末にない（NG）。
-        {
-
-        } else
-        {               // 中括弧が行末にない（NG）。
-
-        }
-
-        try
-        {
-
-        } catch (IllegalArgumentException e)
-        {               // 中括弧が行末にない（NG）。
-
-        } finally
-        {               // 中括弧が行末にない（NG）。
-
-        }
-```
-
-## LineLength
-
-```xml
-<module name="LineLength">
-  <property name="ignorePattern" value="^import"/>
-  <property name="max" value="150"/>
-  <property name="tabWidth" value="4"/>
-</module>
-```
-
-一行における文字数をチェックします。
-
-一行あたりの文字数は150以内にしてください(OK)。
-一行が150字を超えるとNGとなります。
-
-ただし、`import`宣言が書かれた行は除きます。
-
-
-一行の文字数が多すぎると、コードの可読性が下がります。
 
 ## LocalFinalVariableName
 
@@ -1278,47 +1100,6 @@ if (foo)
     }
 ```
 
-## NoWhitespaceAfter
-
-
-```xml
-    <module name="NoWhitespaceAfter">
-      <property name="severity" value="info"/>
-      <property name="tokens" value="BNOT,DEC,INC,LNOT"/>
-    </module>
-```
-
-特定のトークン（`~` `!` `++`(前置)など）の後に空白がないことをチェックします。
-
-これらのトークンに後には空白を配置しないでください(OK)。
-空白が存在する場合、NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-## NoWhitespaceBefore
-
-```xml
-    <module name="NoWhitespaceBefore">
-      <property name="severity" value="info"/>
-    </module>
-```
-
-特定のトークン（`,` `;` `;`など）の前に空白がないことをチェックします。
-
-これらのトークンに後には空白を配置しないでください(OK)。
-空白が存在する場合、NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-
-```java
-        // セミコロン前に不要な空白がある（NG）。
-        int i = 0 ;
-
-        // カンマの前に不要な空白がある（NG）。
-        List<String> list = Arrays.asList("foo", "bar", "buz");
-```
-
 ## PackageDeclaration
 
 ```xml
@@ -1423,43 +1204,6 @@ public void example(String BadName, String bad_name, String goodName) {
 重複する2つ以上の`import`や`java.lang`パッケージにあるクラスの`import`、それから同じパッケージにあるクラスの`import`があるとNGとなります。
 
 冗長な記述はコードの可読性を低下させます。
-
-## RightCurly
-
-
-```xml
-    <module name="RightCurly"/>
-```
-
-
-`if-else`、`try-catch-finally`のコードブロックの終わり中括弧（`}`） の配置をチェックします。
-
-コードブロック終わりの中括弧（`}`）は次のステートメントと同じ行に配置してください(OK)。
-次のステートメントと別の行に配置された中括弧が存在する場合NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-
-```java
-
-        boolean condition = true;
-        if (condition) {
-
-        }   // } と else の間に不要な改行がある（NG）。
-        else {
-
-        }
-
-        try {
-
-        }   // } と catch の間に不要な改行がある（NG）。
-        catch (IllegalArgumentException e) {
-
-        }   // } と finally の間に不要な改行がある（NG）。
-        finally {
-
-        }
-```
 
 
 ## SimplifyBooleanExpression
@@ -1668,45 +1412,3 @@ public class UnusedImportsExample {
 `private`でないフィールドが存在する場合、NGとなります。
 
 この規則は、カプセル化を遵守させることを意図しています。
-
-## WhitespaceAfter
-
-```xml
-<module name="WhitespaceAfter">
-  <property name="severity" value="info"/>
-</module>
-```
-
-特定の記号やキーワードの後ろに空白があるかチェックします。
-
-以下のルールを満たすようにしてください(OK)。
-
-- 複数の引数を持つメソッドの呼び出しのように`,`で列挙する記述がある場合、`,`の後ろに空白があること
-- レガシー`for`文のように`;`で区切って式を記述する場合、`;`の後ろに空白があること
-- キャスト式では括弧で囲った型があるが、閉じ括弧の後ろに空白があること
-- 次のキーワードの後ろには空白があること
-  - `if`
-  - `else`
-  - `while`
-  - `do`
-  - `for`
-
-これらの条件を満たさない場合NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。
-
-## WhitespaceAround
-
-```xml
-<module name="WhitespaceAround">
-  <property name="severity" value="info"/>
-  <property name="tokens" value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,EQUAL,GE,GT,LAND,LE,LITERAL_DO,LITERAL_ELSE,LITERAL_FOR,LITERAL_IF,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,SL,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN"/>
-</module>
-```
-
-演算子の前後に空白があるかチェックします。
-
-`+`や`*`のような演算子、`=` `+=` `*=`などの代入演算子の前後には空白を配置してください(OK)。
-この条件を満たさない場合NGとなります。
-
-コーディングスタイル統一のため、ルールに準拠してください。

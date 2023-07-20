@@ -26,6 +26,7 @@ IntelliJ IDEAやEclipse等のIDEでは、コードフォーマッターの機能
 #### 設定例
 
 デフォルトの設定から以下の点を変更したプロファイルが[こちら](./assets/codestyle/intellij_formatter.xml)です。
+（IntelliJ IDEA Community Edition `2023.1.4` の `Default` プロファイルをベースに作成しています）
 
 - Imports
   - Class count to use import with '*'
@@ -65,6 +66,7 @@ Eclipseの設定から、`Java > Code Style > Formatter`を開いてください
 #### 設定例
 
 デフォルトの設定から以下の点を変更したプロファイルが[こちら](./assets/codestyle/eclipse_formatter.xml)です。
+（Eclipse `4.28.0` の `Eclipse [built-in]` プロファイルをベースに作成しています）
 
 - Indentation
     - Tab policy

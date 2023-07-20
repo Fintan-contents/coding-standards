@@ -8,7 +8,13 @@ IntelliJ IDEAやEclipse等のIDEでは、コードフォーマッターの機能
 コードフォーマッターには、一般的に読みやすいとされているコードスタイルがデフォルトで設定されています。
 もしカスタマイズが必要であれば、カスタマイズ後の設定をエクスポートやインポートすることで、プロジェクトの開発者間で共有することができます。
 
+また、使用するIDEが混在する場合でもコードスタイルを定義するツールを使用することで、最低限のコードスタイルを統一することができます。
+
 開発者がコードフォーマッターの設定を行い、コードを変更したらコードフォーマッターを実行することで、コードスタイルをプロジェクトで統一することができます。
+
+なお、開発者がコードフォーマッターを手動で実行する場合は、実行することを忘れてしまうといった状況も考えられます。
+そのような状況を防ぐには、後述の自動的に実行する設定を行なったり、CheckStyleにインデントや空白有無などコードスタイルに関するルールを追加してチェックするといった方法があります。
+CheckStyleでエラーとすることで開発者にコードフォーマッターの実行を強制するような運用についても検討してください。
 
 ## IntelliJ IDEA
 
@@ -17,6 +23,18 @@ IntelliJ IDEAやEclipse等のIDEでは、コードフォーマッターの機能
 コードフォーマッターを設定する方法については、次のページを参考にしてください。
 
 - [コードスタイルスキーム | IntelliJ IDEA ドキュメント](https://pleiades.io/help/idea/configuring-code-style.html)
+
+#### 設定例
+
+デフォルトの設定から以下の点を変更したプロファイルが[こちら](./assets/codestyle/intellij_formatter.xml)です。
+（IntelliJ IDEA Community Edition `2023.1.4` の `Default` プロファイルをベースに作成しています）
+
+- Imports
+  - Class count to use import with '*'
+    - `99`に変更
+  - Names count to use static import with '*'
+    - `99`に変更
+
 
 ### 実行方法
 
@@ -46,6 +64,17 @@ Eclipseの設定から、`Java > Code Style > Formatter`を開いてください
 
 - [Code Formatter Preferences | Eclipse Platform](https://help.eclipse.org/latest/topic/org.eclipse.jdt.doc.user/reference/preferences/java/codestyle/ref-preferences-formatter.htm?cp=1_4_4_0_2_2)
 
+#### 設定例
+
+デフォルトの設定から以下の点を変更したプロファイルが[こちら](./assets/codestyle/eclipse_formatter.xml)です。
+（Eclipse `4.28.0` の `Eclipse [built-in]` プロファイルをベースに作成しています）
+
+- Indentation
+    - Tab policy
+        - `Spaces only`に変更
+    - Indented elements
+      - Statements within 'switch' body
+          - チェック
 
 ### 実行方法
 
@@ -70,3 +99,49 @@ Eclipseの設定から、`Java > Code Style > Formatter`を開いてください
 その他の詳細については、次のページを参考にしてください。
 
 - [Code Formatter Preferences | Eclipse Platform](https://help.eclipse.org/latest/topic/org.eclipse.jdt.doc.user/reference/preferences/java/codestyle/ref-preferences-formatter.htm?cp=1_4_4_0_2_2)
+
+## EditorConfig
+
+[EditorConfig](https://editorconfig.org/)は、コードスタイルを定義するためのツールです。
+設定可能な項目は少ないですが、様々なエディタおよびIDEで使用することができ、最低限のコードスタイルを統一することができます。
+
+### 設定方法
+
+プロジェクトに`.editorconfig`ファイルを作成し、プロパティを定義します。
+詳細については次のページを参考にしてください。
+
+- [What is EditorConfig? | EditorConfig](https://editorconfig.org/#overview)
+
+#### 設定例
+
+次のコードスタイルを設定した`.editorconfig`ファイルの内容を記載します。
+
+- フォーマット対象はJavaのソースファイル
+- 文字コードが UTF-8
+- 改行コードが LF
+- インデントには空白を使用する
+- インデントの深さは`4`
+- 末尾の空白を除去
+- ファイルが改行で終わる
+
+```properties
+root = true
+
+[*.java]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+### 実行方法
+
+[EditorConfigに標準で対応しているエディタおよびIDE](https://editorconfig.org/#pre-installed)では、通常通りコードフォーマッターを実行します。
+
+標準で対応していないエディタおよびIDEでは、[プラグイン](https://editorconfig.org/#download)を導入する必要があります。導入後は、通常通りコードフォーマッターを実行します。
+
+なお、IntelliJ IDEAやEclipseではEditorConfigで設定したコードスタイルが優先されますが、IDEで設定したコードスタイルも適用されます。
+そのため、EditorConfigで統一できるコードスタイルは、あくまでEditorConfigで設定可能な部分のみであることにご注意ください。

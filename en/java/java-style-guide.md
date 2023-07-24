@@ -1876,7 +1876,7 @@ String html = """
 ```
 
 When breaking lines at the end, note the indentation of the line with the terminating `"""`.
-For example, if you write the following, the line with the shallowest indentation is the line with the terminating `"""`, so no whitespace is removed and the string is equivalent to `"        foo\n        bar\n"`.
+For example, if you write the following, the line with the shallowest indentation is the line that describes the ending `"""`, so the line that describes `foo` or `bar` will not be indented.
 
 ```java
 //NG
@@ -1886,7 +1886,14 @@ String name = “””
 ”””;
 ```
 
-If you want to remove whitespace while breaking the line at the end, write the following to make the string equivalent to `"foo\nbar\n"`.
+Outputting the above string will output the string without removing the indentation as follows. (a string equivalent to `"        foo\n        bar\n"`)
+
+```text
+        foo
+        bar
+```
+
+If you want to remove the whitespace and insert a newline at the end, pay attention to the indentation of the line describing the terminating `"""` and write as follows.
 
 ```java
 //OK
@@ -1896,15 +1903,22 @@ String name = “””
         ”””;
 ```
 
+Outputting the above string will output a string with the indentation removed as follows. (a string equivalent to `"foo\nbar\n"`)
+
+```text
+foo
+bar
+```
+
 If you want to use value of variable to text block and output it to stdout, you can use the `String.formatted` method to replace string.
 
 ```java
 String id = "xxx";
 String name = "yyy";
-System.out.println("""
+String text = """
         id  : %s
         name: %s
-        """.formatted(id, name));
+        """.formatted(id, name);
 ```
 
 ### <a name="no7-16">7.16.Use a `switch` expression when switching value to be assigned to variable with a branch</a>
@@ -1970,10 +1984,10 @@ int value = switch(dayOfWeek) {
 When defining a class whose main purpose is to hold data, such as DTO, consider using record that were officially introduced in Java 16.
 
 By using records, you can implement without writing boilerplate code such as fields, constructors, and accessor methods.
+Record have elements called record components, declared using `record` instead of `class`.
 Record have the following main characteristics.
 
 - Immutable and can be set when created
-- Elements held by records are called record components
 - Fields, constructors, and accessor methods corresponding to record components are automatically generated
 - Default constructor (constructor with no arguments) is not generated
 

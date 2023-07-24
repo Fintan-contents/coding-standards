@@ -1910,7 +1910,7 @@ foo
 bar
 ```
 
-If you want to use value of variable to text block and output it to stdout, you can use the `String.formatted` method to replace string.
+If you want to use value of variable to text block, you can use the `String.formatted` method to replace string.
 
 ```java
 String id = "xxx";

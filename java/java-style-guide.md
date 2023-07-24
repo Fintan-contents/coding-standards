@@ -1915,10 +1915,10 @@ bar
 ```java
 String id = "xxx";
 String name = "yyy";
-System.out.println("""
+String text = """
         id  : %s
         name: %s
-        """.formatted(id, name));
+        """.formatted(id, name);
 ```
 
 ### <a name="no7-16">7.16.変数に代入する値を分岐で切り替えている場合、`switch`式を使用してください</a>

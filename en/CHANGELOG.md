@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.3 (2023-08-01)
+## 4.0 (2023-08-01)
 
 - Java coding conventions
   - Java version upgraded to 17.

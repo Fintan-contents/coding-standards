@@ -1,10 +1,10 @@
+/*
+ * Header example
+ */
 package com.example;
 
 /**
  * Example of MissingJavadocMethod code.
- *
- * @author example
- * @since 1.0.0
  */
 public class MissingJavadocMethodExample {
 

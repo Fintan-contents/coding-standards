@@ -5,9 +5,6 @@ package com.example;
 
 /**
  * Example of JavadocMethod code.
- *
- * @author example
- * @since 1.0.0
  */
 public class JavadocMethodExample {
 
@@ -28,4 +25,3 @@ public class JavadocMethodExample {
         return number * 2;
     }
 }
-

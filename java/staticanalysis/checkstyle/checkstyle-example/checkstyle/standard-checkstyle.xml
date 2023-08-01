@@ -13,12 +13,6 @@
     <property name="optional" value="false"/>
   </module>
   <module name="FileLength"/>
-  <module name="LineLength">
-    <property name="ignorePattern" value="^import"/>
-    <property name="max" value="150"/>
-    <property name="tabWidth" value="4"/>
-  </module>
-  <module name="FileTabCharacter"/>
   <module name="Header">
     <property name="headerFile" value="${config_loc}/header.txt"/>
   </module>
@@ -51,7 +45,6 @@
     <module name="EqualsAvoidNull"/>
     <module name="EqualsHashCode"/>
     <module name="FallThrough"/>
-    <module name="GenericWhitespace"/>
     <module name="HiddenField">
       <property name="ignoreConstructorParameter" value="true"/>
       <property name="ignoreSetter" value="true"/>
@@ -62,9 +55,6 @@
     </module>
     <module name="IllegalThrows">
       <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable, java.lang.RuntimeException, java.lang.Error"/>
-    </module>
-    <module name="Indentation">
-      <property name="caseIndent" value="0"/>
     </module>
     <module name="InnerAssignment">
       <property name="tokens" value="ASSIGN"/>
@@ -82,7 +72,6 @@
       <property name="scope" value="public"/>
     </module>
     <module name="LambdaParameterName"/>
-    <module name="LeftCurly"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
     <module name="MemberName"/>
@@ -93,10 +82,6 @@
     <module name="ModifiedControlVariable"/>
     <module name="NeedBraces"/>
     <module name="NoFinalizer"/>
-    <module name="NoWhitespaceAfter">
-      <property name="tokens" value="BNOT,DEC,INC,LNOT"/>
-    </module>
-    <module name="NoWhitespaceBefore"/>
     <module name="PackageDeclaration"/>
     <module name="PackageName">
       <property name="format" value="^[a-z]+(\.[a-z_][a-z0-9_]*)*$"/>
@@ -105,7 +90,6 @@
     <module name="RecordComponentName"/>
     <module name="RecordTypeParameterName"/>
     <module name="RedundantImport"/>
-    <module name="RightCurly"/>
     <module name="SimplifyBooleanExpression"/>
     <module name="StaticVariableName"/>
     <module name="StringLiteralEquality"/>
@@ -117,7 +101,5 @@
     <module name="UnusedLocalVariable"/>
     <module name="UpperEll"/>
     <module name="VisibilityModifier"/>
-    <module name="WhitespaceAfter"/>
-    <module name="WhitespaceAround"/>
   </module>
 </module>

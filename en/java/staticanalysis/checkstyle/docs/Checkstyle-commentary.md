@@ -24,14 +24,11 @@ The table of contents is given below.
 - [EqualsHashCode](#equalshashcode)
 - [FallThrough](#fallthrough)
 - [FileLength](#filelength)
-- [FileTabCharacter](#filetabcharacter)
-- [GenericWhitespace](#genericwhitespace)
 - [Header](#header)
 - [HiddenField](#hiddenfield)
 - [HideUtilityClassConstructor](#hideutilityclassconstructor)
 - [IllegalCatch](#illegalcatch)
 - [IllegalThrows](#illegalthrows)
-- [Indentation](#indentation)
 - [InnerAssignment](#innerassignment)
 - [InterfaceTypeParameterName](#interfacetypeparametername)
 - [MissingJavadocType](#missingjavadoctype)
@@ -40,8 +37,6 @@ The table of contents is given below.
 - [JavadocType](#javadoctype)
 - [JavadocVariable](#javadocvariable)
 - [LambdaParameterName](#lambdaparametername)
-- [LeftCurly](#leftcurly)
-- [LineLength](#linelength)
 - [LocalFinalVariableName](#localfinalvariablename)
 - [LocalVariableName](#localvariablename)
 - [MemberName](#membername)
@@ -52,15 +47,12 @@ The table of contents is given below.
 - [ModifiedControlVariable](#modifiedcontrolvariable)
 - [NeedBraces](#needbraces)
 - [NoFinalizer](#nofinalizer)
-- [NoWhitespaceAfter](#nowhitespaceafter)
-- [NoWhitespaceBefore](#nowhitespacebefore)
 - [PackageDeclaration](#packagedeclaration)
 - [PackageName](#packagename)
 - [ParameterName](#parametername)
 - [RecordComponentName](#recordcomponentname)
 - [RecordTypeParameterName](#recordtypeparametername)
 - [RedundantImport](#redundantimport)
-- [RightCurly](#rightcurly)
 - [SimplifyBooleanExpression](#simplifybooleanexpression)
 - [StaticVariableName](#staticvariablename)
 - [StringLiteralEquality](#stringliteralequality)
@@ -70,8 +62,6 @@ The table of contents is given below.
 - [UnusedLocalVariable](#unusedlocalvariable)
 - [UpperEll](#upperell)
 - [VisibilityModifier](#visibilitymodifier)
-- [WhitespaceAfter](#whitespaceafter)
-- [WhitespaceAround](#whitespacearound)
 
 <!-- END doctoc -->
 
@@ -465,54 +455,6 @@ Such classes are cumbersome and less maintainable.
 
 When coding, try to keep your classes compact.
 
-## FileTabCharacter
-
-```xml
- <module name="FileTabCharacter"/>
-```
-
-Check for tab characters in the source code.
-
-Do not use tab characters and use spaces (OK).
-If there are tab characters, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-```java
-    // Indent using tabs (Not OK)
-	System.out.println("This line is indented with tabs");
-
-    // Indent using spaces (OK)
-    System.out.println("This line is indented with spaces");
-
-```
-
-The advantage of using spaces instead of tabs is that you do not need to explicitly set the tab width in the editor.
-
-
-## GenericWhitespace
-
-```xml
-<module name="GenericWhitespace"/>
-```
-
-Check for whitespace around generic parentheses.
-
-Please do not put a space after the generic parenthesis `<` and before `>` (OK).
-If there is an unnecessary space, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-```java
-        // An unnecessary space is added after and before the generic parentheses < and > (Not Ok).
-        List< String > bad = new ArrayList<>();
-        Map< String, Integer > badToo = new HashMap<>();
-
-        // There are no unnecessary spaces after and before the generic parentheses < and > (OK).
-        List<String> good = new ArrayList<>();
-        Map<String, Integer> goodToo = new HashMap<>();
-```
-
 
 ## Header
 
@@ -646,70 +588,6 @@ If these are declared in `throws`, then it will be Not OK.
 These are generic and lack the information to identify the cause of the exception or error.
 If an exception is `thrown` in the application, be sure to select a specific type and declare the specific type in `throws` (OK).
 
-## Indentation
-
-```xml
-<module name="Indentation">
-  <property name="caseIndent" value="0"/>
-</module>
-```
-
-Check that the indentation matches the rule.
-
-Write the indentation so that it matches the rules (OK).
-If there is an indent that does not match the rule, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-```java
-    /**
-     * Not OK example of indentation.
-     *
-     * @param number Number
-     * @return Numeric value after conversion
-     * @throws IllegalArgumentException if argument is 0
-     */
-    public int invalidExample(int number)
-    throws IllegalArgumentException {   // Not OK because the indent of throws does not match the rule
-
-    int ret;    // Not OK because indent of statement in method does not match the rule
-
-        switch (number) {
-            // Below, the indent of switch and case does not match the rule, so Not OK
-            case 0:
-                throw new IllegalArgumentException("argument 'number' must not be zero.");
-
-            default:
-                ret = number + 1;
-                break;
-        }
-        return ret;
-    }
-
-    /**
-     * OK example of indentation.
-     *
-     * @param number Number
-     * @return Numeric value after conversion
-     * @throws IllegalArgumentException if argument is 0
-     */
-    public int validExample(int number)
-            throws IllegalArgumentException {   // the indent of throws matches the rule OK
-
-        int ret;    // OK because indent of statement in method matches the rule
-
-        switch (number) {
-        // Below, the indent of switch and case matches the rule, so Not OK
-        case 0:
-            throw new IllegalArgumentException("argument 'number' must not be zero.");
-
-        default:
-            ret = number + 1;
-            break;
-        }
-        return ret;
-    }
-```
 
 ## InnerAssignment
 
@@ -921,62 +799,7 @@ Function<String, String> ng2 = bad_name -> "NG";
 // Name is according to the rules (OK).
 Function<String, String> ok = goodName -> "OK";
 ```
-## LeftCurly
 
-```xml
-    <module name="LeftCurly"/>
-```
-
-
-Check the placement of curly brace (`{`) at the beginning of the code block.
-
-Be sure to put the curly brace (`{`) at the end of the line (OK).
-If a curly brace is not placed at the end of the line, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-
-```java
-        boolean condition = true;
-        if (condition)  // Brace is not put at the end of the line (Not OK).
-        {
-
-        } else
-        {               // Brace is not put at the end of the line (Not OK).
-
-        }
-
-        try
-        {
-
-        } catch (IllegalArgumentException e)
-        {               // Brace is not put at the end of the line (Not OK).
-
-        } finally
-        {               // Brace is not put at the end of the line (Not OK).
-
-        }
-```
-
-## LineLength
-
-```xml
-<module name="LineLength">
-  <property name="ignorePattern" value="^import"/>
-  <property name="max" value="150"/>
-  <property name="tabWidth" value="4"/>
-</module>
-```
-
-Check the number of characters in one line.
-
-Limit the number of characters per line to 150 (OK).
-If one line exceeds 150 characters, it will be Not OK.
-
-Except for the line where the `import` declaration is written.
-
-
-Too many characters per line reduce code readability.
 
 ## LocalFinalVariableName
 
@@ -1277,46 +1100,6 @@ Use `java.lang.AutoCloseable` or `try-with-resources` for releasing some resourc
     }
 ```
 
-## NoWhitespaceAfter
-
-
-```xml
-    <module name="NoWhitespaceAfter">
-      <property name="severity" value="info"/>
-      <property name="tokens" value="BNOT,DEC,INC,LNOT"/>
-    </module>
-```
-
-Check that there is no space after a particular token (such as `~` `!` `++` (prefix)).
-
-Do not put spaces after these tokens (OK).
-If there is a space, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-## NoWhitespaceBefore
-
-```xml
-    <module name="NoWhitespaceBefore">
-      <property name="severity" value="info"/>
-    </module>
-```
-
-Check that there is no space before a particular token (`,` `;`, etc.).
-
-Do not put spaces after these tokens (OK).
-If there is a space, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-
-```java
-        // There is a space before the semicolon that is not required (Not OK).
-        int i = 0 ;
-
-        // There is a space before the comma that is not required (Not OK).
-        List<String> list = Arrays.asList("foo", "bar", "buz");
-```
 
 ## PackageDeclaration
 
@@ -1422,43 +1205,6 @@ Delete the redundant `import` statement (OK).
 If there are two or more overlapping `import` or `import` of a class in the `java.lang` package, and then `import` of a class in the same package, it will be Not OK.
 
 Redundant descriptions reduce the readability of the code.
-
-## RightCurly
-
-
-```xml
-    <module name="RightCurly"/>
-```
-
-
-Check the placement of curly braces (`}`) at the end of the `if-else` and `try-catch-finally` code blocks.
-
-Place the curly braces (`}`) at the end of the code block on the same line as the next statement (OK).
-If there is a curly brace placed on a separate line from the next statement, then the result is Not OK.
-
-Please follow the rules to unify your coding style.
-
-
-```java
-
-        boolean condition = true;
-        if (condition) {
-
-        }   // There is an unnecessary line break between } and else (Not OK).
-        else {
-
-        }
-
-        try {
-
-        }   // There is an unnecessary line break between } and catch (Not OK).
-        catch (IllegalArgumentException e) {
-
-        }   // There is an unnecessary line break between } and finally (Not OK).
-        finally {
-
-        }
-```
 
 
 ## SimplifyBooleanExpression
@@ -1670,45 +1416,3 @@ All fields should be `private` except for `static final` constants (OK).
 In the case of a field that is not `private`, then it will be Not OK.
 
 This rule is intended to enforce compliance with encapsulation.
-
-## WhitespaceAfter
-
-```xml
-<module name="WhitespaceAfter">
-  <property name="severity" value="info"/>
-</module>
-```
-
-Check for white spaces after certain symbols or keywords.
-
-Ensure that the following rules are satisfied (OK):
-
-- If there is a description enumerated with `,`, such as calling a method having multiple arguments, there must be a space after `,`
-- When writing an expression separated by `;` like a legacy `for` statement, there must be a space after `;`
-- A cast expression has a type that is enclosed in parentheses, but there must be a space after the closing parenthesis
-- There must be a space after the next keyword
-  - `if`
-  - `else`
-  - `while`
-  - `do`
-  - `for`
-
-If these conditions are not met, then it will be Not OK.
-
-Please follow the rules to unify your coding style.
-
-## WhitespaceAround
-
-```xml
-<module name="WhitespaceAround">
-  <property name="severity" value="info"/>
-  <property name="tokens" value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,EQUAL,GE,GT,LAND,LE,LITERAL_DO,LITERAL_ELSE,LITERAL_FOR,LITERAL_IF,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,SL,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN"/>
-</module>
-```
-
-Check for whitespace before and after the operator.
-
-Place a space before and after operators such as `+` and `*`, and assignment operators such as `=` `+=` `*=` (OK).
-If this condition is not met, it will be Not OK.
-
-Please follow the rules to unify your coding style.

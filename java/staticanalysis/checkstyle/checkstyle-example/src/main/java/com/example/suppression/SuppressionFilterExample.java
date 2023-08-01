@@ -13,8 +13,4 @@ public class SuppressionFilterExample {
     public void thisMethodShouldNotBeChecked() {
         return;
     }
-
-    // javadocコメントが無いのでNGになります。
-    public void thisMethodShouldBeChecked() {
-    }
 }

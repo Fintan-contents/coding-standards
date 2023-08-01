@@ -13,8 +13,4 @@ public class SuppressionFilterExample {
     public void thisMethodShouldNotBeChecked() {
         return;
     }
-
-    // Incorrect as there is no javadoc comment.
-    public void thisMethodShouldBeChecked() {
-    }
 }

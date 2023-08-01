@@ -1,19 +1,21 @@
 # CHANGELOG
 
-## 3.3 (2023-09-29)
+## 3.3 (2023-08-01)
 
 - Java coding conventions
   - Java version upgraded to 17.
   - New rules have been added due to Java version upgrade.
   - Some rules have been modified due to Java version upgrade.
 - Java code formatter
-  - Since unification of code style is important and not the content of the settings, we have chosen not to provide configuration file.
   - Added instructions on how to configure IntelliJ IDEA and Eclipse.
+  - Reviewed configuration file samples and recreated them for the latest version of IDE.
+  - Added setting in EditorConfig.
 - Checkstyle guide
   - CheckStyle version upgraded to 10.12.0.
   - New rules have been added due to CheckStyle version upgrade.
   - Reviewed configuration file and deleted some rules.
   - Reviewed configuration file and modified the severity of each rule to error.
+  - Some rules related to formatting have been removed in consideration of the use of Java code formatter configuration file samples.
   - Java of sample project version upgraded to 17.
   - Source code of sample project has been modified due to modification of configuration file.
   - Plugin used to collect execution results in Jenkins is no longer supported, so changed plugin to use.

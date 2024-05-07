@@ -19,6 +19,7 @@ Javaコーディング規約に準拠した設定ファイルは、[published-co
 | `NablarchTestingApiForProgrammer.config` | プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）              |
 | `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
 | `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
+| `ThirdPartyApi.config`                   | Nablarchアダプタの機能拡張などに必要なサードパーティ製API     |
 
 ## 仕様
 

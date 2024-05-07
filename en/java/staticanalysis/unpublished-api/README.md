@@ -19,6 +19,7 @@ Configuration files that conform to Java coding conventions are stored in [publi
 | `NablarchTestingApiForProgrammer.config` | Nablarch Testing Framework APIs for programmers (API required for testing business functions)                                      |
 | `NablarchApiForArchitect.config`         | Nablarch Application Framework APIs available for architects (APIs that are required to be used for NAF function extensions, etc.) |
 | `NablarchTestingApiForArchitect.config`  | Nablarch Testing Framework APIs available for architects (APIs that are required to be used for NTF function extensions, etc.)     |
+| `ThirdPartyApi.config`                   | Third-party APIs that are required to used for Nablarch adaptor function extensions, etc.                                          |
 
 ## Specifications
 

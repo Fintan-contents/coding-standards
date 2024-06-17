@@ -11,14 +11,16 @@
 Javaコーディング規約に準拠した設定ファイルは、[published-config](./published-config)に格納しています。
 （Nablarchが提供するブランクプロジェクトには、これらの設定ファイルが同梱されています）
 
-| 設定ファイル名                                  | 概要                                                                        |
-|------------------------------------------|---------------------------------------------------------------------------|
-| `JavaOpenApi.config`                     | Nablarchが規定するJava標準ライブラリ使用可能API                                           |
-| `JavaEEOpenApi.config`                   | Nablarchが規定するJava EE標準ライブラリ使用可能API                                        |
-| `NablarchApiForProgrammer.config`        | プログラマ向け Nablarch Application Framework 使用可能API （業務機能の実装に必要なAPI）           |
-| `NablarchTestingApiForProgrammer.config` | プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）              |
+| 設定ファイル名                                  | 概要                                                                      |
+|------------------------------------------|-------------------------------------------------------------------------|
+| `JavaOpenApi.config`                     | Nablarchが規定するJava標準ライブラリ使用可能API                                         |
+| `JakartaEEOpenApi.config`                | Nablarchが規定するJakarta EE標準ライブラリ使用可能API                                   |
+| `NablarchApiForProgrammer.config`        | プログラマ向け Nablarch Application Framework 使用可能API （業務機能の実装に必要なAPI）         |
+| `NablarchTestingApiForProgrammer.config` | プログラマ向け Nablarch Testing Framework 使用可能API （業務機能のテストに必要なAPI）            |
 | `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
-| `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
+| `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）   |
+
+※Java EE を使用する場合には、Jakarta EE を適宜読み替えてください。
 
 ## 仕様
 

@@ -8,9 +8,7 @@
 
 使用できるAPIを限定することにより、安全でない実装を抑制できます。
 
-Nablarchでは、Javaコーディング規約に準拠した設定ファイルを以下のように格納しています。
-
-自プロジェクトで必要な設定ファイルは、Nablarchが提供するブランクプロジェクトの [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/v6-master/nablarch-web/tools/static-analysis/spotbugs/published-config) をご参照ください。
+例えば、Nablarchが提供するブランクプロジェクトには、Javaコーディング規約に準拠した設定ファイルとして以下のファイルが格納されています。
 
 | 設定ファイル名                                  | 概要                                                                        |
 |------------------------------------------|---------------------------------------------------------------------------|
@@ -21,7 +19,8 @@ Nablarchでは、Javaコーディング規約に準拠した設定ファイル�
 | `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
 | `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
 
-※Java EE を使用する場合には、Jakarta EE を適宜読み替えてください。必要な設定ファイルは、[published-config(Java EE)](https://github.com/nablarch/nablarch-single-module-archetype/tree/master/nablarch-web/tools/static-analysis/spotbugs/published-config) をご参照ください。
+設定ファイルは [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/v6-master/nablarch-web/tools/static-analysis/spotbugs/published-config) に格納されていますので、これらを参考に自プロジェクトで必要な設定ファイルをご用意ください。
+また、Nablarch 5uXXではJava EEに対応しているため、 Java EE を使用する場合はタグを5系の最新版に変更し、参考にしてください。
 
 ## 仕様
 

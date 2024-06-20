@@ -5,7 +5,7 @@
 
 - [Javaスタイルガイド](./java/README.md)
 - [JavaScriptスタイルガイド](./js/README.md)
-- [JSPスタイルガイド](./jsp/README.md)
+- [Jakarta Server Pagesスタイルガイド](./jsp/README.md)
 - [SQLスタイルガイド](./sql/README.md)
 - [シェルスクリプトスタイルガイド](./shell/README.md)
 

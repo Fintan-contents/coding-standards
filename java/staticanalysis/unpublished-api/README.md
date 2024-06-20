@@ -95,7 +95,7 @@ hoge.methodB(); // 使用不可
 | `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
 
 設定ファイルは [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/v6-master/nablarch-web/tools/static-analysis/spotbugs/published-config) に格納されていますので、これらを参考に自プロジェクトで必要な設定ファイルをご用意ください。
-また、Nablarch 5uXXではJava EEに対応しているため、 Java EE を使用する場合は[5uXXの最新ブランチ](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config)を参考にしてください。
+また、上記はJakarta EEを前提とした設定ファイルとなりますが、Nablarchのプロダクトバージョン5(5、5u1、5u2...)ではJava EEを前提としているため、Java EEを使用する場合は[Nablarch5の最新ブランチ](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config)の設定ファイルを参考にして下さい。
 
 前述の通り、Nablarchは対象とする開発者・スコープごとに4種類の設定ファイルを提供しています。
 これらの設定ファイルの配置例を以下に示します。
@@ -117,10 +117,10 @@ hoge.methodB(); // 使用不可
 **注意事項**
 
 当ツールは、使用されている全てのAPIに対してチェックを実施します。
-そのため、デフォルトで提供する設定ファイルのみでは、自プロジェクトで宣言しているAPIにもチェックしてしまいます。
+そのため、デフォルトで提供する設定ファイルのみでは、自プロジェクトで宣言しているAPIが使用不許可APIとして検知されます。
 
 これを避けるには、自プロジェクトで宣言しているAPIを使用許可する設定を行う必要があります。
-デフォルトの2つの設定ファイルとは別に、自プロジェクト用の設定ファイルを設定ファイルディレクトリに配置し、自プロジェクトのパッケージを一意に特定できるパッケージを記述してください。
+自プロジェクト用の設定ファイルを設定ファイルディレクトリに配置し、自プロジェクトのパッケージを一意に特定できるパッケージを記述してください。
 
 例えば、プロジェクトにて作成する全てのパッケージが`com.example.project`で始まる場合、`com.example.project`と記述したテキストファイルを1つ設定ファイルディレクトリに配置してください。
 

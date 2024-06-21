@@ -5,7 +5,7 @@ They are all designed to use [Nablarch](https://fintan.jp/en/page/1954/) as a fr
 
 - [Java Style Guide](./java/README.md)
 - [JavaScript Style Guide](./js/README.md)
-- [JSP Style Guide](./jsp/README.md)
+- [Jakarta Server Pages Style Guide](./jsp/README.md)
 - [SQL Style Guide](./sql/README.md)
 - [Shell Script Style Guide](./shell/README.md)
 

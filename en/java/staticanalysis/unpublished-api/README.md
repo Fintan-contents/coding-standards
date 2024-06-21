@@ -8,18 +8,6 @@ This is a tool to check whether any APIs, other than authorized API that are spe
 
 By limiting the APIs that can be used, implementations with security issues can be suppressed.
 
-Configuration files that conform to Java coding conventions are stored in [published-config](./published-config) .
-(Blank projects provided by Nablarch ship with these configuration files.)
-
-| Configuration file name                  | Summary                                                                                                                            |
-|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `JavaOpenApi.config`                     | APIs that can be used by the Java standard library specified by Nablarch                                                           |
-| `JavaEEOpenApi.config`                   | APIs that can be used by the Java EE standard library specified by Nablarch                                                        |
-| `NablarchApiForProgrammer.config`        | Nablarch Application Framework APIs for programmers (APIs required for implementing business functions)                            |
-| `NablarchTestingApiForProgrammer.config` | Nablarch Testing Framework APIs for programmers (API required for testing business functions)                                      |
-| `NablarchApiForArchitect.config`         | Nablarch Application Framework APIs available for architects (APIs that are required to be used for NAF function extensions, etc.) |
-| `NablarchTestingApiForArchitect.config`  | Nablarch Testing Framework APIs available for architects (APIs that are required to be used for NTF function extensions, etc.)     |
-
 ## Specifications
 
 As the specification of the authorized API is described with whitelist format in the configuration file, it can be customized according to the coding conventions of the Nablarch implementation project.
@@ -62,17 +50,17 @@ The following shows the check specifications when `SubClass` inherits `SuperClas
 
 ```java
 List<String> list = new ArrayList<>();
-list.add(test); // Check that the add method of List interface is published (Not ArrayList class)
+list.add(test); // Check that the add method of List interface is authorized (Not ArrayList class)
 
 SuperClass varSuper = new SubClass();
-varSuper.testMethod(); // Check that the SuperClass.testMethod is published
+varSuper.testMethod(); // Check that the SuperClass.testMethod is authorized
 
 SubClass varSub = new SubClass();
-varSub.testMethod(); // Check that the SubClass.testMethod() is published
+varSub.testMethod(); // Check that the SubClass.testMethod() is authorized
 ```
 
 When the API corresponding to the class/interface is not defined, the parent class or interface is searched sequentially from the one closest to the own class. 
-When a class in which the API is defined is first found, it is determined whether the methods of the class are public.
+When a class in which the API is defined is first found, it is determined whether the methods of the class are authorized.
 
 As an example, inheritance relationship shown below can be considered.
 
@@ -95,6 +83,21 @@ This section describes how to deploy and describe the configuration file of this
 Multiple configuration files can be deployed in the directory where the configuration files are stored (hereinafter, the configuration file directory). 
 The extension of the configuration file should be `config`.
 
+For example, the blank project provided by Nablarch contains the following files as configuration files that conform to Java coding conventions.
+
+| Configuration file name                  | Summary                                                                                                                            |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `JavaOpenApi.config`                     | APIs that can be used by the Java standard library specified by Nablarch                                                           |
+| `JakartaEEOpenApi.config`                | APIs that can be used by the Jakarta EE standard library specified by Nablarch                                                     |
+| `NablarchApiForProgrammer.config`        | Nablarch Application Framework APIs for programmers (APIs required for implementing business functions)                            |
+| `NablarchTestingApiForProgrammer.config` | Nablarch Testing Framework APIs for programmers (API required for testing business functions)                                      |
+| `NablarchApiForArchitect.config`         | Nablarch Application Framework APIs available for architects (APIs that are required to be used for NAF function extensions, etc.) |
+| `NablarchTestingApiForArchitect.config`  | Nablarch Testing Framework APIs available for architects (APIs that are required to be used for NTF function extensions, etc.)     |
+
+The configuration files are stored in [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/v6-master/nablarch-web/tools/static-analysis/spotbugs/published-config), so please prepare the necessary configuration files for your own project by referring to these files.
+The above configuration file assumes Jakarta EE, but Nablarch product version 5 (5, 5u1, 5u2...) assumes Java EE.
+If you want to use Java EE, please refer to the configuration file of [the latest branch of Nablarch5](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config).
+
 As mentioned earlier, Nablarch provides 4 types of configuration files for each target developer and scope. 
 The following is an example of the location of these configuration files.
 
@@ -115,16 +118,16 @@ If the check target is a code for extending the framework, use `NablarchApiForAr
 **Note**
 
 The tool performs checks on all APIs used. 
-Therefore, if only the default configuration file is used, it will also check the APIs declared in your project.
+Therefore, if only the default configuration file is used, APIs declared in the project are checked as disallowed APIs for use.
 
-To avoid this, you need to make settings to publish the APIs declared in your project.
+To avoid this, you need to make settings to authorize the APIs declared in your project.
 In addition to the 2 default configuration files, deploy the configuration file for your project in the configuration file directory and describe a package that can uniquely identify the package of your project.
 
 For example, if all the packages created in the project start with `com.example.project`, deploy the file with `com.example.project` to the configuration file directory.
 
 ### Configuration file description method
 
-Describe one public API for each line of the configuration file. 
+Describe one unauthorized API for each line of the configuration file. 
 The description order does not matter.
 
 An example of the configuration file is shown below.
@@ -143,38 +146,38 @@ nablarch.fw.web.HttpResponse.write(byte[])
 nablarch.fw.web.HttpRequest.setParam(java.lang.String, java.lang.String...)
 ```
 
-The configuration file can specify APIs that you want to publish at the package, class, interface, constructor, and method levels.
+The configuration file can specify APIs that you want to authorize at the package, class, interface, constructor, and method levels.
 
 #### Specified level: Package
 
-Setting to publish all APIs included in the specified package. (including APIs of sub-packages) 
+Setting to authorize all APIs included in the specified package. (including APIs of sub-packages) 
 
 ```
 // Example
-// When publishing those under java.lang
+// When authorizing those under java.lang
 java.lang
-// When publishing those under nablarch.fw.web
+// When authorizing those under nablarch.fw.web
 nablarch.fw.web
 ```
 
 #### Specified level: Class, interface
 
-This is the setting to publish all APIs included in the specified class or interface.
+This is the setting to authorize all APIs included in the specified class or interface.
 
 Write the fully qualified name of the class.
 
 ```
 // Example
-// To publish all CodeUtil functions
+// To authorize all CodeUtil functions
 nablarch.common.code.CodeUtil
-// To publish all Result.Success functions
+// To authorize all Result.Success functions
 // Success is a nested class of Result
 nablarch.fw.Result.Success
 ```
 
 #### Specified level: Constructor, method
 
-Setting when publishing the specified constructor or method.
+Setting when authorizing the specified constructor or method.
 
 Write the fully qualified name of the constructor or method.
 Write the fully qualified name of even the reference type argument.
@@ -199,7 +202,7 @@ nablarch.fw.web.HttpRequest.setParam(java.lang.String, java.lang.String...)
 // An example of description in the case of a nested class is shown below. 
 
 // For constructor
-// If you want to publish a no-arg constructor where Success is a nested class of Result class,
+// If you want to authorize a no-arg constructor where Success is a nested class of Result class,
 // Set the constructor name as "Result.Success ()". 
 // * Note that when set to nablarch.fw.Result.Success.Success(), 
 // the constructor of Result.Success class cannot be used.  

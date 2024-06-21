@@ -94,7 +94,7 @@ hoge.methodB(); // 使用不可
 | `NablarchApiForArchitect.config`         | アーキテクト向け Nablarch Application Framework 使用可能API （NAFの機能拡張などで利用する必要があるAPI） |
 | `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
 
-設定ファイルは [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/v6-master/nablarch-web/tools/static-analysis/spotbugs/published-config) に格納されていますので、これらを参考に自プロジェクトで必要な設定ファイルをご用意ください。
+設定ファイルは [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/master/nablarch-web/tools/static-analysis/spotbugs/published-config) に格納されていますので、これらを参考に自プロジェクトで必要な設定ファイルをご用意ください。
 また、上記はJakarta EEを前提とした設定ファイルとなりますが、Nablarchのプロダクトバージョン5(5、5u1、5u2...)ではJava EEを前提としているため、Java EEを使用する場合は[Nablarch5の最新ブランチ](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config)の設定ファイルを参考にしてください。
 
 前述の通り、Nablarchは対象とする開発者・スコープごとに4種類の設定ファイルを提供しています。

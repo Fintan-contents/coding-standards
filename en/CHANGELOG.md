@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 5.0 (2024-09-30)
+
+- Unauthorized API check tool
+  - With the support of Jakarta EE, we have changed to refer to the latest version of Nablarch's configuration file as a sample configuration file.
+- JavaScript Style guide
+  - The acronyms of specification in Java EE used in the Readme changed to the Jakarta EE specification name.
+- JSP Style guide
+  - The acronyms of specification in Java EE used in the Readme and title of coding convention changed to the Jakarta EE specification name.
+  - For the acronyms of specification in Java EE used in the coding convention, the reading to the Jakarta EE specification is noted.
+
 ## 4.0 (2023-08-01)
 
 - Java coding conventions

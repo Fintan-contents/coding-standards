@@ -4,7 +4,7 @@
         "https://checkstyle.org/dtds/suppressions_1_2.dtd">
 
 <suppressions>
-  <!-- Example of setting to stop checking in Javadoc -->
+  <!-- Example of setting to stop checking in JavaDoc -->
   <suppress checks="JavadocMethod"
             files="com[\\/]example[\\/]suppression[\\/]SuppressionFilterExample.java" />
 </suppressions>

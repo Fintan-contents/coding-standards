@@ -380,8 +380,8 @@ if (value1.equals(value2)) {
 
 `equals`メソッド、`hashCode`メソッドのオーバーライドについては以下を参照してください。
 
-- https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Object.html#equals-java.lang.Object-
-- https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Object.html#hashCode--
+- https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)
+- https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/Object.html#hashCode()
 
 
 ## FallThrough

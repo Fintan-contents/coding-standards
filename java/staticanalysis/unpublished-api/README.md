@@ -11,7 +11,7 @@
 ## 仕様
 
 使用許可APIの指定は、ホワイトリスト形式で設定ファイルに記述する仕様となっているため、Nablarch導入プロジェクトのコーディング規約に従いカスタマイズを行うことが可能です。
-また、設定ファイルを自作することでNablarch以外のフレームワークを利用するプロジェクトにおいても使用不許可APIの検知を行うことが可能です。
+また、設定ファイルを自作することでNablarch以外のフレームワークを利用するプロジェクトにおいても使用不許可APIを検知できます。
 
 使用許可APIは設定ファイルで指定します。
 設定ファイルの記述方法は後述します。
@@ -95,7 +95,7 @@ hoge.methodB(); // 使用不可
 | `NablarchTestingApiForArchitect.config`  | アーキテクト向け Nablarch Testing Framework 使用可能API （NTFの機能拡張などで利用する必要があるAPI）     |
 
 設定ファイルは [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/master/nablarch-web/tools/static-analysis/spotbugs/published-config) に格納されていますので、これらを参考に自プロジェクトで必要な設定ファイルをご用意ください。
-また、上記はJakarta EEを前提とした設定ファイルとなりますが、Nablarchのプロダクトバージョン5(5、5u1、5u2...)ではJava EEを前提としているため、Java EEを使用する場合は[Nablarch5の最新ブランチ](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config)の設定ファイルを参考にしてください。
+また、上記はJakarta EEを前提にした設定ファイルとなりますが、Nablarchのプロダクトバージョン5(5、5u1、5u2...)ではJava EEを前提としているため、Java EEを使用する場合は[Nablarch5の最新ブランチ](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config)の設定ファイルを参考にしてください。
 
 前述の通り、Nablarchは対象とする開発者・スコープごとに4種類の設定ファイルを提供しています。
 これらの設定ファイルの配置例を以下に示します。
@@ -119,7 +119,7 @@ hoge.methodB(); // 使用不可
 当ツールは、使用されている全てのAPIに対してチェックを実施します。
 そのため、デフォルトで提供する設定ファイルのみでは、自プロジェクトで宣言しているAPIが使用不許可APIとして検知されます。
 
-これを避けるには、自プロジェクトで宣言しているAPIを使用許可する設定を行う必要があります。
+これを避けるには、自プロジェクトで宣言しているAPIの使用を許可するよう設定する必要があります。
 自プロジェクト用の設定ファイルを設定ファイルディレクトリに配置し、自プロジェクトのパッケージを一意に特定できるパッケージを記述してください。
 
 例えば、プロジェクトにて作成する全てのパッケージが`com.example.project`で始まる場合、`com.example.project`と記述したテキストファイルを1つ設定ファイルディレクトリに配置してください。

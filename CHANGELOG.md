@@ -2,8 +2,16 @@
 
 ## 5.0 (2024-09-30)
 
+- CheckStyleガイド
+  - Maven CheckStyleプラグインのバージョンを3.4.0にバージョンアップしました。
+  - CheckStyleのバージョンを10.17.0にバージョンアップしました。
+- SpotBugsガイド
+  - SpotBugs Mavenプラグインのバージョンを4.8.6.2にバージョンアップしました。
+  - Find Security Bugsのバージョンを1.13.0にバージョンアップしました。
 - 使用不許可APIチェックツール
   - Jakarta EE への対応に伴い、設定ファイルのサンプルとして最新版のNablarchの設定ファイルを参照するように変更しました。
+- ArchUnitガイド
+  - ArchUnitのバージョンを1.3.0にバージョンアップしました。
 - JavaScriptスタイルガイド
   - Readmeで使われていたJava EEでの仕様の省略名について、Jakarta EEの仕様名に表記を変更しました。
 - JSPスタイルガイド

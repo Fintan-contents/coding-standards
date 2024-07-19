@@ -1,4 +1,7 @@
 {
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "preset-ja-technical-writing": {
       "max-kanji-continuous-len": {
@@ -6,6 +9,31 @@
       },
       "sentence-length": {
         "max": 200
+      },
+      "max-ten": {
+        max: 4
+      },
+      "no-exclamation-question-mark": false,    // ？を使いたいときもある
+      "no-doubled-joshi": false,                // そこまで問題なさげなものまでNGになるため
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "",                   // "である" or "ですます"
+        "preferInBody": "ですます",             // "である" or "ですます"
+        "preferInList": "",                     // "である" or "ですます"
+        // 文末以外でも、敬体(ですます調)と常体(である調)を厳しくチェックするかどうか
+        "strict": false
+      },
+      "max-kanji-continuous-len": {
+        // 連続できる漢字の文字数
+        // Allow max continuous length of kanji
+        // If {current} > max(5), report Error.
+        max: 8,
+      },
+      "ja-no-redundant-expression": {
+        "dictOptions": {
+          "dict5": {
+            "disabled": true
+          }
+        }
       }
     }
   }

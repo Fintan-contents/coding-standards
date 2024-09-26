@@ -94,7 +94,7 @@ For example, the blank project provided by Nablarch contains the following files
 | `NablarchApiForArchitect.config`         | Nablarch Application Framework APIs available for architects (APIs that are required to be used for NAF function extensions, etc.) |
 | `NablarchTestingApiForArchitect.config`  | Nablarch Testing Framework APIs available for architects (APIs that are required to be used for NTF function extensions, etc.)     |
 
-The configuration files are stored in [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/master/nablarch-web/tools/static-analysis/spotbugs/published-config), so please prepare the necessary configuration files for your own project by referring to these files.
+The configuration files are stored in [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/main/nablarch-web/tools/static-analysis/spotbugs/published-config), so please prepare the necessary configuration files for your own project by referring to these files.
 The above configuration file assumes Jakarta EE, but Nablarch product version 5 (5, 5u1, 5u2...) assumes Java EE.
 If you want to use Java EE, please refer to the configuration file of [the latest branch of Nablarch5](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config).
 

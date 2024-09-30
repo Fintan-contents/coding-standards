@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 5.0 (2024-09-30)
+
+- Checkstyle guide
+  - Maven CheckStyle Plugin version upgraded to 3.4.0.
+  - CheckStyle version upgraded to 10.17.0.
+- SpotBugs guide
+  - SpotBugs Maven Plugin version upgraded to 4.8.6.2.
+  - Find Security Bugs version upgraded to 1.13.0.
+- Unauthorized API check tool
+  - With the support of Jakarta EE, we have changed to refer to the latest version of Nablarch's configuration file as a sample configuration file.
+- ArchUnit Guide
+  - ArchUnit version upgraded to 1.3.0.
+- JavaScript Style guide
+  - The acronyms of specification in Java EE used in the Readme changed to the Jakarta EE specification name.
+- JSP Style guide
+  - The acronyms of specification in Java EE used in the Readme and title of coding convention changed to the Jakarta EE specification name.
+  - For the acronyms of specification in Java EE used in the coding convention, the reading to the Jakarta EE specification is noted.
+
 ## 4.0 (2023-08-01)
 
 - Java coding conventions

@@ -1903,7 +1903,7 @@ String name = “””
         ”””;
 ```
 
-Outputting the above string will output a string with the indentation removed as follows. (a string equivalent to `"foo\nbar\n"`)
+The output result of the above string will be a string with indentation removed, as shown below. (a string equivalent to `"foo\nbar\n"`)
 
 ```text
 foo

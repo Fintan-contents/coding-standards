@@ -382,8 +382,8 @@ This typically leads to performance degradation when retrieving elements from th
 
 See below for overriding the `equals` and `hashCode` methods.
 
-- https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-
-- https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--
+- https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)
+- https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()
 
 
 ## FallThrough

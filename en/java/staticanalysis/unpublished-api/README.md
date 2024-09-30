@@ -96,7 +96,7 @@ For example, the blank project provided by Nablarch contains the following files
 
 The configuration files are stored in [published-config](https://github.com/nablarch/nablarch-single-module-archetype/tree/main/nablarch-web/tools/static-analysis/spotbugs/published-config), so please prepare the necessary configuration files for your own project by referring to these files.
 The above configuration file assumes Jakarta EE, but Nablarch product version 5 (5, 5u1, 5u2...) assumes Java EE.
-If you want to use Java EE, please refer to the configuration file of [the latest branch of Nablarch5](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-master/nablarch-web/tools/static-analysis/spotbugs/published-config).
+If you want to use Java EE, please refer to the configuration file of [the latest branch of Nablarch5](https://github.com/nablarch/nablarch-single-module-archetype/tree/v5-main/nablarch-web/tools/static-analysis/spotbugs/published-config).
 
 As mentioned earlier, Nablarch provides 4 types of configuration files for each target developer and scope. 
 The following is an example of the location of these configuration files.

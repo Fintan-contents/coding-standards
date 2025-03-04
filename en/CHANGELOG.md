@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.1 (2025-03-27)
+
+- SpotBugs guide
+  - Unauthorized API check tool version upgraded to 1.0.1.
+
 ## 5.0 (2024-09-30)
 
 - Checkstyle guide
